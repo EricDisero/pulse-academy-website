@@ -1,0 +1,419 @@
+---
+// src/components/Section4ProprietaryMethod.astro
+const methodSteps = [
+    {
+        title: "Create Your Sound Blueprint",
+        description: "We use our Pulse Cascade Splitter to break down pro reference tracks into stems and measure everything. Then, we compare your production to identify specific gaps.",
+        icon: `
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-pulse-purple group-hover:scale-110 transition-transform duration-300">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L1.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09l2.846.813-.813 2.846a4.5 4.5 0 00-3.09 3.09zM18.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L24 5.25l-.813 2.846a4.5 4.5 0 00-3.09 3.09l-2.846.813.813 2.846a4.5 4.5 0 003.09 3.09L24 18.75l-2.846.813a4.5 4.5 0 00-3.09-3.09L15 12l2.846.813.204.059zM9.813 15.904L9 18.75l-.813-2.846m0 0L5.25 15l2.846-.813m0 0L9 11.25l.813 2.846" />
+        </svg>
+        ` // Placeholder: Blueprint/Analysis Icon
+    },
+    {
+        title: "Engineer Your Sound",
+        description: "Guided by this blueprint, you\'ll select sounds and implement pro voicings based on data. You\'ll process elements purposefully for a perfect, measured balance.",
+        icon: `
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-pulse-purple group-hover:scale-110 transition-transform duration-300">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" />
+        </svg>
+        ` // Placeholder: Stems/Mixer Icon
+    },
+    {
+        title: "Finalize & Create Your System",
+        description: "Apply pro mastering at component level and combine elements while maintaining integrity. Verify against references and create a repeatable system for future productions.",
+        icon: `
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-pulse-purple group-hover:scale-110 transition-transform duration-300">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6.429 9.75L2.25 12l4.179 2.25m0-4.5l5.571 3 5.571-3m-11.142 0L2.25 12l4.179 2.25m0 0l5.571 3L17.75 12l-4.179-2.25m0 0l5.571-3L17.75 6.75l-4.179 2.25L6.429 9.75z" />
+        </svg>
+        ` // Placeholder: Gears/System Icon
+    }
+];
+---
+<section id="method" class="py-16 md:py-24 bg-gradient-to-b from-[#080810] to-[#0a0a15] px-4 md:px-8">
+    <div class="max-w-3xl mx-auto text-center mb-12 md:mb-16">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-normal pb-1">
+            <span class="block text-white">Learn How We Do This:</span>
+            <span class="block text-transparent bg-clip-text bg-gradient-to-r from-pulse-purple to-pulse-cyan">The Stem-Based Reverse Engineering Method</span>
+        </h2>
+        <p class="mt-6 text-lg md:text-xl text-gray-400">
+            I developed this approach after years of frustration with traditional production education. Instead of subjective opinions, we focus on measurable elements that actually make tracks sound professional.
+        </p>
+    </div>
+
+    <!-- Audio Before/After Players -->
+    <div class="my-12 md:my-16 max-w-4xl mx-auto">
+        <div class="card-gradient p-6 rounded-xl shadow-glass text-center border border-gray-800/20">
+            <h3 class="text-2xl font-semibold text-white mb-6">Hear The Difference</h3>
+            <p class="text-gray-300 mb-8">Listen to how our students transformed their tracks using our stem-based reverse engineering method</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-4">
+                <div>
+                    <p class="text-lg mb-3 text-pulse-purple">Alissa's Track Transformation</p>
+                    <p class="text-sm text-gray-400 mb-6">Using AI tone tracing to match commercial reference tracks</p>
+                    
+                    <!-- Alissa Audio Player -->
+                    <div class="audio-widget-container mx-auto mb-8 md:mb-0" style="max-width: 320px;">
+                        <div class="audio-widget">
+                          <style>
+                            /* :root is fine here as it's scoped by the widget class or direct parent */
+                            .audio-widget-container {
+                              --scale-factor: 1; /* Adjusted scale */
+                              --padding-adjust: 0px;
+                              --primary-color: #6461b0;
+                              --text-primary: #ffffff;
+                              --text-secondary: #bbbbbb;
+                            }
+                            .audio-toggle-container {
+                              display: flex;
+                              justify-content: center;
+                              align-items: center;
+                              flex-direction: column;
+                              font-family: 'Source Sans Pro', sans-serif;
+                              transform: scale(var(--scale-factor));
+                              transform-origin: top center;
+                              padding-top: var(--padding-adjust);
+                            }
+                            .audio-box {
+                              display: flex;
+                              align-items: center;
+                              justify-content: space-between;
+                              background: rgba(0, 0, 0, 0.4);
+                              width: 300px; /* Adjusted width */
+                              padding: 8px 12px; /* Adjusted padding */
+                              border-radius: 30px; /* Adjusted border-radius */
+                              color: var(--text-primary);
+                              font-size: 16px; /* Adjusted font size */
+                              font-weight: bold;
+                              cursor: pointer;
+                              user-select: none;
+                              position: relative;
+                            }
+                            .play-btn {
+                              background: rgba(0, 0, 0, 0.6);
+                              border: none;
+                              width: 30px; /* Adjusted size */
+                              height: 30px; /* Adjusted size */
+                              border-radius: 50%;
+                              display: flex;
+                              align-items: center;
+                              justify-content: center;
+                              font-size: 14px; /* Adjusted font size */
+                              font-weight: bold;
+                              cursor: pointer;
+                              color: var(--text-primary);
+                              position: relative;
+                              line-height: 0;
+                              z-index: 10;
+                            }
+                            .play-btn svg {
+                              width: 12px; /* Adjusted icon size */
+                              height: 12px; /* Adjusted icon size */
+                              display: block;
+                            }
+                            .toggle-switch {
+                              position: relative;
+                              width: 44px; /* Adjusted width */
+                              height: 22px; /* Adjusted height */
+                              background: rgba(255, 255, 255, 0.2);
+                              border-radius: 20px; /* Adjusted border-radius */
+                              transition: 0.3s;
+                              z-index: 1;
+                            }
+                            .toggle-switch:before {
+                              content: "";
+                              position: absolute;
+                              width: 18px; /* Adjusted size */
+                              height: 18px; /* Adjusted size */
+                              background: white;
+                              border-radius: 50%;
+                              top: 2px; /* Adjusted position */
+                              left: 2px; /* Adjusted position */
+                              transition: 0.3s;
+                            }
+                            .audio-box.active .toggle-switch {
+                              background: var(--primary-color);
+                            }
+                            .audio-box.active .toggle-switch:before {
+                              left: 24px; /* Adjusted position */
+                            }
+                            .audio-text {
+                              display: flex;
+                              flex-direction: column;
+                              text-align: left;
+                              font-size: 12px; /* Adjusted font size */
+                              width: 160px; /* Adjusted width */
+                              pointer-events: none;
+                            }
+                            .audio-text span:first-child {
+                              font-size: 16px; /* Adjusted font size */
+                              color: var(--text-primary);
+                            }
+                            .audio-text span:last-child {
+                              font-size: 12px; /* Adjusted font size */
+                              color: var(--text-secondary);
+                            }
+                            .audio-box.active .audio-text span:last-child {
+                              color: var(--primary-color);
+                            }
+                          </style>
+    
+                          <div class="audio-toggle-container">
+                              <!-- Audio Control Box -->
+                              <div class="audio-box">
+                                  <button class="play-btn">
+                                      <svg class="playIcon" viewBox="0 0 20 20" fill="currentColor">
+                                          <polygon points="5,3 15,10 5,17"></polygon>
+                                      </svg>
+                                      <svg class="pauseIcon" viewBox="0 0 20 20" fill="currentColor" style="display: none;">
+                                          <rect x="4" y="3" width="4" height="14"></rect>
+                                          <rect x="12" y="3" width="4" height="14"></rect>
+                                      </svg>
+                                  </button>
+                                  <div class="audio-text">
+                                      <span class="trackTitle">Alissa Track</span>
+                                      <span class="trackSubtitle">Before AI Tone Tracing</span>
+                                  </div>
+                                  <div class="toggle-switch"></div>
+                              </div>
+    
+                              <!-- Hidden Audio Elements -->
+                              <audio class="beforeAudio" src="https://files.catbox.moe/hug00i.mp3"></audio>
+                              <audio class="afterAudio" src="https://files.catbox.moe/kxdfc4.mp3"></audio>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <p class="text-lg mb-3 text-pulse-purple">Paul's Track Transformation</p>
+                    <p class="text-sm text-gray-400 mb-6">Went from amateur sound to securing a record deal</p>
+                    
+                    <!-- Paul Audio Player -->
+                    <div class="audio-widget-container mx-auto" style="max-width: 320px;">
+                        <div class="audio-widget">
+                          <style>
+                            /* Styles are duplicated for simplicity, normally would be shared */
+                            .audio-widget-container {
+                                --scale-factor: 1;
+                                --padding-adjust: 0px;
+                                --primary-color: #6461b0;
+                                --text-primary: #ffffff;
+                                --text-secondary: #bbbbbb;
+                            }
+                            .audio-toggle-container {
+                              display: flex;
+                              justify-content: center;
+                              align-items: center;
+                              flex-direction: column;
+                              font-family: 'Source Sans Pro', sans-serif;
+                              transform: scale(var(--scale-factor));
+                              transform-origin: top center;
+                              padding-top: var(--padding-adjust);
+                            }
+                            .audio-box {
+                              display: flex;
+                              align-items: center;
+                              justify-content: space-between;
+                              background: rgba(0, 0, 0, 0.4);
+                              width: 300px;
+                              padding: 8px 12px;
+                              border-radius: 30px;
+                              color: var(--text-primary);
+                              font-size: 16px;
+                              font-weight: bold;
+                              cursor: pointer;
+                              user-select: none;
+                              position: relative;
+                            }
+                            .play-btn {
+                              background: rgba(0, 0, 0, 0.6);
+                              border: none;
+                              width: 30px;
+                              height: 30px;
+                              border-radius: 50%;
+                              display: flex;
+                              align-items: center;
+                              justify-content: center;
+                              font-size: 14px;
+                              font-weight: bold;
+                              cursor: pointer;
+                              color: var(--text-primary);
+                              position: relative;
+                              line-height: 0;
+                              z-index: 10;
+                            }
+                            .play-btn svg {
+                              width: 12px;
+                              height: 12px;
+                              display: block;
+                            }
+                            .toggle-switch {
+                              position: relative;
+                              width: 44px;
+                              height: 22px;
+                              background: rgba(255, 255, 255, 0.2);
+                              border-radius: 20px;
+                              transition: 0.3s;
+                              z-index: 1;
+                            }
+                            .toggle-switch:before {
+                              content: "";
+                              position: absolute;
+                              width: 18px;
+                              height: 18px;
+                              background: white;
+                              border-radius: 50%;
+                              top: 2px;
+                              left: 2px;
+                              transition: 0.3s;
+                            }
+                            .audio-box.active .toggle-switch {
+                              background: var(--primary-color);
+                            }
+                            .audio-box.active .toggle-switch:before {
+                              left: 24px;
+                            }
+                            .audio-text {
+                              display: flex;
+                              flex-direction: column;
+                              text-align: left;
+                              font-size: 12px;
+                              width: 160px;
+                              pointer-events: none;
+                            }
+                            .audio-text span:first-child {
+                              font-size: 16px;
+                              color: var(--text-primary);
+                            }
+                            .audio-text span:last-child {
+                              font-size: 12px;
+                              color: var(--text-secondary);
+                            }
+                            .audio-box.active .audio-text span:last-child {
+                              color: var(--primary-color);
+                            }
+                          </style>
+    
+                          <div class="audio-toggle-container">
+                              <!-- Audio Control Box -->
+                              <div class="audio-box">
+                                  <button class="play-btn">
+                                      <svg class="playIcon" viewBox="0 0 20 20" fill="currentColor">
+                                          <polygon points="5,3 15,10 5,17"></polygon>
+                                      </svg>
+                                      <svg class="pauseIcon" viewBox="0 0 20 20" fill="currentColor" style="display: none;">
+                                          <rect x="4" y="3" width="4" height="14"></rect>
+                                          <rect x="12" y="3" width="4" height="14"></rect>
+                                      </svg>
+                                  </button>
+                                  <div class="audio-text">
+                                      <span class="trackTitle">Paul Track</span>
+                                      <span class="trackSubtitle">Before AI Tone Tracing</span>
+                                  </div>
+                                  <div class="toggle-switch"></div>
+                              </div>
+    
+                              <!-- Hidden Audio Elements -->
+                              <audio class="beforeAudio" src="https://files.catbox.moe/xeyyvx.mp3"></audio>
+                              <audio class="afterAudio" src="https://files.catbox.moe/72bdae.mp3"></audio>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-5xl mx-auto pt-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 text-center md:text-left">
+            {methodSteps.map((step, index) => (
+                <div class="card-gradient p-6 md:p-8 rounded-xl shadow-glass border border-gray-800/20 flex flex-col items-center md:items-start group hover:border-pulse-purple/30 transition-all duration-300">
+                    <div class="mb-5 flex-shrink-0">
+                        <Fragment set:html={step.icon} />
+                    </div>
+                    <div>
+                        <h3 class="text-xl md:text-2xl font-semibold text-white mb-3 tracking-tight leading-normal pb-1">{step.title}</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">{step.description}</p>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </div>
+</section> 
+
+<script>
+  (function() {
+    const widgets = document.querySelectorAll(".audio-widget");
+    widgets.forEach(widget => {
+      let beforeAudio   = widget.querySelector(".beforeAudio") as HTMLAudioElement;
+      let afterAudio    = widget.querySelector(".afterAudio") as HTMLAudioElement;
+      let playPauseBtn  = widget.querySelector(".play-btn") as HTMLButtonElement;
+      let playIcon      = widget.querySelector(".playIcon") as SVGElement;
+      let pauseIcon     = widget.querySelector(".pauseIcon") as SVGElement;
+      let audioBox      = widget.querySelector(".audio-box") as HTMLDivElement;
+      let toggleSwitch  = widget.querySelector(".toggle-switch") as HTMLDivElement;
+      let trackTitle    = widget.querySelector(".trackTitle") as HTMLSpanElement;
+      let trackSubtitle = widget.querySelector(".trackSubtitle") as HTMLSpanElement;
+      let audioWidgetContainer = widget.closest(".audio-widget-container") as HTMLDivElement;
+
+      if (!beforeAudio || !afterAudio || !playPauseBtn || !playIcon || !pauseIcon || !audioBox || !toggleSwitch || !trackTitle || !trackSubtitle || !audioWidgetContainer) return;
+
+      let isPlaying = false;
+      let isAfter   = false;
+
+      function syncPlayback() {
+          if (beforeAudio.readyState >= 2 && afterAudio.readyState >=2) { // Ensure audio is ready
+             afterAudio.currentTime = beforeAudio.currentTime;
+          }
+      }
+
+      function togglePlay() {
+          if (!isPlaying) {
+              Promise.all([beforeAudio.play(), afterAudio.play()]).then(() => {
+                  playIcon.style.display  = "none";
+                  pauseIcon.style.display = "block";
+                  isPlaying = true;
+              }).catch(error => console.error("Error playing audio:", error));
+          } else {
+              beforeAudio.pause();
+              afterAudio.pause();
+              playIcon.style.display  = "block";
+              pauseIcon.style.display = "none";
+              isPlaying = false;
+          }
+      }
+
+      playPauseBtn.addEventListener("click", function(event) {
+          event.stopPropagation();
+          togglePlay();
+      });
+
+      toggleSwitch.addEventListener("click", function() {
+          isAfter = !isAfter;
+          audioBox.classList.toggle("active");
+
+          if (isAfter) {
+              beforeAudio.muted = true;
+              afterAudio.muted  = false;
+              syncPlayback();
+              // trackTitle.innerText unchanged for this player
+              trackSubtitle.innerText = "After AI Tone Tracing";
+              trackSubtitle.style.color = audioWidgetContainer.style.getPropertyValue('--primary-color');
+          } else {
+              beforeAudio.muted = false;
+              afterAudio.muted  = true;
+              syncPlayback();
+              // trackTitle.innerText unchanged for this player
+              trackSubtitle.innerText = "Before AI Tone Tracing";
+              trackSubtitle.style.color = audioWidgetContainer.style.getPropertyValue('--text-secondary');
+          }
+      });
+
+      // Set default state
+      beforeAudio.muted = false;
+      afterAudio.muted  = true;
+      trackSubtitle.style.color = audioWidgetContainer.style.getPropertyValue('--text-secondary');
+    });
+  })();
+</script> 

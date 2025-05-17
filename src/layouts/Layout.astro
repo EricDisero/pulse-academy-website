@@ -1,0 +1,86 @@
+---
+import '../styles/global.css';
+export interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="dark">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Pulse Academy Landing Page" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+    <style>
+      /* Smooth scrolling */
+      html {
+        scroll-behavior: smooth;
+      }
+      /* Custom scrollbar for a more modern feel */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #050507; /* Darker page-bg-dark */
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #6d28d9; /* pulse-purple-dark */
+        border-radius: 3px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #8b5cf6; /* pulse-purple */
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+      @supports (font-variation-settings: normal) {
+        body {
+          font-family: 'Inter var', sans-serif;
+        }
+      }
+    </style>
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+	</head>
+	<body class="bg-gradient-to-b from-[#050507] to-[#0a0a15] text-gray-300 selection:bg-pulse-purple selection:text-white">
+		<slot />
+    <!-- Floating CTA for mobile -->
+    <div id="floating-cta-mobile" class="md:hidden fixed bottom-4 right-4 z-50">
+      <a href="#offer-section" class="btn-lg rounded-full shadow-cta-glow flex items-center justify-center p-4">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-white">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m5.841-2.58L15 16.07M9.632 8.41L9.75 12.07m6.508-3.66l-.75 3.5m-5.758-3.5L3 3.5m7.5 0L3.5 3M7.5 15l3 3L18 6" />
+        </svg>
+      </a>
+    </div>
+    <script>
+      // Animation observer to trigger entrance animations
+      document.addEventListener('DOMContentLoaded', () => {
+        const animatedElements = document.querySelectorAll('[data-animate]');
+        
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const element = entry.target;
+              const delay = parseInt(element.getAttribute('data-delay') || '0', 10);
+              
+              setTimeout(() => {
+                element.classList.add('animate');
+              }, delay);
+              
+              observer.unobserve(element);
+            }
+          });
+        }, { threshold: 0.1 });
+        
+        animatedElements.forEach(element => {
+          observer.observe(element);
+        });
+      });
+    </script>
+	</body>
+</html> 

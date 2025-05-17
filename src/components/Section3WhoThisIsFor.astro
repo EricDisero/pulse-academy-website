@@ -1,0 +1,107 @@
+---
+// src/components/Section3WhoThisIsFor.astro
+const quizOptions = [
+    { id: 'low-end', text: "My low end never sounds powerful and defined", icon: "🎛️",  response: "Struggling with a muddy or weak low end is common. We can show you how to objectively analyze and fix it for a powerful, defined foundation."}, 
+    { id: 'amateur', text: "My mixes sound amateur compared to references", icon: "🎧", response: "That gap between your mixes and pro tracks is often down to specific, measurable differences. We'll help you pinpoint and bridge that gap." },
+    { id: 'space-depth', text: "My tracks lack that professional \"space\" and depth", icon: "🌌", response: "Creating space and depth is an art and a science. Our methods help you understand how pro tracks achieve this and apply it to your own."}, 
+    { id: 'submissions', text: "Labels/playlists aren't taking my submissions", icon: "📈", response: "Getting noticed requires tracks that meet industry standards. We help you elevate your sound to a level that gets attention from labels and playlists." }, 
+];
+---
+<section id="who-is-this-for" class="py-16 md:py-24 bg-gradient-to-b from-[#080810] to-[#0c0c18] px-4 md:px-8">
+    <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-12 md:mb-16 max-w-3xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-none pb-1" data-animate="fade" data-delay="100">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-pulse-purple to-pulse-cyan">Is This Right For You?</span>
+            </h2>
+        </div>
+
+        <div class="max-w-4xl mx-auto card-gradient p-1 rounded-2xl shadow-glass overflow-hidden border border-gray-800/20" data-animate="fade" data-delay="200">
+            <div class="md:flex rounded-xl overflow-hidden">
+                <!-- Left Column: Question -->
+                <div class="md:w-1/3 bg-[#080810] p-6 md:p-8 flex flex-col justify-center border-r border-gray-800/20">
+                    <h3 class="text-2xl md:text-3xl font-semibold text-white leading-normal tracking-tight pb-1">
+                        What's your biggest mix struggle?
+                    </h3>
+                    <p class="text-gray-400 mt-3 text-sm">Select an option to see how we can help.</p>
+                </div>
+
+                <!-- Right Column: Radio Buttons -->
+                <div class="md:w-2/3 bg-[#0c0c18] p-6 md:p-8">
+                    <div id="interactive-quiz" class="space-y-4">
+                        {quizOptions.map(option => (
+                            <label for={option.id} class="flex items-center space-x-3 p-4 bg-[#080810] hover:bg-pulse-purple/10 rounded-lg cursor-pointer transition-all duration-200 border border-gray-800/30 hover:border-pulse-purple/50 group">
+                                <input type="radio" name="mix-struggle" value={option.id} id={option.id} class="form-radio h-5 w-5 text-pulse-purple bg-[#080810] border-gray-700 focus:ring-2 focus:ring-pulse-purple focus:ring-offset-2 focus:ring-offset-[#0c0c18]" data-response={option.response} />
+                                <span class="text-2xl mr-1 transition-transform duration-200 group-hover:scale-110">{option.icon}</span>
+                                <span class="text-gray-300 group-hover:text-white transition-colors">{option.text}</span>
+                            </label>
+                        ))}
+                    </div>
+                </div>
+            </div>
+            <div id="dynamic-quiz-content-container" class="bg-gradient-to-r from-pulse-purple/5 to-pulse-cyan/5 p-6 md:p-8 border-t border-gray-800/30 min-h-[80px]">
+                <div id="dynamic-quiz-content" class="text-gray-300 text-md opacity-0">
+                    <!-- Content will be injected here by JS -->
+                    <p class="italic text-gray-500">Select an option above to see relevant information.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Who this IS / IS NOT FOR -->
+        <div class="mt-16 md:mt-20 grid md:grid-cols-2 gap-8 md:gap-10 max-w-5xl mx-auto" data-animate="fade" data-delay="300">
+            <div class="card-gradient p-6 md:p-8 rounded-2xl shadow-glass border border-gray-800/20">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="bg-pulse-purple/10 p-2 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-pulse-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-white">This might be perfect for you if:</h3>
+                </div>
+                <ul class="space-y-4 list-none text-gray-300">
+                    <li class="flex items-start"><span class="text-pulse-purple mr-3">✓</span>You've got the basics down and can create decent tracks, but you're hitting a ceiling</li>
+                    <li class="flex items-start"><span class="text-pulse-purple mr-3">✓</span>You're serious about your music career and want your productions to reach professional quality</li>
+                    <li class="flex items-start"><span class="text-pulse-purple mr-3">✓</span>You have a clear vision for your sound but can't quite achieve it despite endless tweaking</li>
+                    <li class="flex items-start"><span class="text-pulse-purple mr-3">✓</span>You're actively seeking label deals or playlist placements</li>
+                </ul>
+            </div>
+
+            <div class="card-gradient p-6 md:p-8 rounded-2xl shadow-glass border border-gray-800/20">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="bg-red-500/10 p-2 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-white">This probably isn't for you if:</h3>
+                </div>
+                <ul class="space-y-4 list-none text-gray-300">
+                    <li class="flex items-start"><span class="text-red-500 mr-3">✗</span>You're just starting out and still learning your DAW's basic functions</li>
+                    <li class="flex items-start"><span class="text-red-500 mr-3">✗</span>You're making music purely as a casual hobby with no professional aspirations</li>
+                    <li class="flex items-start"><span class="text-red-500 mr-3">✗</span>You tend to collect courses but rarely implement what you learn</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    const quiz = document.getElementById('interactive-quiz');
+    const dynamicContentDiv = document.getElementById('dynamic-quiz-content');
+
+    if (quiz && dynamicContentDiv) {
+        quiz.addEventListener('change', (event) => {
+            const target = event.target as HTMLInputElement;
+            if (target.name === 'mix-struggle') {
+                const responseText = target.dataset.response || "Please select an option.";
+                // Apply fade out, then change content, then fade in
+                dynamicContentDiv.classList.remove('animate-fade-in-bottom', 'opacity-100');
+                dynamicContentDiv.classList.add('opacity-0');
+
+                setTimeout(() => {
+                    dynamicContentDiv.innerHTML = `<p>${responseText}</p>`;
+                    dynamicContentDiv.classList.add('animate-fade-in-bottom', 'opacity-100');
+                }, 150); // Short delay to allow opacity to reset before fade-in
+            }
+        });
+    }
+</script> 

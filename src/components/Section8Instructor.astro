@@ -1,0 +1,95 @@
+---
+// src/components/Section8Instructor.astro
+const instructors = [
+    {
+        name: "Conro (Conor Patton)",
+        imagePlaceholder: "conro.jpg", // Replace with actual image paths later
+        liveBadge: "Teaching this week: Advanced Mix Translation",
+        credentials: [
+            "Over 250 million Spotify streams",
+            "Billboard charting tracks including \"Trippin\" (#7)",
+            "Created remixes for Martin Garrix and Afrojack",
+            "Performed at Tomorrowland and EDC Las Vegas"
+        ]
+    },
+    {
+        name: "Disero (Eric Disero)",
+        imagePlaceholder: "disero.jpg",
+        liveBadge: "Just taught: Harmonic Analysis Masterclass",
+        credentials: [
+            "That's me! Tracks with over 150 million streams",
+            "Created an official remix for Linkin Park",
+            "Produced Mutemath's album title track \"Changes\"",
+            "Work with Atlantic Records and Warner Bros."
+        ]
+    },
+    {
+        name: "BigJerr (Jerry DiPhillippo)",
+        imagePlaceholder: "bigjerr.jpg",
+        liveBadge: "Teaching tomorrow: Serum Sound Design",
+        credentials: [
+            "One of only 380 Ableton Certified Trainers worldwide",
+            "Instructor at the prestigious ICON Collective",
+            "20+ years teaching music production",
+            "Has mentored artists like Andre3000 and Slander"
+        ]
+    },
+    {
+        name: "Colton Avery",
+        imagePlaceholder: "colton.jpg",
+        liveBadge: "Recent session: Vocal Production Workshop",
+        credentials: [
+            "Written songs for Alan Walker and Cheat Codes",
+            "Toured with The Script",
+            "Teaches songwriting at Arizona State University",
+            "Creates custom vocals for our members"
+        ]
+    }
+];
+---
+<section id="instructors" class="py-16 md:py-24 bg-gradient-to-b from-[#080810] to-[#0a0a15] px-4 md:px-8">
+    <div class="text-center mb-12 max-w-3xl mx-auto">
+        <h2 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-none" data-animate="fade" data-delay="100">
+            The Team Behind This
+        </h2>
+        <p class="mt-6 text-lg text-gray-300" data-animate="fade" data-delay="200">
+            You'll be learning from people who've actually done what you're trying to do:
+        </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 max-w-5xl mx-auto">
+        {instructors.map((instructor, index) => (
+            <div class="card-gradient p-6 md:p-8 rounded-xl shadow-glass border border-gray-800/20" data-animate="fade" data-delay={300 + (index * 100)}>
+                <div class="flex items-start gap-4">
+                    <div class="flex-shrink-0">
+                        <div class="w-16 h-16 rounded-full bg-[#1a1c3b]/50 border border-pulse-purple/30 flex items-center justify-center text-gray-500 text-xs shadow-glow-sm relative overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-br from-pulse-purple/10 to-pulse-cyan/10"></div>
+                            <span class="relative z-10">{instructor.imagePlaceholder}</span>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-bold text-white tracking-tight leading-snug mb-1">{instructor.name}</h3>
+                        <div class="inline-block py-1 px-2.5 bg-pulse-purple/20 text-pulse-purple border border-pulse-purple/30 rounded-md text-xs font-medium mb-3">
+                            {instructor.liveBadge}
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-4">
+                    <ul class="space-y-2.5 text-gray-300 list-none text-sm pl-1">
+                        {instructor.credentials.map(cred => (
+                            <li class="flex items-start">
+                                <svg class="w-4 h-4 text-pulse-purple mr-2.5 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                <span class="leading-tight">{cred}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+        ))}
+    </div>
+    <p class="mt-12 text-center text-lg text-gray-300 max-w-3xl mx-auto">
+        We're not just teachers – we're <span class="text-pulse-purple font-semibold">active producers</span> who understand exactly what it takes to succeed in today's music industry.
+    </p>
+</section>

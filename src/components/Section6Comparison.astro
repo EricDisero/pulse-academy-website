@@ -1,0 +1,73 @@
+---
+// src/components/Section6Comparison.astro
+const othersDoItems = [
+    "Vague \"sounds good\" approach",
+    "Basic chord theory without harmonic context",
+    "General EQ suggestions (\"cut the mud\")",
+    "\"Add some compression\" advice",
+    "Ignore phase relationships completely",
+    "Subjective listening only",
+    "Copy preset chains without understanding"
+];
+
+const weDoItems = [
+    "Precise stem-level measurements and comparison",
+    "Exact harmonic structures and voice leading analysis",
+    "Specific frequency relationships with measurable targets",
+    "Measurable dynamic profiles for each component",
+    "Phase relationship optimization between elements",
+    "Objective spectral balance with reference matching",
+    "Data-driven processing chains for your specific genre"
+];
+---
+<section id="comparison" class="py-24">
+    <div class="max-w-5xl mx-auto">
+        <h2 class="text-4xl md:text-5xl font-extrabold text-white text-center mb-12 tracking-tight leading-none" data-animate="fade" data-delay="100">
+            Why This Approach Works When Others Haven't
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- What Others Do -->
+            <div class="bg-[#111228] rounded-2xl p-8 space-y-4 shadow-lg" data-animate="fade" data-delay="200">
+                <h3 class="text-xl font-semibold text-pulse-cyan mb-6">What Others Do</h3>
+                <ul class="space-y-4">
+                    {othersDoItems.map(item => (
+                        <li class="flex items-start">
+                            <span class="text-pulse-cyan mr-2 flex-shrink-0">●</span>
+                            <span class="text-gray-300">{item}</span>
+                        </li>
+                    ))}
+                </ul>
+                <div class="pt-4 mt-4 border-t border-gray-700/50">
+                    <p class="text-gray-400 italic text-sm">
+                        Most approaches leave you in a cycle of guesswork with subjective opinions instead of concrete measurements.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- What We Do -->
+            <div class="bg-[#111228] rounded-2xl p-8 space-y-4 shadow-lg" data-animate="fade" data-delay="300">
+                <h3 class="text-xl font-semibold text-pulse-purple mb-6">What We Do</h3>
+                <ul class="space-y-4">
+                    {weDoItems.map(item => (
+                        <li class="flex items-start">
+                            <span class="text-pulse-purple mr-2 flex-shrink-0">●</span>
+                            <span class="text-gray-300">{item}</span>
+                        </li>
+                    ))}
+                </ul>
+                <div class="pt-4 mt-4 border-t border-gray-700/50">
+                    <p class="text-gray-400 italic text-sm">
+                        We don't just tell you what sounds good – we show you exactly how to achieve it through objective analysis and measurable targets.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-12 md:mt-16 text-center max-w-3xl mx-auto" data-animate="fade" data-delay="400">
+            <p class="text-lg text-gray-300 leading-relaxed">
+                The key difference is that we don't just tell you what sounds good – we show you <strong class="text-pulse-purple">exactly how to achieve it</strong> through objective analysis. While other approaches rely on subjective opinions, we give you <strong class="text-pulse-cyan">measurable targets</strong> based on successful commercial releases.
+            </p>
+        </div>
+    </div>
+</section> 

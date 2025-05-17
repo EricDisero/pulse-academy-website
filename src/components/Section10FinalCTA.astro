@@ -1,0 +1,114 @@
+---
+// src/components/Section10FinalCTA.astro
+---
+<section id="final-cta" class="py-16 md:py-24 text-center bg-dark-card/50 rounded-2xl shadow-xl my-12 md:my-16 max-w-4xl mx-auto">
+    <div class="max-w-3xl mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-normal pb-1">
+            <span class="block text-transparent bg-clip-text bg-gradient-to-r from-pop-pink to-brand-blue">Ready to Finally See What's Missing in Your Music?</span>
+        </h2>
+        <p class="mt-6 text-lg md:text-xl text-gray-300">
+            The gap between amateur and professional productions is measurable, not mysterious. With the right guidance, you can bridge that gap much faster than you might think.
+        </p>
+        <p class="mt-4 text-lg md:text-xl text-gray-300">
+            Your first step is simple: book a free Instant Song Upgrade session. We'll analyze your track, compare it to professional references, and show you exactly what changes will make the biggest difference.
+        </p>
+        <p class="mt-6 text-md text-gray-400">
+            No obligation. Just genuine help from someone who's been where you are.
+        </p>
+        <div class="mt-10 shadow-cta-glow rounded-xl inline-block">
+            <button id="final-cta-button-main" 
+                    class="button-pop text-lg md:text-xl bg-pulse-accent text-gray-900 hover:bg-pulse-accent-dark px-10 py-5 rounded-xl font-bold transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-pulse-accent/50">
+                BOOK YOUR FREE SONG UPGRADE SESSION
+            </button>
+        </div>
+        <p class="mt-4 text-sm text-gray-400">
+            *Let's take your music to the next level*
+        </p>
+    </div>
+</section>
+
+<!-- Placeholder for Exit-Intent Modal. True exit-intent requires more JS. -->
+<div id="exit-intent-modal" class="fixed inset-0 flex items-center justify-center p-4 z-[110] hidden transition-opacity duration-300 opacity-0">
+    <div class="fixed inset-0 bg-black/80 backdrop-blur-md z-[-1]"></div>
+    <div class="glassmorphism p-6 md:p-8 rounded-xl max-w-md w-full text-center relative shadow-2xl">
+        <button id="close-exit-intent-modal" class="absolute top-3 right-3 text-gray-400 hover:text-white transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <h3 class="text-xl md:text-2xl font-semibold text-gray-100 mb-4 tracking-tight leading-normal pb-1">Wait! Before You Go...</h3>
+        <p class="text-gray-300 mb-2 text-sm">Hear from producers like you:</p>
+        <div class="h-32 md:h-40 bg-dark-card border border-gray-700 rounded-md flex items-center justify-center text-gray-500 mb-4">
+            Testimonial Montage Placeholder
+        </div> 
+        <p class="text-gray-300 mb-4">Don't miss out on transforming your mixes.</p>
+        <div class="shadow-cta-glow rounded-xl">
+            <button id="exit-modal-cta-trigger" 
+                    class="w-full button-pop text-lg bg-pulse-accent text-gray-900 hover:bg-pulse-accent-dark px-8 py-4 rounded-xl font-bold transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-pulse-accent/50">
+                BOOK YOUR FREE SESSION
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    const finalCtaBtnMain = document.getElementById('final-cta-button-main');
+    const calendarModalForFinalCta = document.getElementById('calendar-modal'); // Target the single calendar modal
+    const closeCalendarButtonForFinalCta = document.getElementById('close-calendar-modal'); // Assuming this is the ID of the close button in calendar-modal
+
+    if (finalCtaBtnMain && calendarModalForFinalCta) {
+        finalCtaBtnMain.addEventListener('click', () => {
+            calendarModalForFinalCta.classList.remove('hidden');
+            setTimeout(() => calendarModalForFinalCta.classList.add('opacity-100'), 10);
+        });
+    }
+
+    const exitIntentModal = document.getElementById('exit-intent-modal');
+    const closeExitIntentBtn = document.getElementById('close-exit-intent-modal');
+    const exitModalCtaTriggerBtn = document.getElementById('exit-modal-cta-trigger');
+
+    // Simplified exit intent: show after a delay (e.g., 20 seconds) if not already interacted with
+    // More robust exit intent (mouseleave) is commented out to keep it lean.
+    let exitIntentTimer = setTimeout(() => {
+        if (exitIntentModal && exitIntentModal.classList.contains('hidden')) {
+            const calendarIsOpen = calendarModalForFinalCta && !calendarModalForFinalCta.classList.contains('hidden');
+            if (!calendarIsOpen) { // Don't show if main calendar modal is already open
+                 exitIntentModal.classList.remove('hidden');
+                 setTimeout(() => exitIntentModal.classList.add('opacity-100'), 10);
+            }
+        }
+    }, 20000);
+
+    if (closeExitIntentBtn && exitIntentModal) {
+        closeExitIntentBtn.addEventListener('click', () => {
+            clearTimeout(exitIntentTimer); // Stop timer if manually closed
+            exitIntentModal.classList.remove('opacity-100');
+            setTimeout(() => exitIntentModal.classList.add('hidden'), 300);
+        });
+    }
+
+    if (exitModalCtaTriggerBtn && calendarModalForFinalCta && exitIntentModal) {
+        exitModalCtaTriggerBtn.addEventListener('click', () => {
+            clearTimeout(exitIntentTimer);
+            // Close exit intent modal first
+            exitIntentModal.classList.remove('opacity-100');
+            setTimeout(() => {
+                exitIntentModal.classList.add('hidden');
+                 // Then open calendar modal
+                calendarModalForFinalCta.classList.remove('hidden');
+                setTimeout(() => calendarModalForFinalCta.classList.add('opacity-100'), 10);
+            }, 300); 
+        });
+    }
+
+    /* document.body.addEventListener('mouseleave', (e) => {
+        if (e.clientY < 0 && exitIntentModal && exitIntentModal.classList.contains('hidden')) {
+            const calendarIsOpen = calendarModalForFinalCta && !calendarModalForFinalCta.classList.contains('hidden');
+            if (!calendarIsOpen) {
+                clearTimeout(exitIntentTimer);
+                exitIntentModal.classList.remove('hidden');
+                setTimeout(() => exitIntentModal.classList.add('opacity-100'), 10);
+            }
+        }
+    }); */
+</script> 

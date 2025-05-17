@@ -1,0 +1,114 @@
+---
+// src/components/Section7Offer.astro
+const offerDetails = [
+    { text: "Run your track through our Pulse Cascade Splitter" },
+    { text: "Do the same with a professional reference track of your choice" },
+    { text: "Show you exactly what's different between them" },
+    { text: "Give you specific, actionable steps to improve your production" },
+    { text: "Provide you with the separated stems from your reference track to study" }
+];
+const spotsLeft = Math.floor(Math.random() * 5) + 2; // Random number between 2-6
+---
+<section id="offer-section" class="py-16 md:py-24 bg-gradient-to-b from-[#050507] to-[#0a0a15] px-4 md:px-8">
+    <div class="max-w-3xl mx-auto mb-12">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-snug text-center">
+            <span class="block text-white">Let's See If We Can Help You:</span>
+            <span class="block text-transparent bg-clip-text bg-gradient-to-r from-pulse-purple to-pulse-cyan">The Instant Song Upgrade Session</span>
+        </h2>
+        <p class="mt-6 text-lg md:text-xl text-gray-300 text-center">
+            Instead of asking you to commit right away, I'd like to offer you a free session to experience our approach firsthand.
+        </p>
+    </div>
+
+    <!-- Offer Card with Subtle Glow -->
+    <div class="max-w-3xl mx-auto card-gradient p-8 md:p-10 rounded-2xl shadow-glass border border-gray-800/20 overflow-hidden">
+        <div class="relative z-10">
+            <h3 class="text-2xl md:text-3xl font-semibold text-white mb-8 text-center">Here's What's Included <span class="text-transparent bg-clip-text bg-gradient-to-r from-pulse-purple to-pulse-cyan">(Absolutely Free)</span>:</h3>
+            
+            <ul class="space-y-5 mb-10">
+                {offerDetails.map(detail => (
+                    <li class="flex items-start text-gray-200 text-md md:text-lg pl-2">
+                        <svg class="w-5 h-5 text-pulse-purple mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                        </svg>
+                        <span>{detail.text}</span>
+                    </li>
+                ))}
+            </ul>
+            
+            <div class="text-center mb-10">
+                <p class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pulse-purple to-pulse-cyan">Your Price: $0</p>
+                <p class="text-md text-gray-400 mt-1">(For a Limited Time Only)</p>
+            </div>
+
+            <p class="mb-8 text-lg text-gray-300 text-center">
+                Even if we never work together beyond this session, you'll walk away with a <span class="text-pulse-purple">clear understanding</span> of what's holding your productions back and <span class="text-pulse-cyan">specific steps to improve</span>.
+            </p>
+
+            <div class="mb-8 text-center">
+                <p class="text-xl md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pulse-purple to-pulse-cyan">
+                    No sales pitch. No pressure. No catch.
+                </p>
+                <p class="mt-2 text-lg text-gray-300">Just genuine insights you can apply immediately.</p>
+            </div>
+
+            <div class="text-center">
+                <button id="open-calendar-modal-offer" 
+                      class="btn-lg shadow-cta-glow text-lg inline-block font-bold transition-all duration-300">
+                   BOOK YOUR FREE SONG UPGRADE SESSION
+                </button>
+                <p class="mt-4 text-sm text-gray-400">
+                    *Only <span id="spots-left-offer" class="text-pulse-cyan font-semibold">{spotsLeft}</span> spots left this week*
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Calendar Modal -->
+    <div id="calendar-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 z-[100] hidden transition-opacity duration-300 opacity-0">
+        <div class="glassmorphism p-6 md:p-8 rounded-xl max-w-lg w-full text-center relative shadow-2xl">
+            <button id="close-calendar-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors z-10">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <h3 class="text-2xl font-semibold text-gray-100 mb-4">Book Your Free Session</h3>
+            <p class="text-gray-300 mb-6">Calendar integration (e.g., Calendly embed) would go here.</p>
+            <div class="h-64 bg-[#080810] border border-gray-800/30 rounded-md flex items-center justify-center text-gray-500">
+                Calendar Placeholder
+            </div>
+            <p class="mt-4 text-sm text-gray-400">Select a date and time that works for you.</p>
+        </div>
+    </div>
+</section>
+
+<script>
+    const openButtonOffer = document.getElementById('open-calendar-modal-offer');
+    const calendarModalInstance = document.getElementById('calendar-modal'); 
+    const closeButtonCalendar = document.getElementById('close-calendar-modal');
+
+    if (openButtonOffer && calendarModalInstance) {
+        openButtonOffer.addEventListener('click', () => {
+            calendarModalInstance.classList.remove('hidden');
+            setTimeout(() => calendarModalInstance.classList.add('opacity-100'), 10);
+        });
+    }
+    if (closeButtonCalendar && calendarModalInstance) {
+        closeButtonCalendar.addEventListener('click', () => {
+            calendarModalInstance.classList.remove('opacity-100');
+            setTimeout(() => calendarModalInstance.classList.add('hidden'), 300);
+        });
+    }
+    window.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && calendarModalInstance && !calendarModalInstance.classList.contains('hidden')) {
+            closeButtonCalendar?.click();
+        }
+    });
+    if (calendarModalInstance) {
+        calendarModalInstance.addEventListener('click', (event) => {
+            if (event.target === calendarModalInstance) {
+                closeButtonCalendar?.click();
+            }
+        });
+    }
+</script> 

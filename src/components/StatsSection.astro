@@ -1,0 +1,76 @@
+---
+// src/components/StatsSection.astro - Stats Counter Section
+const stats = [
+    { label: "Monthly Listeners", value: "900,000+" },
+    { label: "Major Label Deals", value: "17+" },
+    { label: "Streams Generated", value: "$150M+" }
+];
+---
+<div class="py-16 bg-gradient-to-b from-[#0a0a15] to-[#080810] overflow-hidden border-t border-gray-800/10">
+    <div class="container mx-auto px-4 md:px-8 max-w-4xl">
+        <div class="text-center mb-8">
+            <p class="text-sm text-gray-400 uppercase tracking-widest">Our Industry Impact</p>
+            <h2 class="text-2xl md:text-3xl text-white font-bold">Results That Speak For Themselves</h2>
+        </div>
+        
+        <!-- Stats with Count-up Animation -->
+        <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+            {stats.map(stat => (
+                <div class="flex flex-col items-center">
+                    <span class="text-pulse-purple font-semibold text-3xl md:text-4xl lg:text-5xl mb-2 count-up" data-value={stat.value}>{stat.value}</span>
+                    <span class="text-gray-300 text-sm md:text-base">{stat.label}</span>
+                </div>
+            ))}
+        </div>
+    </div>
+</div>
+
+<script>
+// Simple count-up animation for stats
+document.addEventListener('DOMContentLoaded', () => {
+  const countUpElements = document.querySelectorAll('.count-up');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const element = entry.target;
+        const value = element.getAttribute('data-value');
+        
+        if (!value) return;
+        
+        // Extract numeric part and suffix
+        let numericValue = value.replace(/[^0-9]/g, '');
+        const suffix = value.replace(/[0-9]/g, '');
+        
+        // Animate count-up
+        let start = 0;
+        let end = parseInt(numericValue);
+        let duration = 1500;
+        let startTime = null;
+        
+        function animate(timestamp) {
+          if (!startTime) startTime = timestamp;
+          // Use 0 as fallback if startTime is somehow null
+          const timeDiff = startTime !== null ? timestamp - startTime : 0;
+          const progress = Math.min(timeDiff / duration, 1);
+          const current = Math.floor(progress * end);
+          element.textContent = current + suffix;
+          
+          if (progress < 1) {
+            window.requestAnimationFrame(animate);
+          } else {
+            element.textContent = value; // Ensure final value is exactly as specified
+          }
+        }
+        
+        window.requestAnimationFrame(animate);
+        observer.unobserve(element);
+      }
+    });
+  }, { threshold: 0.1 });
+  
+  countUpElements.forEach(element => {
+    observer.observe(element);
+  });
+});
+</script> 

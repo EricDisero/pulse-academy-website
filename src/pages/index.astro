@@ -1,0 +1,60 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Section1AboveTheFold from '../components/Section1AboveTheFold.astro';
+import Section2ProblemAgitateSolve from '../components/Section2ProblemAgitateSolve.astro';
+import Section3WhoThisIsFor from '../components/Section3WhoThisIsFor.astro';
+import Section4ProprietaryMethod from '../components/Section4ProprietaryMethod.astro';
+import Section5SocialProof from '../components/Section5SocialProof.astro';
+import Section6Comparison from '../components/Section6Comparison.astro';
+import Section7Offer from '../components/Section7Offer.astro';
+import Section8Instructor from '../components/Section8Instructor.astro';
+import Section9FullProgramOverview from '../components/Section9FullProgramOverview.astro';
+import Section10FinalCTA from '../components/Section10FinalCTA.astro';
+import Section11FAQ from '../components/Section11FAQ.astro';
+import Footer from '../components/Footer.astro';
+import StatsSection from '../components/StatsSection.astro';
+---
+
+<Layout title="Pulse Academy - Transform Your Mixes">
+	<main class="space-y-0 md:space-y-0">
+		<!-- Connected top sections -->
+		<div class="connected-sections">
+			<Section1AboveTheFold />
+			<Section2ProblemAgitateSolve />
+			<StatsSection />
+			<Section3WhoThisIsFor />
+		</div>
+		
+		<!-- Method and testimonials connected -->
+		<div class="connected-sections mt-0">
+			<Section4ProprietaryMethod />
+			<Section5SocialProof />
+		</div>
+		
+		<!-- Rest of sections with spacing -->
+		<div class="space-y-16 md:space-y-24">
+			<Section6Comparison />
+			<Section7Offer />
+			<Section8Instructor />
+			<Section9FullProgramOverview />
+			<Section10FinalCTA />
+			<Section11FAQ />
+		</div>
+	</main>
+	<Footer />
+</Layout>
+
+<style>
+	.connected-sections {
+		display: flex;
+		flex-direction: column;
+	}
+	.connected-sections > :global(*) {
+		margin-top: 0 !important;
+		margin-bottom: 0 !important;
+		padding-bottom: 0 !important;
+	}
+	.connected-sections > :global(*:last-child) {
+		padding-bottom: 2rem !important;
+	}
+</style> 
