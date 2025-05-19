@@ -150,4 +150,13 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-} 
+}
+
+.bg-clip-text {
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* Ensures no clipping of descenders */
+  line-height: 1.1;
+  padding-bottom: 0.1em;
+}
