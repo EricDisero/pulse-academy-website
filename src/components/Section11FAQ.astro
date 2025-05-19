@@ -36,34 +36,105 @@ const faqItems = [
 
     <div class="space-y-6">
         {faqItems.map((item, index) => (
-            <details class="group glassmorphism p-0 overflow-hidden">
-                <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-dark-card/50 transition-colors">
+            <div class="faq-item glassmorphism p-0 overflow-hidden rounded-lg">
+                <button class="faq-question w-full flex items-center justify-between p-6 cursor-pointer hover:bg-dark-card/50 transition-colors duration-200 ease-in-out focus:outline-none text-left">
                     <h3 class="text-lg md:text-xl font-semibold text-silvery-gradient pb-1">{item.question}</h3>
-                    <svg class="w-5 h-5 text-pop-pink transform transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="faq-icon w-5 h-5 text-pop-pink transform transition-transform duration-300 ease-out" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                     </svg>
-                </summary>
-                <div class="p-6 pt-0 text-gray-300 prose prose-invert max-w-none prose-p:text-gray-300">
-                    <p>{item.answer}</p>
+                </button>
+                <div class="faq-answer overflow-hidden h-0 transition-opacity duration-300 ease-out opacity-0">
+                    <div class="p-6 pt-0 text-gray-300 prose prose-invert max-w-none prose-p:text-gray-300">
+                        <p>{item.answer}</p>
+                    </div>
                 </div>
-            </details>
+            </div>
         ))}
     </div>
 </section>
 
-<script>
-    // Optional: Script to close other details when one is opened (accordion behavior)
-    const detailsElements = document.querySelectorAll('details.group');
+<style>
+    .faq-answer {
+        transition: 
+            height 0.5s cubic-bezier(0.16, 1, 0.3, 1), /* Exponential-like easing */
+            opacity 0.4s ease-out;
+    }
+    
+    .faq-answer.active {
+        opacity: 1;
+    }
+    
+    .faq-icon {
+        transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); /* Slightly bouncy rotation */
+    }
+    
+    .faq-icon.active {
+        transform: rotate(180deg);
+    }
+    
+    .faq-question:hover .faq-icon {
+        color: rgb(236, 72, 153); /* Brighter pink on hover */
+    }
+</style>
 
-    detailsElements.forEach(details => {
-        (details as HTMLDetailsElement).addEventListener('toggle', () => {
-            if ((details as HTMLDetailsElement).open) {
-                detailsElements.forEach(otherDetails => {
-                    if (otherDetails !== details && (otherDetails as HTMLDetailsElement).open) {
-                        (otherDetails as HTMLDetailsElement).removeAttribute('open');
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question') as HTMLButtonElement;
+            const answer = item.querySelector('.faq-answer') as HTMLDivElement;
+            const icon = item.querySelector('.faq-icon') as HTMLElement;
+            const content = answer.querySelector('div') as HTMLDivElement;
+            
+            // Set initial state - all closed
+            answer.style.height = '0px';
+            
+            question.addEventListener('click', () => {
+                // Get the height of the content
+                const contentHeight = content.offsetHeight;
+                
+                // Check if this FAQ is already open
+                const isOpen = answer.classList.contains('active');
+                
+                // Close all other FAQs first with a slight stagger for nicer visual effect
+                let delay = 0;
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.querySelector('.faq-answer')?.classList.contains('active')) {
+                        const otherAnswer = otherItem.querySelector('.faq-answer') as HTMLDivElement;
+                        const otherIcon = otherItem.querySelector('.faq-icon') as HTMLElement;
+                        
+                        setTimeout(() => {
+                            otherAnswer.style.height = '0px';
+                            otherAnswer.classList.remove('active');
+                            otherIcon.classList.remove('active');
+                        }, delay);
+                        delay += 50; // Small stagger between each closing animation
                     }
                 });
-            }
+                
+                // Add a small delay before opening the clicked item
+                setTimeout(() => {
+                    // Toggle the current FAQ
+                    if (isOpen) {
+                        // Close this FAQ
+                        answer.style.height = '0px';
+                        setTimeout(() => {
+                            answer.classList.remove('active');
+                        }, 50); // Small delay so height animation starts first
+                        icon.classList.remove('active');
+                    } else {
+                        // Open this FAQ with a slight delay for the opacity
+                        answer.style.height = `${contentHeight}px`;
+                        icon.classList.add('active');
+                        
+                        // Slight delay before showing the content for a nicer effect
+                        setTimeout(() => {
+                            answer.classList.add('active');
+                        }, 100);
+                    }
+                }, delay);
+            });
         });
     });
 </script> 
