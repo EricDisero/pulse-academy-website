@@ -3,26 +3,26 @@
 const testimonials = [
     {
         source: "Beat Fortress",
-        quote: "My mix finally sounds like a real release. Completely night and day.",
-        avatarPlaceholder: "BF",
+        quote: "My first mix using the course. It's completely night and day. It finally sounds like a real release. Thank you so much Eric, this is the best thing I have ever invested in for my mixes!",
+        avatarImage: "/student-photos/Beatfortress.webp",
         rating: 5
     },
     {
         source: "Benno",
-        quote: "I have a client drooling over a mix purely from using this approach.",
-        avatarPlaceholder: "BN",
+        quote: "I have a client drooling over a mix purely from using the system. I understand there are different ways to skin a cat, but this is... a total gamechanger for me. Thank you.",
+        avatarImage: "/student-photos/Benno.webp",
         rating: 5
     },
     {
         source: "Rudo",
-        quote: "Woke up still buzzing that I can do something at this level.",
-        avatarPlaceholder: "RD",
+        quote: "Woke up this morning still buzzing that I can do something at this level. It's my 1st day back at work and all I want to do is stay home and write haha!!",
+        avatarImage: "/student-photos/Rudo.webp",
         rating: 5
     },
     {
-        source: "Taylor",
-        quote: "The chord progression analyzer saved me months of trial and error - my songs finally sound rich and professional.",
-        avatarPlaceholder: "TY",
+        source: "Kip",
+        quote: "I can't put into words how phenomenal this program has been for upskilling my production capabilities. This program has already given me a massive perspective shift on producing.",
+        avatarImage: "/student-photos/Kip.webp",
         rating: 5
     }
 ];
@@ -36,28 +36,43 @@ const successStories = [
 
 const studentTestimonials = [
     {
-        name: "Alex",
-        avatar: "A",
-        quote: "After 5 years of hitting the same wall with my productions, I finally saw exactly what was missing in my mixes. I made more progress in 2 weeks than in the previous 2 years."
+        name: "1wayout",
+        avatarImage: "/student-photos/1wayout.webp",
+        quote: "Hey I wanted to thank you again for last night's session. I was able to rip the stems on two songs, matched up my Span Plus and man they are open, bright, and A/Bing the reference track...SAME COLOR exactly, BEAUTIFUL! I've been working for this all my life bro!"
     }, 
     {
-        name: "Oscar",
-        avatar: "O",
-        subtext: "who went from 3,000 to 900,000 monthly listeners, told me:",
-        quote: "The objective analysis changed everything about how I approach production. For the first time, I could see exactly why my tracks weren't matching commercial releases."
+        name: "DIVOCEAN",
+        avatarImage: "/student-photos/DIVOCEAN.webp",
+        quote: "Thank you so much crazy how much time you invest in us i feel like I'm ripping you off."
     }, 
     {
-        name: "Sarah",
-        avatar: "S",
-        subtext: "who used to spend weeks on a single mix:",
-        quote: "I used to never feel satisfied with my mixes. Now I know exactly what to measure, what to listen for, and how to fix issues methodically. My completion rate has tripled."
+        name: "Swerve",
+        avatarImage: "/student-photos/Swerve.webp",
+        subtext: "on applying the techniques to client work:",
+        quote: "Gotta go cool off since I just made the hottest mix of my entire life! Eric, you're a genius. I don't have words for how stoked I am right now. My client is going to need to change his pants when he hears this."
     }, 
     {
-        name: "Marco",
-        avatar: "M",
-        subtext: "sent me this after his first label signing:",
-        quote: "I sent my first track using this method to a label I'd been trying to sign with for years. They responded within hours asking for more music. The difference in quality was that dramatic."
+        name: "Elisha",
+        avatarImage: "/student-photos/Elisha.webp",
+        quote: "I am so appreciative of your ear that can identify the fine details. I am freaking LOVING this course and mentorship. Hurts my brain! Haha. But sooo good!"
     }
+];
+
+// Featured testimonials for the video section
+const featuredQuote = {
+    name: "FreeTimeTim",
+    quote: "I literally only just started going through the course 4-5 days ago and I've had the biggest breakthrough in my productions than the last 5-8 years of my career within 4 days and I cannot even believe this.",
+    avatarImage: "/student-photos/FreeTimeTim.webp"
+};
+
+// Student avatars for the 5-star rating display
+const studentAvatars = [
+    { src: "/student-photos/BigJerr.webp", alt: "BigJerr" },
+    { src: "/student-photos/Beatfortress.webp", alt: "Beatfortress" },
+    { src: "/student-photos/Elisha.webp", alt: "Elisha" },
+    { src: "/student-photos/Kip.webp", alt: "Kip" },
+    { src: "/student-photos/1wayout.webp", alt: "1wayout" },
+    { src: "/student-photos/DIVOCEAN.webp", alt: "DIVOCEAN" }
 ];
 
 // Star SVG
@@ -73,12 +88,38 @@ const StarIcon = `
             <h2 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-none">
                 <span class="bg-clip-text text-transparent bg-gradient-to-r from-pulse-purple to-pulse-cyan">What People Like You Are Saying</span>
             </h2>
+            
+            <!-- Interactive rating display -->
+            <div class="mt-6 flex flex-col items-center justify-center">
+                <div class="flex items-center justify-center">
+                    <div class="flex items-center">
+                        {[...Array(5)].map(() => <Fragment set:html={StarIcon} />)}
+                        <span class="ml-2 text-sm md:text-base font-semibold text-white">4.9 | Based on 127 students</span>
+                    </div>
+                    <div class="flex ml-3 md:ml-4 -space-x-3 avatar-group">
+                        {studentAvatars.map((avatar, index) => (
+                            <div class="avatar-item w-7 h-7 md:w-8 md:h-8 rounded-full border-2 border-[#070710] overflow-hidden hover:z-10 relative transition-transform duration-200" style={`z-index: ${6-index}`}>
+                                <img src={avatar.src} alt={avatar.alt} class="w-full h-full object-cover" />
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="card-gradient p-6 md:p-10 mb-12 md:mb-16 max-w-4xl mx-auto rounded-2xl shadow-glass border border-gray-800/20" data-animate="fade" data-delay="200">
-            <h3 class="text-2xl md:text-3xl font-bold text-center text-white mb-6 tracking-tight leading-none">
-                "I Made More Progress in 4 Days Than in 5 Years of My Career"
-            </h3>
+            <div class="flex flex-col md:flex-row items-center md:items-start gap-6 mb-6">
+                <div class="flex-shrink-0 w-16 h-16 rounded-full bg-[#0c0c18] border border-pulse-purple/30 flex items-center justify-center text-white text-lg font-bold relative overflow-hidden shadow-glow-sm">
+                    <img src={featuredQuote.avatarImage} alt={`Avatar for ${featuredQuote.name}`} class="absolute inset-0 w-full h-full object-cover" />
+                </div>
+                <div>
+                    <h3 class="text-2xl md:text-3xl font-bold text-silvery-gradient tracking-tight leading-none">
+                        "I Made More Progress in 4 Days Than in 5-8 Years of My Career"
+                    </h3>
+                    <p class="text-gray-400 mt-2">- {featuredQuote.name}</p>
+                </div>
+            </div>
+            
             <div class="aspect-video bg-[#080810] border border-gray-800/40 rounded-lg flex items-center justify-center text-gray-400 overflow-hidden relative group">
                 <!-- Video thumbnail with play button overlay -->
                 <img src="/video-placeholder.jpg" alt="Video Thumbnail" class="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-90 transition-opacity" />
@@ -93,17 +134,17 @@ const StarIcon = `
                     <p class="mt-4 text-white font-medium">Watch Featured Testimonial</p>
                 </div>
             </div>
+            <p class="mt-4 text-gray-300 italic">{featuredQuote.quote}</p>
         </div>
 
         <div class="mb-16 md:mb-20 max-w-5xl mx-auto" data-animate="fade" data-delay="300">
-            <h3 class="text-2xl md:text-3xl font-bold text-center text-white mb-10 tracking-tight leading-none">Unfiltered Feedback</h3>
+            <h3 class="text-2xl md:text-3xl font-bold text-center text-silvery-gradient mb-10 tracking-tight leading-none">Unfiltered Feedback</h3>
             
             <div id="testimonial-carousel" class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                 {testimonials.map((testimonial, index) => (
-                    <div class="card-gradient p-6 rounded-xl border border-gray-800/20 hover:border-pulse-purple/30 transition-all duration-300 shadow-glass hover:shadow-glow-sm flex flex-col sm:flex-row items-start gap-4 sm:gap-6" data-animate="fade" data-delay={300 + (index * 100)}>
-                        <div class="flex-shrink-0 w-14 h-14 rounded-full bg-[#0c0c18] border border-pulse-purple/30 flex items-center justify-center text-white text-lg font-bold mb-4 sm:mb-0 relative overflow-hidden shadow-glow-sm">
-                            <div class="absolute inset-0 bg-gradient-to-br from-pulse-purple/20 to-pulse-cyan/20"></div>
-                            <span class="relative z-10">{testimonial.avatarPlaceholder}</span>
+                    <div class="card-gradient p-6 rounded-xl border border-gray-800/20 hover:border-pulse-purple/30 transition-all duration-300 shadow-glass hover:shadow-glow-sm flex flex-col sm:flex-row items-start gap-4 sm:gap-6 hover:scale-[1.02] transform duration-300" data-animate="fade" data-delay={300 + (index * 100)}>
+                        <div class="flex-shrink-0 w-14 h-14 rounded-full bg-[#0c0c18] border border-pulse-purple/30 flex items-center justify-center text-white text-lg font-bold mb-4 sm:mb-0 relative overflow-hidden shadow-glow-sm hover:scale-110 transform duration-300">
+                            <img src={testimonial.avatarImage} alt={`Avatar for ${testimonial.source}`} class="absolute inset-0 w-full h-full object-cover" />
                         </div>
                         <div class="flex-grow">
                             <div class="flex items-center mb-2">
@@ -121,15 +162,13 @@ const StarIcon = `
 
         <!-- Student Testimonials with Thumbnails -->
         <div class="mb-16 md:mb-20 max-w-4xl mx-auto" data-animate="fade" data-delay="400">
-            <h3 class="text-2xl md:text-3xl font-bold text-center text-white mb-8 tracking-tight leading-none">What Our Students Say</h3>
+            <h3 class="text-2xl md:text-3xl font-bold text-center text-silvery-gradient mb-8 tracking-tight leading-none">What Our Students Say</h3>
             
             <div class="space-y-6">
                 {studentTestimonials.map((testimonial, index) => (
-                    <div class="card-gradient p-5 md:p-6 rounded-xl border border-gray-800/20 flex items-start gap-4" data-animate="fade" data-delay={400 + (index * 100)}>
-                        <div class="flex-shrink-0 rounded-full overflow-hidden w-12 h-12 border border-pulse-purple/30 flex items-center justify-center relative shadow-glow-sm">
-                            <!-- This would be a real image in production -->
-                            <div class="absolute inset-0 bg-gradient-to-br from-pulse-purple/20 to-pulse-cyan/20"></div>
-                            <span class="text-white font-bold text-lg relative z-10">{testimonial.avatar}</span>
+                    <div class="card-gradient p-5 md:p-6 rounded-xl border border-gray-800/20 flex items-start gap-4 hover:border-pulse-purple/30 transition-all duration-300 hover:shadow-glow-sm hover:translate-x-1 transform" data-animate="fade" data-delay={400 + (index * 100)}>
+                        <div class="flex-shrink-0 rounded-full overflow-hidden w-12 h-12 border border-pulse-purple/30 flex items-center justify-center relative shadow-glow-sm hover:scale-110 transform duration-300">
+                            <img src={testimonial.avatarImage} alt={`Avatar for ${testimonial.name}`} class="absolute inset-0 w-full h-full object-cover" />
                         </div>
                         <div class="flex-grow">
                             <div class="mb-1.5">
@@ -148,10 +187,10 @@ const StarIcon = `
         </div>
 
         <div class="max-w-3xl mx-auto" data-animate="fade" data-delay="500">
-            <h3 class="text-2xl md:text-3xl font-bold text-center text-white mb-8 tracking-tight leading-none">Success Stories</h3>
+            <h3 class="text-2xl md:text-3xl font-bold text-center text-silvery-gradient mb-8 tracking-tight leading-none">Success Stories</h3>
             <ul class="space-y-5">
                 {successStories.map(story => (
-                    <li class="card-gradient p-4 md:p-5 rounded-lg text-gray-300 text-lg flex items-center shadow-glass hover:shadow-glow-sm hover:border-pulse-purple/30 border border-gray-800/20 transition-all">
+                    <li class="card-gradient p-4 md:p-5 rounded-lg text-gray-300 text-lg flex items-center shadow-glass hover:shadow-glow-sm hover:border-pulse-purple/30 border border-gray-800/20 transition-all hover:translate-x-1 transform duration-300">
                         <span class="text-pulse-cyan mr-3 text-xl">✓</span> {story}
                     </li>
                 ))}
@@ -160,10 +199,46 @@ const StarIcon = `
     </div>
 </section>
 
+<style>
+    /* Testimonial card animations */
+    @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-8px); }
+        100% { transform: translateY(0px); }
+    }
+    
+    /* Avatar hover effects */
+    .avatar-item {
+        transition: all 0.2s ease;
+    }
+    
+    .avatar-item:hover {
+        transform: translateY(-5px) scale(1.15);
+    }
+    
+    .avatar-group:hover .avatar-item:not(:hover) {
+        transform: translateY(2px);
+    }
+</style>
+
 <script>
-    // Placeholder for carousel logic if enhanced later
-    const carousel = document.getElementById('testimonial-carousel');
-    if (carousel) {
-        // console.log('Testimonial carousel found. Current setup is a responsive grid.');
+    // Testimonial cards intersection observer
+    const testimonialsSection = document.querySelector('.testimonials-grid');
+    if (testimonialsSection) {
+        const cards = testimonialsSection.querySelectorAll('.testimonial-card');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const card = entry.target as HTMLElement;
+                    card.classList.add('animate-float');
+                    observer.unobserve(card);
+                }
+            });
+        }, { threshold: 0.2 });
+        
+        cards.forEach(card => {
+            observer.observe(card);
+        });
     }
 </script> 

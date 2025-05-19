@@ -1,73 +1,208 @@
 ---
 // src/components/Section6Comparison.astro
-const othersDoItems = [
-    "Vague \"sounds good\" approach",
-    "Basic chord theory without harmonic context",
-    "General EQ suggestions (\"cut the mud\")",
-    "\"Add some compression\" advice",
-    "Ignore phase relationships completely",
-    "Subjective listening only",
-    "Copy preset chains without understanding"
-];
-
-const weDoItems = [
-    "Precise stem-level measurements and comparison",
-    "Exact harmonic structures and voice leading analysis",
-    "Specific frequency relationships with measurable targets",
-    "Measurable dynamic profiles for each component",
-    "Phase relationship optimization between elements",
-    "Objective spectral balance with reference matching",
-    "Data-driven processing chains for your specific genre"
+const comparisonPoints = [
+    {
+        area: "Sound Analysis Precision",
+        traditional: "Vague \"sounds good\" approach, relying on subjective feelings without concrete data.",
+        ourMethod: "Precise stem-level measurements and comparison against successful reference tracks."
+    },
+    {
+        area: "Harmonic Understanding",
+        traditional: "Basic chord theory, often missing deep harmonic context and voice leading nuances.",
+        ourMethod: "Exact harmonic structures and voice leading analysis to build emotional impact."
+    },
+    {
+        area: "Equalization Strategy",
+        traditional: "General EQ suggestions like \"cut the mud\" without specific targets or reasoning.",
+        ourMethod: "Specific frequency relationships identified with measurable targets for clarity and balance."
+    },
+    {
+        area: "Dynamics Processing",
+        traditional: "Generic advice like \"add some compression\" without considering the material's needs.",
+        ourMethod: "Measurable dynamic profiles for each component, ensuring punch and cohesion."
+    },
+    {
+        area: "Phase Management",
+        traditional: "Often ignores phase relationships, leading to a thin or smeared sound.",
+        ourMethod: "Systematic phase relationship optimization between elements for maximum impact."
+    },
+    {
+        area: "Listening & Referencing",
+        traditional: "Primarily subjective listening, which can be unreliable and inconsistent.",
+        ourMethod: "Objective spectral balance achieved through data-driven reference matching."
+    },
+    {
+        area: "Processing Workflow",
+        traditional: "Copying preset chains or random techniques without understanding the 'why'.",
+        ourMethod: "Custom, data-driven processing chains tailored to your specific track and genre."
+    }
 ];
 ---
-<section id="comparison" class="py-24">
-    <div class="max-w-5xl mx-auto">
-        <h2 class="text-4xl md:text-5xl font-extrabold text-white text-center mb-12 tracking-tight leading-none" data-animate="fade" data-delay="100">
+<section id="comparison" class="py-16 md:py-24 bg-gradient-to-b from-[#070710] to-[#0a0a16] px-4 md:px-8">
+    <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-silvery-gradient text-center mb-12 tracking-tight leading-tight" data-animate="fade" data-delay="100">
             Why This Approach Works When Others Haven't
         </h2>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- What Others Do -->
-            <div class="bg-[#111228] rounded-2xl p-8 space-y-4 shadow-lg" data-animate="fade" data-delay="200">
-                <h3 class="text-xl font-semibold text-pulse-cyan mb-6">What Others Do</h3>
-                <ul class="space-y-4">
-                    {othersDoItems.map(item => (
-                        <li class="flex items-start">
-                            <span class="text-pulse-cyan mr-2 flex-shrink-0">●</span>
-                            <span class="text-gray-300">{item}</span>
-                        </li>
-                    ))}
-                </ul>
-                <div class="pt-4 mt-4 border-t border-gray-700/50">
-                    <p class="text-gray-400 italic text-sm">
-                        Most approaches leave you in a cycle of guesswork with subjective opinions instead of concrete measurements.
-                    </p>
-                </div>
-            </div>
-            
-            <!-- What We Do -->
-            <div class="bg-[#111228] rounded-2xl p-8 space-y-4 shadow-lg" data-animate="fade" data-delay="300">
-                <h3 class="text-xl font-semibold text-pulse-purple mb-6">What We Do</h3>
-                <ul class="space-y-4">
-                    {weDoItems.map(item => (
-                        <li class="flex items-start">
-                            <span class="text-pulse-purple mr-2 flex-shrink-0">●</span>
-                            <span class="text-gray-300">{item}</span>
-                        </li>
-                    ))}
-                </ul>
-                <div class="pt-4 mt-4 border-t border-gray-700/50">
-                    <p class="text-gray-400 italic text-sm">
-                        We don't just tell you what sounds good – we show you exactly how to achieve it through objective analysis and measurable targets.
-                    </p>
-                </div>
+        <p class="text-lg text-gray-300 leading-relaxed text-center max-w-3xl mx-auto mb-16" data-animate="fade" data-delay="150">
+            Stop guessing and see exactly how our systematic, data-driven approach to mixing and mastering delivers tangible results where traditional methods fall short.
+        </p>
+
+        <!-- Desktop Comparison Grid Table (hidden on mobile) -->
+        <div class="hidden md:block card-gradient p-1 rounded-2xl shadow-glass border border-gray-800/20 overflow-hidden mb-12" data-animate="fade" data-delay="200">
+            <div class="overflow-x-auto">
+                <table class="w-full comparison-grid-table">
+                    <thead>
+                        <tr class="bg-[#0c0c18]/30">
+                            <th class="py-5 px-4 md:px-6 text-left text-sm font-bold uppercase tracking-wider text-silvery-gradient">Area of Focus</th>
+                            <th class="py-5 px-4 md:px-6 text-left text-sm font-bold uppercase tracking-wider text-pulse-cyan/80">Traditional Methods</th>
+                            <th class="py-5 px-4 md:px-6 text-left text-sm font-bold uppercase tracking-wider text-pulse-purple">Our Approach <span class="text-xs">(Pulse Academy)</span></th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-800/40">
+                        {comparisonPoints.map((point, index) => (
+                            <tr class="comparison-row transition-all duration-300 hover:bg-[#0c0c18]/50" data-animate="fade" data-delay={250 + (index * 75)}>
+                                <td class="py-5 px-4 md:px-6 text-white font-semibold">{point.area}</td>
+                                <td class="py-5 px-4 md:px-6 text-gray-400">
+                                    <div class="flex items-start">
+                                        <svg class="w-5 h-5 text-red-500/70 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path></svg>
+                                        <span>{point.traditional}</span>
+                                    </div>
+                                </td>
+                                <td class="py-5 px-4 md:px-6 text-gray-200">
+                                    <div class="flex items-start">
+                                        <svg class="w-5 h-5 text-green-400/80 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                        <span class="font-medium">{point.ourMethod}</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
             </div>
         </div>
+
+        <!-- Mobile Comparison Cards (shown only on mobile) -->
+        <div class="md:hidden space-y-6" data-animate="fade" data-delay="200">
+            <div class="grid grid-cols-3 mb-4 font-bold text-center text-sm">
+                <div class="col-span-1 text-silvery-gradient">AREA</div>
+                <div class="col-span-1 text-pulse-cyan/80">TRADITIONAL</div>
+                <div class="col-span-1 text-pulse-purple">OUR APPROACH</div>
+            </div>
+            
+            {comparisonPoints.map((point, index) => (
+                <div class="card-gradient border border-gray-800/20 rounded-xl overflow-hidden mobile-comparison-row" data-animate="fade" data-delay={250 + (index * 75)}>
+                    <div class="px-4 py-3 bg-[#0c0c18]/30 text-white font-semibold text-center">
+                        {point.area}
+                    </div>
+                    <div class="grid grid-cols-2 divide-x divide-gray-800/20">
+                        <div class="p-4 text-gray-400">
+                            <div class="flex items-start">
+                                <svg class="w-4 h-4 text-red-500/70 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path></svg>
+                                <span class="text-sm">{point.traditional}</span>
+                            </div>
+                        </div>
+                        <div class="p-4 text-gray-200 bg-[#0c0c18]/10">
+                            <div class="flex items-start">
+                                <svg class="w-4 h-4 text-green-400/80 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                <span class="text-sm font-medium">{point.ourMethod}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            ))}
+        </div>
         
-        <div class="mt-12 md:mt-16 text-center max-w-3xl mx-auto" data-animate="fade" data-delay="400">
+        <div class="mt-8 text-center max-w-3xl mx-auto" data-animate="fade" data-delay="500">
             <p class="text-lg text-gray-300 leading-relaxed">
-                The key difference is that we don't just tell you what sounds good – we show you <strong class="text-pulse-purple">exactly how to achieve it</strong> through objective analysis. While other approaches rely on subjective opinions, we give you <strong class="text-pulse-cyan">measurable targets</strong> based on successful commercial releases.
+                The key difference is clear: we replace subjective guesswork with <strong class="text-pulse-purple">objective analysis</strong> and <strong class="text-pulse-cyan">measurable targets</strong>. This empowers you to achieve consistent, professional-quality results, track after track.
             </p>
         </div>
     </div>
-</section> 
+</section>
+
+<style>
+    /* Desktop table styles */
+    .comparison-grid-table th {
+        border-bottom: 1px solid rgba(107, 114, 128, 0.2);
+    }
+    .comparison-row td:nth-child(1) {
+        border-right: 1px solid rgba(107, 114, 128, 0.15);
+    }
+    .comparison-row td:nth-child(2) {
+        border-right: 1px solid rgba(107, 114, 128, 0.15);
+    }
+    .comparison-row {
+        opacity: 0;
+        transform: translateY(15px);
+        transition-property: opacity, transform;
+        transition-timing-function: ease-out;
+    }
+    .comparison-row.animate {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    /* Mobile card styles */
+    .mobile-comparison-row {
+        opacity: 0;
+        transform: translateY(15px);
+        transition: all 0.4s ease-out;
+        box-shadow: 0 4px 20px -5px rgba(0, 0, 0, 0.5);
+    }
+    .mobile-comparison-row.animate {
+        opacity: 1;
+        transform: translateY(0);
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Animation for desktop table rows
+        const observeTable = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const rows = entry.target.querySelectorAll('.comparison-row');
+                        rows.forEach((row, index) => {
+                            const rowElement = row as HTMLElement;
+                            rowElement.style.transitionDelay = `${index * 75}ms`;
+                            rowElement.classList.add('animate');
+                        });
+                        observeTable.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.1 }
+        );
+
+        // Animation for mobile comparison cards
+        const observeMobile = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const cards = entry.target.querySelectorAll('.mobile-comparison-row');
+                        cards.forEach((card, index) => {
+                            const cardElement = card as HTMLElement;
+                            cardElement.style.transitionDelay = `${index * 75}ms`;
+                            cardElement.classList.add('animate');
+                        });
+                        observeMobile.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.1 }
+        );
+
+        const comparisonTable = document.querySelector('.comparison-grid-table');
+        if (comparisonTable) {
+            const tableContainer = comparisonTable.closest('div[data-animate]');
+            if (tableContainer) observeTable.observe(tableContainer);
+        }
+
+        const mobileContainer = document.querySelector('.md\\:hidden.space-y-6');
+        if (mobileContainer) {
+            observeMobile.observe(mobileContainer);
+        }
+    });
+</script> 

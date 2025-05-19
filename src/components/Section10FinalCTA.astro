@@ -1,10 +1,10 @@
 ---
 // src/components/Section10FinalCTA.astro
 ---
-<section id="final-cta" class="py-16 md:py-24 text-center bg-dark-card/50 rounded-2xl shadow-xl my-12 md:my-16 max-w-4xl mx-auto">
+<section id="final-cta" class="py-16 md:py-24 bg-gradient-to-b from-[#080810] to-[#0a0a16] px-4 md:px-8 text-center">
     <div class="max-w-3xl mx-auto px-4">
         <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-normal pb-1">
-            <span class="block text-transparent bg-clip-text bg-gradient-to-r from-pop-pink to-brand-blue">Ready to Finally See What's Missing in Your Music?</span>
+            <span class="block text-transparent bg-clip-text bg-gradient-to-r from-pulse-purple to-pulse-cyan">Ready to Finally See What's Missing in Your Music?</span>
         </h2>
         <p class="mt-6 text-lg md:text-xl text-gray-300">
             The gap between amateur and professional productions is measurable, not mysterious. With the right guidance, you can bridge that gap much faster than you might think.
@@ -36,7 +36,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
         </button>
-        <h3 class="text-xl md:text-2xl font-semibold text-gray-100 mb-4 tracking-tight leading-normal pb-1">Wait! Before You Go...</h3>
+        <h3 class="text-xl md:text-2xl font-semibold text-silvery-gradient mb-4 tracking-tight leading-normal pb-1">Wait! Before You Go...</h3>
         <p class="text-gray-300 mb-2 text-sm">Hear from producers like you:</p>
         <div class="h-32 md:h-40 bg-dark-card border border-gray-700 rounded-md flex items-center justify-center text-gray-500 mb-4">
             Testimonial Montage Placeholder
@@ -67,21 +67,11 @@
     const closeExitIntentBtn = document.getElementById('close-exit-intent-modal');
     const exitModalCtaTriggerBtn = document.getElementById('exit-modal-cta-trigger');
 
-    // Simplified exit intent: show after a delay (e.g., 20 seconds) if not already interacted with
-    // More robust exit intent (mouseleave) is commented out to keep it lean.
-    let exitIntentTimer = setTimeout(() => {
-        if (exitIntentModal && exitIntentModal.classList.contains('hidden')) {
-            const calendarIsOpen = calendarModalForFinalCta && !calendarModalForFinalCta.classList.contains('hidden');
-            if (!calendarIsOpen) { // Don't show if main calendar modal is already open
-                 exitIntentModal.classList.remove('hidden');
-                 setTimeout(() => exitIntentModal.classList.add('opacity-100'), 10);
-            }
-        }
-    }, 20000);
+    let exitIntentTimer; // Keep variable declaration for clearTimeout if needed elsewhere or by robust listener
 
     if (closeExitIntentBtn && exitIntentModal) {
         closeExitIntentBtn.addEventListener('click', () => {
-            clearTimeout(exitIntentTimer); // Stop timer if manually closed
+            if (exitIntentTimer) clearTimeout(exitIntentTimer); // Clear if robust listener sets a timer
             exitIntentModal.classList.remove('opacity-100');
             setTimeout(() => exitIntentModal.classList.add('hidden'), 300);
         });
@@ -89,7 +79,7 @@
 
     if (exitModalCtaTriggerBtn && calendarModalForFinalCta && exitIntentModal) {
         exitModalCtaTriggerBtn.addEventListener('click', () => {
-            clearTimeout(exitIntentTimer);
+            if (exitIntentTimer) clearTimeout(exitIntentTimer);
             // Close exit intent modal first
             exitIntentModal.classList.remove('opacity-100');
             setTimeout(() => {
@@ -101,14 +91,16 @@
         });
     }
 
-    /* document.body.addEventListener('mouseleave', (e) => {
-        if (e.clientY < 0 && exitIntentModal && exitIntentModal.classList.contains('hidden')) {
+    document.body.addEventListener('mouseleave', (e) => {
+        // Show only if mouse leaves from the top of the viewport (typical exit intent)
+        if (e.clientY <= 0 && exitIntentModal && exitIntentModal.classList.contains('hidden')) {
             const calendarIsOpen = calendarModalForFinalCta && !calendarModalForFinalCta.classList.contains('hidden');
             if (!calendarIsOpen) {
-                clearTimeout(exitIntentTimer);
+                // Potentially clear any other timers if they existed
+                // if (exitIntentTimer) clearTimeout(exitIntentTimer);
                 exitIntentModal.classList.remove('hidden');
                 setTimeout(() => exitIntentModal.classList.add('opacity-100'), 10);
             }
         }
-    }); */
+    });
 </script> 

@@ -1,23 +1,11 @@
 ---
 // src/components/Section1AboveTheFold.astro
-const stats = [
-    { label: "Monthly Listeners", value: "900,000+" },
-    { label: "Major Label Deals", value: "17+" },
-    { label: "Streams Generated", value: "150M+" }
-];
+// Removed labels constant
 
-const labels = [
-    { name: "Sony Music", placeholder: "Sony Music" },
-    { name: "Warner Records", placeholder: "Warner" },
-    { name: "Atlantic Records", placeholder: "Atlantic" },
-    { name: "Monstercat", placeholder: "Monstercat" },
-    { name: "OWSLA", placeholder: "OWSLA" },
-    { name: "Ultra Records", placeholder: "Ultra" },
-    { name: "Spinnin' Records", placeholder: "Spinnin'" },
-    { name: "Mad Decent", placeholder: "Mad Decent" }
-];
+// Stats constant (if it was here) would also be removed or ensured it's not duplicated if used elsewhere.
+// Assuming stats are handled by StatsSection.astro as per previous context.
 ---
-<section id="hero" class="min-h-screen flex flex-col items-center justify-center text-center pt-24 pb-12 md:pt-32 md:pb-16 relative overflow-hidden bg-gradient-to-b from-[#050507] to-[#0a0a15]">
+<section id="hero" class="min-h-screen flex flex-col items-center justify-center text-center pt-20 pb-12 md:pt-24 md:pb-16 relative overflow-hidden bg-gradient-to-b from-[#050507] to-[#0a0a15]">
     <!-- Enhanced Tech Background -->
     <div class="absolute inset-0 bg-[url('/tech-pattern.png')] opacity-10"></div>
     
@@ -26,22 +14,45 @@ const labels = [
     <div class="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-pulse-cyan/5 blur-[100px]"></div>
 
     <div class="container mx-auto px-4 md:px-8 relative z-10 max-w-3xl">
-        <h1 data-animate="fade" data-delay="100" class="text-5xl md:text-6xl font-extrabold tracking-tight leading-none text-white mb-4">
-            Transform Your Mixes Into
-            <span class="bg-clip-text text-transparent bg-gradient-to-r from-pulse-purple to-pulse-cyan">Label-Ready Tracks</span>
+        <h1 data-animate="fade" data-delay="100" class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-tight text-white mb-4">
+            <span class="text-silvery-gradient">Transform Your Mixes Into</span>
+            <span class="block bg-clip-text text-transparent bg-gradient-to-r from-pulse-purple to-pulse-cyan">Label-Ready Tracks</span>
         </h1>
         
         <p data-animate="fade" data-delay="200" class="text-xl text-gray-300 mb-8 max-w-xl mx-auto">
             (In One Free 30-Minute Session — No Fluff, No Sales Pitch)
         </p>
         
-        <p data-animate="fade" data-delay="300" class="text-lg text-gray-400 mb-8 max-w-xl mx-auto">
+        <p data-animate="fade" data-delay="300" class="text-lg text-gray-400 mb-6 max-w-xl mx-auto">
             The same approach that's helped producers achieve 900,000+ monthly listeners and secure major label deals.
         </p>
         
+        <!-- Wistia Video Embed -->
+        <div data-animate="fade" data-delay="350" class="mx-auto max-w-xl mb-8 rounded-xl overflow-hidden shadow-2xl">
+            <script src="https://fast.wistia.com/player.js" async></script>
+            <script src="https://fast.wistia.com/embed/fo0gqcn9z8.js" async type="module"></script>
+            <style>
+                wistia-player[media-id='fo0gqcn9z8']:not(:defined) {
+                    background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/fo0gqcn9z8/swatch');
+                    display: block;
+                    filter: blur(5px);
+                    padding-top: 56.25%;
+                }
+                @media (max-width: 768px) {
+                    .video-container {
+                        width: 100%;
+                        padding: 0 1rem; /* Example padding, adjust as needed */
+                    }
+                }
+            </style>
+            <div class="video-container">
+                <wistia-player media-id="fo0gqcn9z8" aspect="1.7777777777777777"></wistia-player>
+            </div>
+        </div>
+        
         <div data-animate="fade" data-delay="400" class="relative">
             <!-- CTA button with enhanced glow -->
-            <a href="#offer-section" class="btn-lg inline-block shadow-cta-glow">
+            <a href="#" id="hero-cta-button" class="btn-lg inline-block shadow-cta-glow">
                 BOOK YOUR FREE SONG UPGRADE SESSION
             </a>
             
@@ -54,36 +65,10 @@ const labels = [
         </div>
     </div>
     
-    <!-- Label Logo Marquee -->
-    <div class="w-full mt-12 md:mt-16">
-        <div class="px-4 md:px-8 max-w-6xl mx-auto text-center mb-4">
-            <p class="text-sm text-gray-400 uppercase tracking-widest">Labels We've Directly Worked With</p>
-        </div>
-        
-        <div class="relative">
-            <!-- Fade gradient on left -->
-            <div class="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#0a0a15] to-transparent z-10"></div>
-            
-            <!-- Scrolling logo marquee -->
-            <div class="logo-marquee-container py-6 overflow-hidden whitespace-nowrap">
-                <div class="logo-marquee">
-                    {labels.concat(labels).map((label) => (
-                        <div class="inline-block mx-8">
-                            <div class="flex items-center justify-center bg-[#0c0c18]/70 border border-gray-800/30 h-16 md:h-20 w-32 md:w-40 rounded-lg backdrop-blur-sm">
-                                <span class="text-gray-400 font-medium">{label.placeholder}</span>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-            
-            <!-- Fade gradient on right -->
-            <div class="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#0a0a15] to-transparent z-10"></div>
-        </div>
-    </div>
+    <!-- Label Logo Marquee Removed -->
 
     <!-- Animated Chevron -->
-    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+    <div class="absolute bottom-12 left-1/2 transform -translate-x-1/2 z-20"> {/* Adjusted bottom to 12, can be tweaked */}
         <svg class="w-8 h-8 text-gray-500 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
         </svg>
@@ -111,69 +96,49 @@ const labels = [
 .animation-delay-400 { animation-delay: 0.4s; }
 .animation-delay-500 { animation-delay: 0.5s; }
 
-.logo-marquee-container {
-    position: relative;
-}
+/* Marquee styles removed */
 
-.logo-marquee {
-    animation: scroll 30s linear infinite;
-    display: inline-block;
-}
-
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
-}
 </style>
 
 <script>
-// Simple count-up animation for stats
+// Animation for elements with data-animate (if this script was here and not global)
+// Assuming animations.js or Layout.astro handles this globally.
+
+// Hero CTA Button Logic
 document.addEventListener('DOMContentLoaded', () => {
-  const countUpElements = document.querySelectorAll('.count-up');
-  
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const element = entry.target;
-        const value = element.getAttribute('data-value');
-        
-        // Extract numeric part and suffix
-        let numericValue = value ? value.replace(/[^0-9]/g, '') : '';
-        const suffix = value ? value.replace(/[0-9]/g, '') : '';
-        
-        // Animate count-up
-        let start = 0;
-        let end = parseInt(numericValue);
-        let duration = 1500;
-        let startTime = null;
-        
-        function animate(timestamp) {
-          if (!startTime) startTime = timestamp;
-          // Use a safe calculation that avoids null checks
-          const elapsedTime = typeof startTime === 'number' ? timestamp - startTime : 0;
-          const progress = Math.min(elapsedTime / duration, 1);
-          const current = Math.floor(progress * end);
-          element.textContent = current + suffix;
-          
-          if (progress < 1) {
-            window.requestAnimationFrame(animate);
-          } else {
-            element.textContent = value; // Ensure final value is exactly as specified
-          }
-        }
-        
-        window.requestAnimationFrame(animate);
-        observer.unobserve(element);
-      }
+  const heroCtaButton = document.getElementById('hero-cta-button');
+  const calendarModal = document.getElementById('calendar-modal'); // Make sure this modal exists and has this ID
+
+  if (heroCtaButton && calendarModal) {
+    heroCtaButton.addEventListener('click', (event) => {
+      event.preventDefault();
+      calendarModal.classList.remove('hidden');
+      setTimeout(() => calendarModal.classList.add('opacity-100'), 10);
     });
-  }, { threshold: 0.1 });
-  
-  countUpElements.forEach(element => {
-    observer.observe(element);
+  }
+
+  // Logic for closing the calendar modal (if not already handled globally or in Section7Offer.astro)
+  // Example:
+  const closeCalendarButton = document.getElementById('close-calendar-modal');
+  if (closeCalendarButton && calendarModal) {
+      closeCalendarButton.addEventListener('click', () => {
+          calendarModal.classList.remove('opacity-100');
+          setTimeout(() => calendarModal.classList.add('hidden'), 300);
+      });
+  }
+  // Close on ESC
+  window.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && calendarModal && !calendarModal.classList.contains('hidden')) {
+          closeCalendarButton?.click();
+      }
   });
+  // Close on backdrop click
+  if (calendarModal) {
+      calendarModal.addEventListener('click', (event) => {
+          if (event.target === calendarModal) {
+              closeCalendarButton?.click();
+          }
+      });
+  }
 });
 </script> 

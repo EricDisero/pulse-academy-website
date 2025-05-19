@@ -3,7 +3,7 @@
 const instructors = [
     {
         name: "Conro (Conor Patton)",
-        imagePlaceholder: "conro.jpg", // Replace with actual image paths later
+        imageSrc: "/instructor-photos/Conro.webp", // Updated to correct image path
         liveBadge: "Teaching this week: Advanced Mix Translation",
         credentials: [
             "Over 250 million Spotify streams",
@@ -14,7 +14,7 @@ const instructors = [
     },
     {
         name: "Disero (Eric Disero)",
-        imagePlaceholder: "disero.jpg",
+        imageSrc: "/instructor-photos/Eric Sooke.webp", // Updated to correct image path
         liveBadge: "Just taught: Harmonic Analysis Masterclass",
         credentials: [
             "That's me! Tracks with over 150 million streams",
@@ -25,7 +25,7 @@ const instructors = [
     },
     {
         name: "BigJerr (Jerry DiPhillippo)",
-        imagePlaceholder: "bigjerr.jpg",
+        imageSrc: "/instructor-photos/BigJerr.webp", // Updated to correct image path
         liveBadge: "Teaching tomorrow: Serum Sound Design",
         credentials: [
             "One of only 380 Ableton Certified Trainers worldwide",
@@ -36,7 +36,7 @@ const instructors = [
     },
     {
         name: "Colton Avery",
-        imagePlaceholder: "colton.jpg",
+        imageSrc: "/instructor-photos/Colton.webp", // Updated to correct image path
         liveBadge: "Recent session: Vocal Production Workshop",
         credentials: [
             "Written songs for Alan Walker and Cheat Codes",
@@ -46,10 +46,17 @@ const instructors = [
         ]
     }
 ];
+
+// Star SVG for rating display
+const StarIcon = `
+<svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+</svg>
+`;
 ---
-<section id="instructors" class="py-16 md:py-24 bg-gradient-to-b from-[#080810] to-[#0a0a15] px-4 md:px-8">
+<section id="instructors" class="py-16 md:py-24 bg-gradient-to-b from-[#0a0a16] to-[#080810] px-4 md:px-8">
     <div class="text-center mb-12 max-w-3xl mx-auto">
-        <h2 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-none" data-animate="fade" data-delay="100">
+        <h2 class="text-4xl md:text-5xl font-extrabold text-silvery-gradient tracking-tight leading-none" data-animate="fade" data-delay="100">
             The Team Behind This
         </h2>
         <p class="mt-6 text-lg text-gray-300" data-animate="fade" data-delay="200">
@@ -59,17 +66,21 @@ const instructors = [
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 max-w-5xl mx-auto">
         {instructors.map((instructor, index) => (
-            <div class="card-gradient p-6 md:p-8 rounded-xl shadow-glass border border-gray-800/20" data-animate="fade" data-delay={300 + (index * 100)}>
+            <div class="card-gradient p-6 md:p-8 rounded-xl shadow-glass border border-gray-800/20 instructor-card hover:border-pulse-purple/30 transition-all duration-300 hover:shadow-glow-sm" data-animate="fade" data-delay={300 + (index * 100)}>
                 <div class="flex items-start gap-4">
                     <div class="flex-shrink-0">
-                        <div class="w-16 h-16 rounded-full bg-[#1a1c3b]/50 border border-pulse-purple/30 flex items-center justify-center text-gray-500 text-xs shadow-glow-sm relative overflow-hidden">
-                            <div class="absolute inset-0 bg-gradient-to-br from-pulse-purple/10 to-pulse-cyan/10"></div>
-                            <span class="relative z-10">{instructor.imagePlaceholder}</span>
+                        <div class="w-16 h-16 rounded-full bg-[#1a1c3b]/50 border border-pulse-purple/30 overflow-hidden shadow-glow-sm relative instructor-image">
+                            <img src={instructor.imageSrc} alt={`Photo of ${instructor.name}`} class="absolute inset-0 w-full h-full object-cover" />
+                        </div>
+                        
+                        <!-- Rating below instructor image -->
+                        <div class="flex justify-center mt-2">
+                            {[...Array(5)].map(() => <Fragment set:html={StarIcon} />)}
                         </div>
                     </div>
                     
                     <div>
-                        <h3 class="text-xl font-bold text-white tracking-tight leading-snug mb-1">{instructor.name}</h3>
+                        <h3 class="text-xl font-bold text-silvery-gradient tracking-tight leading-snug mb-1">{instructor.name}</h3>
                         <div class="inline-block py-1 px-2.5 bg-pulse-purple/20 text-pulse-purple border border-pulse-purple/30 rounded-md text-xs font-medium mb-3">
                             {instructor.liveBadge}
                         </div>
@@ -93,3 +104,23 @@ const instructors = [
         We're not just teachers – we're <span class="text-pulse-purple font-semibold">active producers</span> who understand exactly what it takes to succeed in today's music industry.
     </p>
 </section>
+
+<style>
+    .instructor-card {
+        transition: all 0.3s ease;
+    }
+    
+    .instructor-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .instructor-image {
+        transition: all 0.3s ease;
+    }
+    
+    .instructor-card:hover .instructor-image {
+        transform: scale(1.1);
+        border-color: rgba(139, 92, 246, 0.8);
+        box-shadow: 0 0 15px rgba(139, 92, 246, 0.5);
+    }
+</style>

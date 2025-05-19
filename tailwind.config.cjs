@@ -9,6 +9,7 @@ module.exports = {
         'pulse-purple': '#8b5cf6', // violet-500
         'pulse-purple-dark': '#6d28d9', // darker purple
         'pulse-cyan': '#22d3ee', // cyan-400
+        'pulse-red': '#a53c39', // r
         'pulse-cyan-dark': '#0891b2', // darker cyan
         'bg-dark-1': '#080810', // Very dark almost black
         'bg-dark-2': '#0f0f1a', // Very dark blue-black

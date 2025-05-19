@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Section1AboveTheFold from '../components/Section1AboveTheFold.astro';
+import LabelLogosMarquee from '../components/LabelLogosMarquee.astro';
 import Section2ProblemAgitateSolve from '../components/Section2ProblemAgitateSolve.astro';
 import Section3WhoThisIsFor from '../components/Section3WhoThisIsFor.astro';
 import Section4ProprietaryMethod from '../components/Section4ProprietaryMethod.astro';
@@ -20,6 +21,7 @@ import StatsSection from '../components/StatsSection.astro';
 		<!-- Connected top sections -->
 		<div class="connected-sections">
 			<Section1AboveTheFold />
+			<LabelLogosMarquee />
 			<Section2ProblemAgitateSolve />
 			<StatsSection />
 			<Section3WhoThisIsFor />
@@ -31,8 +33,8 @@ import StatsSection from '../components/StatsSection.astro';
 			<Section5SocialProof />
 		</div>
 		
-		<!-- Rest of sections with spacing -->
-		<div class="space-y-16 md:space-y-24">
+		<!-- Rest of sections with visual separators -->
+		<div class="connected-sections with-separators mt-0">
 			<Section6Comparison />
 			<Section7Offer />
 			<Section8Instructor />
@@ -50,11 +52,9 @@ import StatsSection from '../components/StatsSection.astro';
 		flex-direction: column;
 	}
 	.connected-sections > :global(*) {
-		margin-top: 0 !important;
-		margin-bottom: 0 !important;
-		padding-bottom: 0 !important;
+		/* Allow sections to define their own margins and padding primarily */
+		/* The goal of connected-sections is more about logical grouping than strict style overrides */
 	}
-	.connected-sections > :global(*:last-child) {
-		padding-bottom: 2rem !important;
-	}
+
+	/* Remove the specific .with-separators adjustments as they are no longer needed without the lines */
 </style> 

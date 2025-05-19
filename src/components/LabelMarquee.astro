@@ -1,0 +1,54 @@
+---
+// src/components/LabelMarquee.astro
+const labels = [
+    { name: "Sony Music", placeholder: "Sony Music" },
+    { name: "Warner Records", placeholder: "Warner" },
+    { name: "Atlantic Records", placeholder: "Atlantic" },
+    { name: "Monstercat", placeholder: "Monstercat" },
+    { name: "OWSLA", placeholder: "OWSLA" },
+    { name: "Ultra Records", placeholder: "Ultra" },
+    { name: "Spinnin' Records", placeholder: "Spinnin'" },
+    { name: "Mad Decent", placeholder: "Mad Decent" }
+];
+---
+<div class="w-full py-12 md:py-16 bg-[#0a0a15]">
+    <div class="px-4 md:px-8 max-w-6xl mx-auto text-center mb-4">
+        <p class="text-sm text-gray-400 uppercase tracking-widest">Labels We've Directly Worked With</p>
+    </div>
+    
+    <div class="relative">
+        <div class="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#0a0a15] to-transparent z-10"></div>
+        <div class="logo-marquee-container py-6 overflow-hidden whitespace-nowrap">
+            <div class="logo-marquee">
+                {labels.concat(labels).map((label) => (
+                    <div class="inline-block mx-8">
+                        <div class="flex items-center justify-center bg-[#0c0c18]/70 border border-gray-800/30 h-16 md:h-20 w-32 md:w-40 rounded-lg backdrop-blur-sm">
+                            <span class="text-gray-400 font-medium">{label.placeholder}</span>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+        <div class="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#0a0a15] to-transparent z-10"></div>
+    </div>
+</div>
+
+<style>
+.logo-marquee-container {
+    position: relative;
+}
+
+.logo-marquee {
+    animation: scroll 30s linear infinite;
+    display: inline-block;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+</style> 

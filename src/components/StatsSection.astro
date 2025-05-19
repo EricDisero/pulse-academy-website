@@ -53,7 +53,11 @@ document.addEventListener('DOMContentLoaded', () => {
           // Use 0 as fallback if startTime is somehow null
           const timeDiff = startTime !== null ? timestamp - startTime : 0;
           const progress = Math.min(timeDiff / duration, 1);
-          const current = Math.floor(progress * end);
+          
+          // Super exponential curve - start very fast, end very slow
+          const easedProgress = 1 - Math.pow(2, -15 * progress);
+          
+          const current = Math.floor(easedProgress * end);
           element.textContent = current + suffix;
           
           if (progress < 1) {
