@@ -13,22 +13,23 @@
     <div class="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-pulse-purple/5 blur-[100px]"></div>
     <div class="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-pulse-cyan/5 blur-[100px]"></div>
 
-    <div class="container mx-auto px-4 md:px-8 relative z-10 max-w-3xl">
-        <h1 data-animate="fade" data-delay="100" class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-tight text-white mb-4 pb-4">
-            <span class="text-silvery-gradient leading-tight">Transform Your Mixes Into</span>
-            <span class="block bg-clip-text text-transparent bg-gradient-to-r from-pulse-purple to-pulse-cyan py-1 leading-tight">Label-Ready Tracks</span>
-        </h1>
-        
-        <p data-animate="fade" data-delay="200" class="text-xl text-gray-300 mb-8 max-w-xl mx-auto leading-relaxed">
-            (In One Free 30-Minute Session — No Fluff, No Sales Pitch)
+    <div class="container mx-auto px-4 md:px-8 relative z-10 max-w-4xl">
+        <!-- CURIOSITY-DRIVEN EYEBROW TEXT -->
+        <p data-animate="fade" data-delay="50" class="text-sm font-semibold text-pulse-cyan mb-3 tracking-wide uppercase">
+            For EDM Producers Who Want A Proven Path To Huge Mixes
         </p>
         
-        <p data-animate="fade" data-delay="300" class="text-lg text-gray-400 mb-6 max-w-xl mx-auto">
-            The same approach that's helped producers achieve 900,000+ monthly listeners and secure major label deals.
+        <h1 data-animate="fade" data-delay="100" class="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight leading-tight text-white mb-4 pb-2">
+            <span class="text-pulse-cyan font-semibold">New:</span> <span class="text-silvery-gradient leading-tight pb-1">Discover This Ultra-Fast 'AI Tone Tracing' Method Elite Producers Are Using To Instantly Nail Their Mixes In 2025</span>
+        </h1>
+        
+        <!-- CURIOSITY-BUILDING SUBHEADLINE -->
+        <p data-animate="fade" data-delay="200" class="text-lg md:text-xl text-gray-300 mb-6 max-w-3xl mx-auto leading-relaxed">
+            This little-known method reverse-engineers pro mixes in minutes, so you can dial in a huge, polished sound with perfect accuracy, every single time.
         </p>
         
         <!-- Wistia Video Embed -->
-        <div data-animate="fade" data-delay="350" class="mx-auto max-w-xl mb-8 rounded-xl overflow-hidden shadow-2xl">
+        <div data-animate="fade" data-delay="300" class="mx-auto max-w-xl mb-6 rounded-xl overflow-hidden shadow-2xl">
             <script src="https://fast.wistia.com/player.js" async></script>
             <script src="https://fast.wistia.com/embed/fo0gqcn9z8.js" async type="module"></script>
             <style>
@@ -41,7 +42,7 @@
                 @media (max-width: 768px) {
                     .video-container {
                         width: 100%;
-                        padding: 0 1rem; /* Example padding, adjust as needed */
+                        padding: 0 1rem;
                     }
                 }
             </style>
@@ -51,24 +52,31 @@
         </div>
         
         <div data-animate="fade" data-delay="400" class="relative">
-            <!-- CTA button with enhanced glow -->
-            <a href="#" id="hero-cta-button" class="btn-lg inline-block shadow-cta-glow">
-                BOOK YOUR FREE SONG UPGRADE SESSION
+            <!-- NEW CTA BUTTON -->
+            <a href="#" id="hero-cta-button" class="btn-lg inline-block shadow-cta-glow mb-4">
+                CLAIM YOUR 'INSTANT SONG UPGRADE' NOW
             </a>
             
-            <p class="mt-4 text-sm text-gray-400">
-                *No sales pitch. Just genuine insights for your music.*
+            <!-- SPECIFIC SUBTEXT -->
+            <p class="text-sm text-gray-400 mb-4">
+                Get a personalized plan to transform your song into a reference-quality mix
             </p>
-            <p class="mt-2 text-green-400 font-semibold mb-8">
-                ✓ <span class="text-gray-300">You'll walk away with 3 actionable fixes</span>
-            </p>
+            
+            <!-- LOCATION-BASED URGENCY -->
+            <!-- Desktop Version -->
+            <div class="desktop-spots" style="font-size: 18px; font-weight: 400; font-style: regular; color: #fff; text-align: center; font-family: 'Inter', sans-serif;">
+                Only a few spots left for <span id="user-location-desktop">your area</span> as of <span id="dynamic-date-desktop">Loading...</span>, sessions close soon
+            </div>
+
+            <!-- Mobile Version (hidden by default, visible only on mobile) -->
+            <div class="mobile-spots" style="font-size: 12px; font-weight: 400; font-style: italic; color: #fff; text-align: center; font-family: 'Inter', sans-serif; display: none;">
+                Only <span id="spots-left-mobile">5</span> spots left for <span id="user-location-mobile">your area</span> as of <span id="dynamic-date-mobile">Loading...</span>, applications close soon
+            </div>
         </div>
     </div>
-    
-    <!-- Label Logo Marquee Removed -->
 
     <!-- Animated Chevron -->
-    <div class="absolute bottom-12 left-1/2 transform -translate-x-1/2 z-20"> {/* Adjusted bottom to 12, can be tweaked */}
+    <div class="absolute bottom-12 left-1/2 transform -translate-x-1/2 z-20">
         <svg class="w-8 h-8 text-gray-500 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
         </svg>
@@ -95,9 +103,6 @@
 .animation-delay-300 { animation-delay: 0.3s; }
 .animation-delay-400 { animation-delay: 0.4s; }
 .animation-delay-500 { animation-delay: 0.5s; }
-
-/* Marquee styles removed */
-
 </style>
 
 <script>
@@ -140,5 +145,68 @@ document.addEventListener('DOMContentLoaded', () => {
           }
       });
   }
+
+  // LOCATION AND DATE LOGIC
+  // Set date
+  const options: Intl.DateTimeFormatOptions = { month: "long", day: "numeric" };
+  const today = new Date().toLocaleDateString("en-US", options);
+
+  const dynamicDateDesktop = document.getElementById("dynamic-date-desktop");
+  const dynamicDateMobile = document.getElementById("dynamic-date-mobile");
+  
+  if (dynamicDateDesktop) dynamicDateDesktop.textContent = today;
+  if (dynamicDateMobile) dynamicDateMobile.textContent = today;
+
+  // Fetch user location using ipinfo.io
+  fetch("https://ipinfo.io/json?token=ff316ef2f19f67")
+    .then(response => response.json())
+    .then(data => {
+      const userLocationDesktop = document.getElementById("user-location-desktop");
+      const userLocationMobile = document.getElementById("user-location-mobile");
+      
+      if (userLocationDesktop) userLocationDesktop.textContent = data.city || "your area";
+      if (userLocationMobile) userLocationMobile.textContent = data.city || "your area";
+    })
+    .catch(error => console.error("Error fetching location:", error));
+
+  // Handle spots left logic with localStorage
+  const minSpots = 2; // Minimum spots to display
+  const initialSpots = 5; // Starting number of spots
+
+  // Get the current spots from localStorage or initialize it
+  const storedSpots = localStorage.getItem("remainingSpots");
+  let remainingSpots: number;
+
+  if (storedSpots === null) {
+    remainingSpots = initialSpots;
+  } else {
+    remainingSpots = Math.max(minSpots, parseInt(storedSpots) - 1);
+  }
+
+  // Update localStorage with new value
+  localStorage.setItem("remainingSpots", remainingSpots.toString());
+
+  // Display the updated count
+  const spotsLeftMobile = document.getElementById("spots-left-mobile");
+  if (spotsLeftMobile) spotsLeftMobile.textContent = remainingSpots.toString();
+
+  // Show the correct version based on screen width
+  function toggleVisibility() {
+    const mobileSpots = document.querySelector(".mobile-spots") as HTMLElement;
+    const desktopSpots = document.querySelector(".desktop-spots") as HTMLElement;
+    
+    if (mobileSpots && desktopSpots) {
+      if (window.innerWidth <= 1100) {
+        mobileSpots.style.display = "block";
+        desktopSpots.style.display = "none";
+      } else {
+        mobileSpots.style.display = "none";
+        desktopSpots.style.display = "block";
+      }
+    }
+  }
+
+  toggleVisibility();
+  window.addEventListener("resize", toggleVisibility);
 });
 </script> 

@@ -28,51 +28,127 @@ const StarIcon = `
 ---
 <section id="offer-section" class="py-16 md:py-24 bg-gradient-to-b from-[#080810] to-[#0c0c18] px-4 md:px-8">
     <div class="max-w-3xl mx-auto mb-6">
-        <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-snug text-center">
-            <span class="block text-silvery-gradient">Let's See If We Can Help You:</span>
-            <span class="block text-transparent bg-clip-text bg-gradient-to-r from-pulse-purple to-pulse-cyan">The Instant Song Upgrade Session</span>
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight text-center pb-3">
+            <span class="block text-silvery-gradient pb-2">Stop Wondering What<br class="hidden sm:block"> You're Missing</span>
+            <span class="block text-transparent bg-clip-text bg-gradient-to-r from-pulse-purple to-pulse-cyan pb-2 leading-normal">Get the Data That<br class="hidden sm:block"> Changes Everything</span>
         </h2>
         <p class="mt-6 text-lg md:text-xl text-gray-300 text-center">
-            Instead of asking you to commit right away, I'd like to offer you a free session to experience our approach firsthand.
+            Instead of asking you to trust us, we want to <strong class="text-white">prove our method works</strong> by showing you exactly what separates your tracks from Billboard Top 40 hits, for free.
         </p>
+    </div>
+
+    <!-- ADD COUNTDOWN TIMER -->
+    <div class="max-w-3xl mx-auto mb-8 text-center">
+        <div class="bg-red-500/10 border border-red-500/20 rounded-lg p-4 mb-6">
+            <p class="text-red-400 font-semibold mb-2">⚠️ LIMITED TIME OFFER</p>
+            <p class="text-gray-300 text-sm md:text-base">This complimentary track analysis offer expires in:</p>
+            <div id="countdown-timer" class="text-xl md:text-2xl font-bold text-white mt-2 font-mono">
+                <span id="days">02</span>:<span id="hours">23</span>:<span id="minutes">45</span>:<span id="seconds">12</span>
+            </div>
+            <p class="text-xs md:text-sm text-gray-400 mt-2">After this deadline, we'll be charging $297 for the same professional analysis</p>
+        </div>
     </div>
 
     <!-- Offer Card with Subtle Glow -->
     <div class="max-w-3xl mx-auto card-gradient p-8 md:p-10 rounded-2xl shadow-glass border border-gray-800/20 overflow-hidden">
         <div class="relative z-10">
-            <h3 class="text-2xl md:text-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-pulse-purple to-pulse-cyan mb-8 text-center">Here's What's Included</h3>
+            <h3 class="text-2xl md:text-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-pulse-purple to-pulse-cyan mb-8 text-center pb-2 leading-normal">What You Get in Your Free Analysis Session</h3>
             
-            <ul class="space-y-5 mb-10">
-                {offerDetails.map(detail => (
-                    <li class="flex items-start text-gray-200 text-md md:text-lg pl-2">
-                        <svg class="w-5 h-5 text-pulse-purple mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                        </svg>
-                        <span>{detail.text}</span>
+            <!-- VALUE STACK WITH PRICING -->
+            <div class="bg-[#080810]/60 rounded-xl p-6 mb-8 border border-pulse-purple/20">
+                <h4 class="text-xl font-semibold text-white mb-4 text-center">Here's Everything Included in Your Complimentary Session:</h4>
+                <ul class="space-y-4 mb-6">
+                    <li class="flex items-start justify-between text-gray-200 text-md md:text-lg pl-2">
+                        <div class="flex items-start">
+                            <svg class="w-5 h-5 text-pulse-purple mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span>AI-powered stem separation of your track + professional reference track</span>
+                        </div>
+                        <span class="text-pulse-cyan font-semibold">$197</span>
                     </li>
-                ))}
-            </ul>
+                    <li class="flex items-start justify-between text-gray-200 text-md md:text-lg pl-2">
+                        <div class="flex items-start">
+                            <svg class="w-5 h-5 text-pulse-purple mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span>30-minute live analysis session with professional engineer</span>
+                        </div>
+                        <span class="text-pulse-cyan font-semibold">$297</span>
+                    </li>
+                    <li class="flex items-start justify-between text-gray-200 text-md md:text-lg pl-2">
+                        <div class="flex items-start">
+                            <svg class="w-5 h-5 text-pulse-purple mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Custom written action plan with 3 specific, measurable fixes</span>
+                        </div>
+                        <span class="text-pulse-cyan font-semibold">$197</span>
+                    </li>
+                    <li class="flex items-start justify-between text-gray-200 text-md md:text-lg pl-2">
+                        <div class="flex items-start">
+                            <svg class="w-5 h-5 text-pulse-purple mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Separated stems from your reference track for detailed study</span>
+                        </div>
+                        <span class="text-pulse-cyan font-semibold">$97</span>
+                    </li>
+                    <li class="flex items-start justify-between text-gray-200 text-md md:text-lg pl-2">
+                        <div class="flex items-start">
+                            <svg class="w-5 h-5 text-pulse-purple mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span><strong>BONUS:</strong> "Quick Wins" preset pack for instant improvements</span>
+                        </div>
+                        <span class="text-pulse-cyan font-semibold">$147</span>
+                    </li>
+                </ul>
+                
+                <div class="border-t border-gray-700 pt-4 flex justify-between items-center">
+                    <span class="text-lg font-semibold text-gray-300">Total Value:</span>
+                    <div class="text-right">
+                        <div class="text-lg text-gray-400 line-through">$935</div>
+                        <div class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pulse-purple to-pulse-cyan pb-1 leading-normal">FREE</div>
+                    </div>
+                </div>
+            </div>
             
             <div class="text-center mb-10">
-                <p class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pulse-purple to-pulse-cyan">Your Price: $0</p>
-                <p class="text-md text-gray-400 mt-1">(For a Limited Time Only)</p>
+                <p class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pulse-purple to-pulse-cyan pb-1 leading-normal">Your Investment: $0</p>
+                <p class="text-md text-gray-400 mt-1">(But Only If You Act Now)</p>
+            </div>
+
+            <!-- VALUE PROMISE -->
+            <div class="bg-green-500/10 border border-green-500/20 rounded-lg p-6 mb-8">
+                <div class="flex items-center justify-center mb-4">
+                    <div class="bg-green-500/20 p-3 rounded-full">
+                        <svg class="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                </div>
+                <h4 class="text-xl font-semibold text-green-400 text-center mb-3">Our Commitment</h4>
+                <p class="text-gray-300 text-center">
+                    You'll walk away with at least 3 specific, actionable improvements for your track. <strong>That's our standard for every session.</strong>
+                </p>
             </div>
 
             <p class="mb-8 text-lg text-gray-300 text-center">
-                Even if we never work together beyond this session, you'll walk away with a <span class="text-pulse-purple">clear understanding</span> of what's holding your productions back and <span class="text-pulse-cyan">specific steps to improve</span>.
+                You'll walk away with <span class="text-pulse-purple font-semibold">3 specific, measurable changes</span> that will immediately show you what needs fixing in your productions. <span class="text-pulse-cyan font-semibold">No fluff. No generic advice. Just the exact insights your tracks need.</span>
             </p>
 
             <div class="mb-8 text-center">
-                <p class="text-xl md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pulse-purple to-pulse-cyan">
-                    No sales pitch. No pressure. No catch.
+                <p class="text-xl md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pulse-purple to-pulse-cyan pb-1 leading-normal">
+                    No pitch. No pressure. No upsells.
                 </p>
-                <p class="mt-2 text-lg text-gray-300">Just genuine insights you can apply immediately.</p>
+                <p class="mt-2 text-lg text-gray-300">Just the data your tracks need to compete with chart hits.</p>
             </div>
 
             <div class="text-center">
                 <button id="open-calendar-modal-offer" 
                       class="btn-lg shadow-cta-glow text-lg inline-block font-bold transition-all duration-300">
-                   BOOK YOUR FREE SONG UPGRADE SESSION
+                   CLAIM MY FREE TRACK ANALYSIS ($935 VALUE)
                 </button>
                 <p class="mt-4 text-sm text-gray-400">
                     *Only <span id="spots-left-offer" class="text-pulse-cyan font-semibold">{spotsLeft}</span> spots left this week*
@@ -95,6 +171,22 @@ const StarIcon = `
                                 <img src={avatar.src} alt={avatar.alt} class="w-full h-full object-cover" />
                             </div>
                         ))}
+                    </div>
+                </div>
+                
+                <!-- Live Activity Feed -->
+                <div id="live-activity" class="mt-4 w-full max-w-md">
+                    <div class="bg-green-500/10 border border-green-500/20 rounded-lg p-3">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse mr-2"></div>
+                                <span class="text-green-400 text-xs font-semibold">LIVE ACTIVITY</span>
+                            </div>
+                            <span class="text-xs text-gray-400" id="activity-time">2 min ago</span>
+                        </div>
+                        <p class="text-xs text-gray-300 mt-1" id="activity-message">
+                            🎵 Sarah from Los Angeles just booked her session
+                        </p>
                     </div>
                 </div>
             </div>
@@ -173,4 +265,92 @@ const StarIcon = `
             }
         });
     }
+
+    // COUNTDOWN TIMER FUNCTIONALITY
+    function startCountdown() {
+        // Set countdown to 2 days, 23 hours, 45 minutes from now
+        const countdownDate = new Date().getTime() + (2 * 24 * 60 * 60 * 1000) + (23 * 60 * 60 * 1000) + (45 * 60 * 1000);
+        
+        const timer = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            const daysEl = document.getElementById('days');
+            const hoursEl = document.getElementById('hours');
+            const minutesEl = document.getElementById('minutes');
+            const secondsEl = document.getElementById('seconds');
+            
+            if (daysEl) daysEl.textContent = days.toString().padStart(2, '0');
+            if (hoursEl) hoursEl.textContent = hours.toString().padStart(2, '0');
+            if (minutesEl) minutesEl.textContent = minutes.toString().padStart(2, '0');
+            if (secondsEl) secondsEl.textContent = seconds.toString().padStart(2, '0');
+            
+            if (distance < 0) {
+                clearInterval(timer);
+                // Reset to a new countdown when it expires
+                setTimeout(startCountdown, 1000);
+            }
+        }, 1000);
+    }
+
+    // Start the countdown when the page loads
+    document.addEventListener('DOMContentLoaded', startCountdown);
+
+    // LIVE ACTIVITY FEED
+    const activityMessages = [
+        "🎵 Sarah from Los Angeles just booked her session",
+        "🔥 Marcus from Detroit got his track analyzed", 
+        "⚡ Emma from London just claimed her spot",
+        "🎯 Jake from Nashville booked his analysis",
+        "🚀 Alex from Berlin just signed up",
+        "🎨 Maya from Toronto claimed her session",
+        "⭐ Chris from Phoenix just booked",
+        "🎼 Sofia from Miami got her analysis slot",
+        "🔊 David from Seattle just registered",
+        "🎪 Lisa from Chicago claimed her spot"
+    ];
+
+    const timeOptions = [
+        "2 min ago", "5 min ago", "8 min ago", "12 min ago", "15 min ago",
+        "18 min ago", "23 min ago", "28 min ago", "32 min ago", "35 min ago"
+    ];
+
+    function updateActivityFeed() {
+        const activityMessage = document.getElementById('activity-message');
+        const activityTime = document.getElementById('activity-time');
+        
+        if (activityMessage && activityTime) {
+            const randomMessage = activityMessages[Math.floor(Math.random() * activityMessages.length)];
+            const randomTime = timeOptions[Math.floor(Math.random() * timeOptions.length)];
+            
+            // Fade out
+            const activityContainer = document.getElementById('live-activity');
+            if (activityContainer) {
+                activityContainer.style.opacity = '0.5';
+                
+                setTimeout(() => {
+                    activityMessage.textContent = randomMessage;
+                    activityTime.textContent = randomTime;
+                    
+                    // Fade back in
+                    activityContainer.style.opacity = '1';
+                }, 200);
+            }
+        }
+    }
+
+    // Update activity feed every 8-15 seconds
+    function startActivityFeed() {
+        setInterval(() => {
+            updateActivityFeed();
+        }, Math.random() * 7000 + 8000); // Random interval between 8-15 seconds
+    }
+
+    // Start activity feed with initial delay
+    setTimeout(startActivityFeed, 3000);
 </script> 

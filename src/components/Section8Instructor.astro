@@ -8,7 +8,7 @@ const instructors = [
         credentials: [
             "Over 250 million Spotify streams",
             "Billboard charting tracks including \"Trippin\" (#7)",
-            "Created remixes for Martin Garrix and Afrojack",
+            "Official remixes for Martin Garrix and Afrojack",
             "Performed at Tomorrowland and EDC Las Vegas"
         ]
     },
@@ -17,10 +17,10 @@ const instructors = [
         imageSrc: "/instructor-photos/Eric Sooke.webp", // Updated to correct image path
         liveBadge: "Just taught: Harmonic Analysis Masterclass",
         credentials: [
-            "That's me! Tracks with over 150 million streams",
-            "Created an official remix for Linkin Park",
+            "Personal and client tracks with over 150 million streams",
+            "Official remixes for Linkin Park / Mutemath",
             "Produced Mutemath's album title track \"Changes\"",
-            "Work with Atlantic Records and Warner Bros."
+            "Work with Atlantic, Warner, Monstercat, STMPD, Armada"
         ]
     },
     {
@@ -56,7 +56,7 @@ const StarIcon = `
 ---
 <section id="instructors" class="py-16 md:py-24 bg-gradient-to-b from-[#0a0a16] to-[#080810] px-4 md:px-8">
     <div class="text-center mb-12 max-w-3xl mx-auto">
-        <h2 class="text-4xl md:text-5xl font-extrabold text-silvery-gradient tracking-tight leading-none" data-animate="fade" data-delay="100">
+        <h2 class="text-4xl md:text-5xl font-extrabold text-silvery-gradient tracking-tight leading-none pb-3" data-animate="fade" data-delay="100">
             The Team Behind This
         </h2>
         <p class="mt-6 text-lg text-gray-300" data-animate="fade" data-delay="200">
@@ -80,7 +80,7 @@ const StarIcon = `
                     </div>
                     
                     <div>
-                        <h3 class="text-xl font-bold text-silvery-gradient tracking-tight leading-snug mb-1">{instructor.name}</h3>
+                        <h3 class="text-xl font-bold text-silvery-gradient tracking-tight leading-snug mb-1 pb-1">{instructor.name}</h3>
                         <div class="inline-block py-1 px-2.5 bg-pulse-purple/20 text-pulse-purple border border-pulse-purple/30 rounded-md text-xs font-medium mb-3">
                             {instructor.liveBadge}
                         </div>

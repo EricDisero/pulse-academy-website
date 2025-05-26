@@ -2,35 +2,47 @@
 // src/components/Section11FAQ.astro
 const faqItems = [
     {
+        question: "Is this really free? What's the catch?",
+        answer: "Yes, it's completely free. No hidden costs, no upsells during the session. I offer this because I know once you see how powerful this approach is, you'll want to work with us. It's that simple."
+    },
+    {
         question: "Will this work for my genre?",
-        answer: "While we specialize in electronic music, pop, and hip-hop, the approach works for any genre. The principles of professional production are universal."
+        answer: "While we specialize in electronic music, pop, and hip-hop, the approach works for any genre. Professional mixing principles are universal, whether you're making trap, house, rock, or country."
     },
     {
-        question: "Do I need special plugins?",
-        answer: "Not at all. Our methods work with any DAW and standard plugins. It\'s about techniques, not specific tools."
+        question: "I've tried everything. Why would this be different?",
+        answer: "Because this isn't about tips or tricks, it's about data. We'll show you the exact frequency response, dynamics, and spatial characteristics of professional tracks vs. yours. No guesswork, just measurable differences you can fix."
     },
     {
-        question: "How is this different from other courses?",
-        answer: "Instead of subjective tips, we show you exactly what makes professional tracks work at the stem level. We focus on measurements, not opinions."
+        question: "Do I need expensive plugins or gear?",
+        answer: "Not at all. Our methods work with any DAW and standard plugins that come with it. It's about understanding what to do, not what tools to buy. Better techniques beat expensive gear every time."
     },
     {
-        question: "I\'ve tried everything. Why would this be different?",
-        answer: "That\'s why the free session exists – experience it yourself with your own music, then decide."
+        question: "What if my track is terrible?",
+        answer: "Perfect! The worse your starting point, the more dramatic your improvement will be. We've worked with complete beginners and helped them achieve professional results. Your current level doesn't matter, your willingness to improve does."
     },
     {
         question: "How advanced do I need to be?",
-        answer: "You should know your way around your DAW, but you don\'t need to be advanced – just committed to improving."
+        answer: "You should know your way around your DAW and be able to create complete tracks, but you don't need to be advanced. If you can make a beat and add some vocals or leads, you're ready."
     },
     {
-        question: "What if I\'m short on time?",
-        answer: "Our approach actually saves time by eliminating guesswork. Many of our students tell us they achieved more in weeks than they did in years of trial and error."
+        question: "What if I'm short on time?",
+        answer: "This actually saves you time. Instead of spending months guessing what's wrong, you'll know exactly what to fix in 30 minutes. Many students tell us they achieved more in weeks than they did in years of trial and error."
+    },
+    {
+        question: "What happens after the free session?",
+        answer: "Nothing unless you want it to. You'll get your analysis, action plan, and reference stems with no obligation. If you want ongoing help, we'll tell you about our program, but there's zero pressure."
+    },
+    {
+        question: "Can you really improve any track?",
+        answer: "If it's mixed and arranged reasonably well, absolutely. We've taken amateur-sounding tracks and helped them reach label-quality standards. The key is knowing exactly what needs to change, which is what we show you."
     }
 ];
 ---
 <section id="faq" class="py-12 max-w-3xl mx-auto">
     <div class="text-center mb-12 md:mb-16">
-        <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight pb-1">
-            <span class="block text-transparent bg-clip-text bg-gradient-to-r from-brand-purple to-pop-pink">Frequently Asked Questions</span>
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight pb-3">
+            <span class="block text-transparent bg-clip-text bg-gradient-to-r from-brand-purple to-pop-pink pb-2 leading-normal">Frequently Asked Questions</span>
         </h2>
     </div>
 
@@ -38,7 +50,7 @@ const faqItems = [
         {faqItems.map((item, index) => (
             <div class="faq-item glassmorphism p-0 overflow-hidden rounded-lg">
                 <button class="faq-question w-full flex items-center justify-between p-6 cursor-pointer hover:bg-dark-card/50 transition-colors duration-200 ease-in-out focus:outline-none text-left">
-                    <h3 class="text-lg md:text-xl font-semibold text-silvery-gradient pb-1">{item.question}</h3>
+                    <h3 class="text-lg md:text-xl font-semibold text-silvery-gradient pb-2">{item.question}</h3>
                     <svg class="faq-icon w-5 h-5 text-pop-pink transform transition-transform duration-300 ease-out" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                     </svg>

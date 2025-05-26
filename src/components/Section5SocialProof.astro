@@ -85,8 +85,8 @@ const StarIcon = `
 <section id="social-proof" class="py-16 md:py-24 bg-gradient-to-b from-[#0a0a15] to-[#080810] px-4 md:px-8">
     <div class="max-w-6xl mx-auto">
         <div class="text-center mb-12 md:mb-16 max-w-3xl mx-auto" data-animate="fade" data-delay="100">
-            <h2 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-none">
-                <span class="bg-clip-text text-transparent bg-gradient-to-r from-pulse-purple to-pulse-cyan">What People Like You Are Saying</span>
+            <h2 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-none pb-3">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-pulse-purple to-pulse-cyan pb-2 leading-normal">What People Like You Are Saying</span>
             </h2>
             
             <!-- Interactive rating display -->
@@ -113,7 +113,7 @@ const StarIcon = `
                     <img src={featuredQuote.avatarImage} alt={`Avatar for ${featuredQuote.name}`} class="absolute inset-0 w-full h-full object-cover" />
                 </div>
                 <div>
-                    <h3 class="text-2xl md:text-3xl font-bold text-silvery-gradient tracking-tight leading-none">
+                    <h3 class="text-2xl md:text-3xl font-bold text-silvery-gradient tracking-tight leading-none pb-2">
                         "I Made More Progress in 4 Days Than in 5-8 Years of My Career"
                     </h3>
                     <p class="text-gray-400 mt-2">- {featuredQuote.name}</p>
@@ -125,7 +125,7 @@ const StarIcon = `
         </div>
 
         <div class="mb-16 md:mb-20 max-w-5xl mx-auto" data-animate="fade" data-delay="300">
-            <h3 class="text-2xl md:text-3xl font-bold text-center text-silvery-gradient mb-10 tracking-tight leading-none">Unfiltered Feedback</h3>
+            <h3 class="text-2xl md:text-3xl font-bold text-center text-silvery-gradient mb-10 tracking-tight leading-none pb-2">Unfiltered Feedback</h3>
             
             <div id="testimonial-carousel" class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                 {testimonials.map((testimonial, index) => (
@@ -149,7 +149,7 @@ const StarIcon = `
 
         <!-- Student Testimonials with Thumbnails -->
         <div class="mb-16 md:mb-20 max-w-4xl mx-auto" data-animate="fade" data-delay="400">
-            <h3 class="text-2xl md:text-3xl font-bold text-center text-silvery-gradient mb-8 tracking-tight leading-none">What Our Students Say</h3>
+            <h3 class="text-2xl md:text-3xl font-bold text-center text-silvery-gradient mb-8 tracking-tight leading-none pb-2">What Our Students Say</h3>
             
             <div class="space-y-6">
                 {studentTestimonials.map((testimonial, index) => (
@@ -174,7 +174,7 @@ const StarIcon = `
         </div>
 
         <div class="max-w-3xl mx-auto" data-animate="fade" data-delay="500">
-            <h3 class="text-2xl md:text-3xl font-bold text-center text-silvery-gradient mb-8 tracking-tight leading-none">Success Stories</h3>
+            <h3 class="text-2xl md:text-3xl font-bold text-center text-silvery-gradient mb-8 tracking-tight leading-none pb-2">Success Stories</h3>
             <ul class="space-y-5">
                 {successStories.map(story => (
                     <li class="card-gradient p-4 md:p-5 rounded-lg text-gray-300 text-lg flex items-center shadow-glass hover:shadow-glow-sm hover:border-pulse-purple/30 border border-gray-800/20 transition-all hover:translate-x-1 transform duration-300">
