@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+
 export interface Props {
 	title: string;
 }
@@ -85,6 +86,10 @@ const { title } = Astro.props;
           setTimeout(initAnimations, 100);
         }
       });
+    </script>
+    <script>
+      import { injectSpeedInsights } from '@vercel/speed-insights';
+      injectSpeedInsights();
     </script>
 	</body>
 </html> 
