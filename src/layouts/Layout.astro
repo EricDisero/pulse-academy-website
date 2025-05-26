@@ -56,6 +56,92 @@ const { title } = Astro.props;
     </div>
     <script src="/src/utils/spotsManager.js"></script>
     <script>
+      // Unified CTA Button Handler - Ensures ALL buttons work
+      document.addEventListener('DOMContentLoaded', () => {
+        // Function to open the calendar modal
+        const openCalendarModal = () => {
+          const calendarModal = document.getElementById('calendar-modal');
+          if (calendarModal) {
+            calendarModal.classList.remove('hidden');
+            setTimeout(() => calendarModal.classList.add('opacity-100'), 10);
+            
+            // Load GHL iframe if not already loaded
+            const iframe = document.getElementById('ghl-iframe') as HTMLIFrameElement;
+            if (iframe && !iframe.src) {
+              console.log('Loading GHL iframe...');
+              iframe.src = 'https://api.leadconnectorhq.com/widget/survey/6RBmf85SJ0IFIO51kKfd';
+            }
+          } else {
+            console.warn('Calendar modal not found on this page');
+          }
+        };
+
+        // List of all button IDs that should open the modal
+        const ctaButtonIds = [
+          'hero-cta-button',
+          'header-cta-button', 
+          'open-calendar-modal-offer',
+          'cta-button-main',
+          'final-cta-main'
+        ];
+
+        // Attach click handlers to all CTA buttons
+        ctaButtonIds.forEach(buttonId => {
+          const button = document.getElementById(buttonId);
+          if (button) {
+            button.addEventListener('click', (e) => {
+              e.preventDefault();
+              openCalendarModal();
+            });
+          }
+        });
+
+        // Handle inline onclick buttons (like in blog posts)
+        document.addEventListener('click', (e) => {
+          const target = e.target as HTMLElement;
+          if (target && target.matches && (target.matches('.btn-lg') || target.matches('[onclick*="calendar-modal"]'))) {
+            // Prevent default action for inline onclick handlers
+            const elementWithOnclick = target as any;
+            if (elementWithOnclick.onclick) {
+              e.preventDefault();
+              openCalendarModal();
+            }
+          }
+        });
+
+        // Handle close modal functionality
+        const closeModal = () => {
+          const calendarModal = document.getElementById('calendar-modal');
+          if (calendarModal) {
+            calendarModal.classList.remove('opacity-100');
+            setTimeout(() => calendarModal.classList.add('hidden'), 300);
+          }
+        };
+
+        // Close button handler
+        const closeButton = document.getElementById('close-calendar-modal');
+        if (closeButton) {
+          closeButton.addEventListener('click', closeModal);
+        }
+
+        // ESC key handler
+        window.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') {
+            closeModal();
+          }
+        });
+
+        // Click outside modal handler
+        const modal = document.getElementById('calendar-modal');
+        if (modal) {
+          modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+              closeModal();
+            }
+          });
+        }
+      });
+
       // Optimized animation observer with requestIdleCallback
       document.addEventListener('DOMContentLoaded', () => {
         const initAnimations = () => {
