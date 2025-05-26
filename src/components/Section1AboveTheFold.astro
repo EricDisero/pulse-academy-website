@@ -70,7 +70,7 @@
 
             <!-- Mobile Version (hidden by default, visible only on mobile) -->
             <div class="mobile-spots" style="font-size: 12px; font-weight: 400; font-style: italic; color: #fff; text-align: center; font-family: 'Inter', sans-serif; display: none;">
-                Only <span id="spots-left-mobile">5</span> spots left for <span id="user-location-mobile">your area</span> as of <span id="dynamic-date-mobile">Loading...</span>, applications close soon
+                Only <span id="spots-left-mobile">- spots left as of loading...</span> for <span id="user-location-mobile">your area</span>, applications close soon
             </div>
         </div>
     </div>
@@ -169,26 +169,10 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .catch(error => console.error("Error fetching location:", error));
 
-  // Handle spots left logic with localStorage
-  const minSpots = 2; // Minimum spots to display
-  const initialSpots = 5; // Starting number of spots
-
-  // Get the current spots from localStorage or initialize it
-  const storedSpots = localStorage.getItem("remainingSpots");
-  let remainingSpots: number;
-
-  if (storedSpots === null) {
-    remainingSpots = initialSpots;
-  } else {
-    remainingSpots = Math.max(minSpots, parseInt(storedSpots) - 1);
+  // Use shared spots manager
+  if ((window as any).spotsManager) {
+    (window as any).spotsManager.updateSpotsWithDate('spots-left-mobile');
   }
-
-  // Update localStorage with new value
-  localStorage.setItem("remainingSpots", remainingSpots.toString());
-
-  // Display the updated count
-  const spotsLeftMobile = document.getElementById("spots-left-mobile");
-  if (spotsLeftMobile) spotsLeftMobile.textContent = remainingSpots.toString();
 
   // Show the correct version based on screen width
   function toggleVisibility() {

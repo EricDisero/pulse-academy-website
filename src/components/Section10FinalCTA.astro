@@ -119,7 +119,7 @@
         
         <!-- Urgency reminder -->
         <div class="bg-red-500/10 border border-red-500/20 rounded-lg p-3 mb-6">
-            <p class="text-red-400 font-semibold text-sm">⚠️ Only 3 spots left this week</p>
+            <p class="text-red-400 font-semibold text-sm">⚠️ Only <span id="exit-intent-spots" class="text-red-400 font-semibold">- spots left as of loading...</span></p>
             <p class="text-gray-300 text-xs">Don't wait, these fill up fast</p>
         </div>
         
@@ -157,13 +157,23 @@
     const closeExitIntentBtn = document.getElementById('close-exit-intent-modal');
     const exitModalCtaTriggerBtn = document.getElementById('exit-modal-cta-trigger');
 
-    let exitIntentTimer; // Keep variable declaration for clearTimeout if needed elsewhere or by robust listener
+    let exitIntentTimer;
+    let exitIntentShown = false;
+    const EXIT_INTENT_STORAGE_KEY = 'exitIntentShown';
+
+    // Check if exit intent was already shown in this session
+    if (sessionStorage.getItem(EXIT_INTENT_STORAGE_KEY)) {
+        exitIntentShown = true;
+    }
 
     if (closeExitIntentBtn && exitIntentModal) {
         closeExitIntentBtn.addEventListener('click', () => {
-            if (exitIntentTimer) clearTimeout(exitIntentTimer); // Clear if robust listener sets a timer
+            if (exitIntentTimer) clearTimeout(exitIntentTimer);
             exitIntentModal.classList.remove('opacity-100');
             setTimeout(() => exitIntentModal.classList.add('hidden'), 300);
+            // Mark as shown so it won't appear again this session
+            sessionStorage.setItem(EXIT_INTENT_STORAGE_KEY, 'true');
+            exitIntentShown = true;
         });
     }
 
@@ -178,19 +188,48 @@
                 calendarModalForFinalCta.classList.remove('hidden');
                 setTimeout(() => calendarModalForFinalCta.classList.add('opacity-100'), 10);
             }, 300); 
+            // Mark as shown so it won't appear again this session
+            sessionStorage.setItem(EXIT_INTENT_STORAGE_KEY, 'true');
+            exitIntentShown = true;
         });
     }
 
+    // More natural exit intent - only trigger once per session with delay
     document.body.addEventListener('mouseleave', (e) => {
-        // Show only if mouse leaves from the top of the viewport (typical exit intent)
-        if (e.clientY <= 0 && exitIntentModal && exitIntentModal.classList.contains('hidden')) {
+        // Only show if:
+        // 1. Mouse leaves from the top of the viewport (typical exit intent)
+        // 2. Modal hasn't been shown yet in this session
+        // 3. Calendar modal is not open
+        // 4. User has been on page for at least 30 seconds
+        if (e.clientY <= 0 && 
+            !exitIntentShown && 
+            exitIntentModal && 
+            exitIntentModal.classList.contains('hidden')) {
+            
             const calendarIsOpen = calendarModalForFinalCta && !calendarModalForFinalCta.classList.contains('hidden');
-            if (!calendarIsOpen) {
-                // Potentially clear any other timers if they existed
-                // if (exitIntentTimer) clearTimeout(exitIntentTimer);
-                exitIntentModal.classList.remove('hidden');
-                setTimeout(() => exitIntentModal.classList.add('opacity-100'), 10);
+            const timeOnPage = (Date.now() - (window as any).pageLoadTime) / 1000;
+            
+            if (!calendarIsOpen && timeOnPage >= 30) {
+                // Add a small delay to make it feel more natural
+                exitIntentTimer = setTimeout(() => {
+                    exitIntentModal.classList.remove('hidden');
+                    setTimeout(() => exitIntentModal.classList.add('opacity-100'), 10);
+                    sessionStorage.setItem(EXIT_INTENT_STORAGE_KEY, 'true');
+                    exitIntentShown = true;
+                }, 500); // 500ms delay
             }
+        }
+    });
+
+    // Track page load time for minimum time on page requirement
+    if (!(window as any).pageLoadTime) {
+        (window as any).pageLoadTime = Date.now();
+    }
+
+    // Initialize spots count when page loads
+    document.addEventListener('DOMContentLoaded', () => {
+        if ((window as any).spotsManager) {
+            (window as any).spotsManager.updateSpotsWithDate('exit-intent-spots');
         }
     });
 </script> 

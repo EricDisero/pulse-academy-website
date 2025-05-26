@@ -43,7 +43,7 @@
     <text x="0" y="160" fill="rgba(255, 255, 255, 0.8)" font-family="Inter, sans-serif" font-size="10">Bass</text>
     <rect x="60" y="150" width="260" height="12" rx="2" fill="rgba(239, 68, 68, 0.3)" stroke="rgba(239, 68, 68, 0.5)" stroke-width="1"/>
     
-    <text x="0" y="180" fill="rgba(255, 255, 255, 0.8)" font-family="Inter, sans-serif" font-size="10">Everything Else</text>
+    <text x="0" y="180" fill="rgba(255, 255, 255, 0.8)" font-family="Inter, sans-serif" font-size="10">Instruments</text>
     <rect x="60" y="170" width="260" height="12" rx="2" fill="rgba(168, 85, 247, 0.3)" stroke="rgba(168, 85, 247, 0.5)" stroke-width="1"/>
   </g>
   
