@@ -1,0 +1,88 @@
+---
+import BlogLayout from '../layouts/BlogLayout.astro';
+
+const blogPosts = [
+    {
+        title: "The Real Reason Your Reese Basses Sound Weak (And How to Fix It)",
+        excerpt: "Why your thick, wide basses disappear on club systems and what professional producers do differently",
+        slug: "reese-bass-fix",
+        publishDate: "2024-01-15",
+        readTime: "8 min read",
+        category: "Bass Design"
+    },
+    // Add more posts here as they're created
+];
+---
+
+<BlogLayout title="Blog - Pulse Academy" description="Expert insights on music production, mixing, and sound design">
+    <!-- Hero Section -->
+    <section class="py-16 md:py-24 bg-gradient-to-b from-[#050507] to-[#080810] px-4 md:px-8">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight text-center pb-3">
+                <span class="block text-silvery-gradient pb-2">Production Insights & Techniques</span>
+                <span class="block text-transparent bg-clip-text bg-gradient-to-r from-pulse-purple to-pulse-cyan pb-2 leading-normal">That Actually Work in the Real World</span>
+            </h1>
+            <p class="mt-6 text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+                Deep dives into the techniques, methods, and insights that separate professional tracks from bedroom demos. No fluff, just actionable knowledge you can use today.
+            </p>
+        </div>
+    </section>
+
+    <!-- Blog Posts Grid -->
+    <section class="py-16 md:py-24 bg-gradient-to-b from-[#080810] to-[#0a0a15] px-4 md:px-8">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {blogPosts.map((post) => (
+                    <article class="card-gradient p-6 rounded-xl shadow-glass border border-gray-800/20 hover:border-pulse-purple/30 transition-all duration-300 group">
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="bg-pulse-purple/20 text-pulse-purple px-3 py-1 rounded-full text-xs font-semibold">
+                                {post.category}
+                            </span>
+                            <span class="text-gray-400 text-xs">{post.readTime}</span>
+                        </div>
+                        
+                        <h2 class="text-xl md:text-2xl font-semibold text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-pulse-purple group-hover:to-pulse-cyan transition-all duration-300">
+                            <a href={`/blog/${post.slug}`} class="hover:no-underline">
+                                {post.title}
+                            </a>
+                        </h2>
+                        
+                        <p class="text-gray-400 mb-4 text-sm leading-relaxed">
+                            {post.excerpt}
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-500 text-xs">
+                                {new Date(post.publishDate).toLocaleDateString('en-US', { 
+                                    year: 'numeric', 
+                                    month: 'long', 
+                                    day: 'numeric' 
+                                })}
+                            </span>
+                            <a 
+                                href={`/blog/${post.slug}`}
+                                class="inline-flex items-center gap-2 text-pulse-cyan hover:text-pulse-purple transition-colors text-sm font-semibold"
+                            >
+                                Read More
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+                ))}
+            </div>
+            
+            <!-- Coming Soon Message -->
+            <div class="text-center mt-12 bg-[#080810]/60 p-8 rounded-xl border border-pulse-purple/20">
+                <h3 class="text-2xl font-bold text-white mb-4">More Content Coming Soon</h3>
+                <p class="text-gray-300 mb-6">
+                    We're constantly creating new content to help you improve your productions. Get instant access to our proven track analysis method while you wait for new articles.
+                </p>
+                <button class="btn-lg shadow-cta-glow" onclick="document.getElementById('calendar-modal')?.classList.remove('hidden'); setTimeout(() => document.getElementById('calendar-modal')?.classList.add('opacity-100'), 10);">
+                    Get Your Free Track Analysis
+                </button>
+            </div>
+        </div>
+    </section>
+</BlogLayout> 

@@ -1,0 +1,237 @@
+---
+import BlogLayout from '../../layouts/BlogLayout.astro';
+---
+
+<BlogLayout 
+    title="The Real Reason Your Reese Basses Sound Weak (And How to Fix It) - Pulse Academy" 
+    description="Why your thick, wide basses disappear on club systems and what professional producers do differently"
+    publishDate="2024-01-15"
+    author="Pulse Academy"
+>
+    <!-- SEO Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "The Real Reason Your Reese Basses Sound Weak (And How to Fix It)",
+        "description": "Why your thick, wide basses disappear on club systems and what professional producers do differently",
+        "author": {
+            "@type": "Organization",
+            "name": "Pulse Academy"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Pulse Academy",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://pulseacademy.com/logo.png"
+            }
+        },
+        "datePublished": "2024-01-15",
+        "dateModified": "2024-01-15",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://pulseacademy.com/blog/reese-bass-fix"
+        },
+        "keywords": ["reese bass", "music production", "bass design", "phase issues", "mixing", "EDM production"],
+        "articleSection": "Music Production"
+    })} />
+
+    <!-- Article Header -->
+    <section class="py-16 md:py-24 bg-gradient-to-b from-[#050507] to-[#080810] px-4 md:px-8">
+        <div class="max-w-4xl mx-auto">
+            <!-- Breadcrumb -->
+            <nav class="mb-8" aria-label="Breadcrumb">
+                <div class="flex items-center gap-2 text-sm text-gray-400">
+                    <a href="/" class="hover:text-pulse-cyan transition-colors">Home</a>
+                    <span>/</span>
+                    <a href="/blog" class="hover:text-pulse-cyan transition-colors">Blog</a>
+                    <span>/</span>
+                    <span class="text-gray-500">Reese Bass Fix</span>
+                </div>
+            </nav>
+
+            <!-- Article Meta -->
+            <div class="flex items-center gap-4 mb-6">
+                <span class="bg-pulse-purple/20 text-pulse-purple px-3 py-1 rounded-full text-sm font-semibold">
+                    Bass Design
+                </span>
+                <span class="text-gray-400 text-sm">8 min read</span>
+                <time datetime="2024-01-15" class="text-gray-400 text-sm">January 15, 2024</time>
+            </div>
+
+            <!-- Title and Subtitle -->
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-6 leading-tight">
+                The Real Reason Your Reese Basses Sound Weak (And How to Fix It)
+            </h1>
+            <p class="text-xl md:text-2xl text-pulse-cyan italic mb-8">
+                Why your thick, wide basses disappear on club systems and what professional producers do differently
+            </p>
+        </div>
+    </section>
+
+    <!-- Article Content -->
+    <section class="py-16 bg-gradient-to-b from-[#080810] to-[#0a0a15] px-4 md:px-8">
+        <div class="max-w-3xl mx-auto">
+            <article class="blog-content" style="color: #f1f5f9; font-size: 20px; line-height: 2;">
+                <p style="margin-bottom: 3rem; font-size: 20px; line-height: 2; color: #f1f5f9;">Your Reese bass sounds massive in your headphones. The low end is thick, the stereo width is impressive, and those detuned oscillators create that signature liquid movement that defines the sound.</p>
+
+                <p style="margin-bottom: 3rem; font-size: 20px; line-height: 2; color: #f1f5f9;">But then you test it on different speakers and everything falls apart.</p>
+
+                <p style="margin-bottom: 3rem; font-size: 20px; line-height: 2; color: #f1f5f9;">Maybe it completely disappears on your car stereo. Or it sounds muddy and undefined on your friend's studio monitors. Worst of all, when you finally get to play it out on a proper sound system, that bass you spent hours perfecting just... isn't there.</p>
+
+                <p style="margin-bottom: 3rem; font-size: 20px; line-height: 2; color: #f1f5f9;">The problem isn't your mixing skills or your sample selection. It's something most producers don't even know exists: <strong style="color: #ffffff; font-weight: 700;">phase relationships in the low end that create inconsistent, unreliable bass response.</strong></p>
+
+                <!-- First CTA -->
+                <div style="margin: 5rem 0; padding: 4rem 3rem; border-radius: 1rem; background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(34, 211, 238, 0.05)); border: 1px solid rgba(139, 92, 246, 0.3); text-align: center;">
+                    <h3 style="margin: 0 0 1.5rem 0; font-size: 2rem; font-weight: 700; color: #ffffff; line-height: 1.3;">Want to hear exactly what's wrong with your bass?</h3>
+                    <p style="margin: 0 0 2rem 0; font-size: 18px; line-height: 1.7; color: #e2e8f0;">Our free track analysis reveals these exact phase issues in your productions – in just 30 minutes.</p>
+                    <button class="btn-lg shadow-cta-glow" onclick="document.getElementById('calendar-modal')?.classList.remove('hidden'); setTimeout(() => document.getElementById('calendar-modal')?.classList.add('opacity-100'), 10);">
+                        Analyze My Track for Free
+                    </button>
+                </div>
+
+                <h2 style="margin: 5rem 0 2.5rem 0; padding-top: 3rem; border-top: 2px solid rgba(139, 92, 246, 0.2); font-size: 3rem; font-weight: 700; color: #ffffff; line-height: 1.2; letter-spacing: -0.01em;">What's Really Happening to Your Bass</h2>
+
+                <p style="margin-bottom: 3rem; font-size: 20px; line-height: 2; color: #f1f5f9;">When you create a Reese bass, you're essentially layering multiple copies of the same sound, slightly detuned from each other. This creates that characteristic wide, chorus-like effect.</p>
+
+                <p style="margin-bottom: 3rem; font-size: 20px; line-height: 2; color: #f1f5f9;">But those detuned oscillators don't just create width – they create a constantly shifting pattern of reinforcement and cancellation in your frequency spectrum.</p>
+
+                <p style="margin-bottom: 3rem; font-size: 20px; line-height: 2; color: #f1f5f9;">Think of it like waves in water. Sometimes the waves line up perfectly and create a bigger wave. Other times they crash into each other and cancel out, creating calm spots.</p>
+
+                <p style="margin-bottom: 3rem; font-size: 20px; line-height: 2; color: #f1f5f9;">The same thing happens with your detuned oscillators, except it's happening across your entire frequency range, including the crucial sub-bass frequencies.</p>
+
+                <p style="margin-bottom: 3rem; font-size: 20px; line-height: 2; color: #f1f5f9;">This means your bass level is constantly fluctuating. One moment certain frequencies are reinforcing each other and sounding loud, the next moment they're canceling and getting quiet.</p>
+
+                <p style="margin-bottom: 3rem; font-size: 20px; line-height: 2; color: #f1f5f9;"><strong style="color: #ffffff; font-weight: 700;">Your bass isn't just wide – it's unstable.</strong></p>
+
+                <!-- YouTube Video Embed -->
+                <div style="margin: 4rem 0;">
+                    <div class="relative w-full" style="padding-bottom: 56.25%; height: 0;">
+                        <iframe 
+                            class="absolute top-0 left-0 w-full h-full rounded-lg shadow-lg"
+                            src="https://www.youtube.com/embed/tgukNlTfcoI" 
+                            title="Reese Bass Phase Issues Explained"
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <p class="text-center text-gray-400 text-sm mt-4">
+                        Watch our detailed breakdown of Reese bass phase relationships and how they affect your mix
+                    </p>
+                </div>
+
+                <h2 style="margin: 5rem 0 2.5rem 0; padding-top: 3rem; border-top: 2px solid rgba(139, 92, 246, 0.2); font-size: 3rem; font-weight: 700; color: #ffffff; line-height: 1.2; letter-spacing: -0.01em;">Why the Standard Fixes Don't Work</h2>
+
+                <p style="margin-bottom: 3rem; font-size: 20px; line-height: 2; color: #f1f5f9;">Most producers try to solve this problem in one of two ways, and both approaches create new problems.</p>
+
+                <h3 style="margin: 4rem 0 2rem 0; font-size: 2.5rem; font-weight: 700; color: #f8fafc; line-height: 1.3;">The "Make It Mono" Approach</h3>
+
+                <p style="margin-bottom: 3rem; font-size: 20px; line-height: 2; color: #f1f5f9;">The first thing many producers try is making the low end mono while keeping the highs stereo. This seems logical – after all, most club systems sum the low end to mono anyway, right?</p>
+
+                <p style="margin-bottom: 3rem; font-size: 20px; line-height: 2; color: #f1f5f9;">The problem is that even when you force the low end to mono, those phase relationships between your detuned oscillators are still there.</p>
+
+                <p style="margin-bottom: 3rem; font-size: 20px; line-height: 2; color: #f1f5f9;">You're not actually fixing the instability; you're just changing how it manifests. Your bass might be mono now, but it's still fluctuating in level as those oscillators drift in and out of phase with each other.</p>
+
+                <h3 style="margin: 4rem 0 2rem 0; font-size: 2.5rem; font-weight: 700; color: #f8fafc; line-height: 1.3;">The "Split Bass" Method</h3>
+
+                <p style="margin-bottom: 3rem; font-size: 20px; line-height: 2; color: #f1f5f9;">The second common approach is splitting your Reese into two parts: a clean, stable sine wave handling the sub frequencies, and a stereo Reese handling everything above that.</p>
+
+                <p style="margin-bottom: 3rem; font-size: 20px; line-height: 2; color: #f1f5f9;">This creates a different problem. Now you have a perfectly stable sub that never moves, sitting underneath a flowing, dynamic mid-bass. The two parts don't feel connected.</p>
+
+                <p style="margin-bottom: 3rem; font-size: 20px; line-height: 2; color: #f1f5f9;">Your sub sounds static and boring, while your mid-bass has all the character but no foundation.</p>
+
+                <p style="margin-bottom: 3rem; font-size: 20px; line-height: 2; color: #f1f5f9;">It works for some styles of music, especially when you need that rock-solid sub for drops and heavy sections. But it doesn't capture the true character of a Reese bass, where the movement and flow should extend all the way down to the lowest frequencies.</p>
+
+                <!-- Second CTA -->
+                <div style="margin: 5rem 0; padding: 4rem 3rem; border-radius: 1rem; background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(34, 197, 94, 0.05)); border: 1px solid rgba(34, 197, 94, 0.3);">
+                    <div class="flex items-center justify-center mb-4">
+                        <div class="bg-green-500/20 p-3 rounded-full">
+                            <svg class="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <h4 style="margin: 0 0 1.5rem 0; font-size: 1.75rem; font-weight: 600; color: #22c55e; text-align: center; line-height: 1.3;">Don't Guess – Get the Data</h4>
+                    <p style="margin: 0 0 2rem 0; font-size: 18px; line-height: 1.7; color: #e2e8f0; text-align: center;">
+                        Instead of trying random fixes, see exactly what's happening in your bass frequencies. Our analysis shows you the precise phase issues and gives you specific solutions.
+                    </p>
+                    <div class="text-center">
+                        <button class="btn-lg shadow-cta-glow" onclick="document.getElementById('calendar-modal')?.classList.remove('hidden'); setTimeout(() => document.getElementById('calendar-modal')?.classList.add('opacity-100'), 10);">
+                            Get My Bass Analysis ($935 Value - Free)
+                        </button>
+                    </div>
+                </div>
+
+                <h2 style="margin: 5rem 0 2.5rem 0; padding-top: 3rem; border-top: 2px solid rgba(139, 92, 246, 0.2); font-size: 3rem; font-weight: 700; color: #ffffff; line-height: 1.2; letter-spacing: -0.01em;">The Professional Solution</h2>
+
+                <p style="margin-bottom: 3rem; font-size: 20px; line-height: 2; color: #f1f5f9;">The real solution involves creating a controlled crossover between stability and movement. You want enough consistency in your sub frequencies to ensure reliable playback, but enough movement to maintain that liquid Reese character.</p>
+
+                <p style="margin-bottom: 3rem; font-size: 20px; line-height: 2; color: #f1f5f9;">Here's how it works:</p>
+
+                <h3 style="margin: 4rem 0 2rem 0; font-size: 2.5rem; font-weight: 700; color: #f8fafc; line-height: 1.3;">Step 1: Create Your Source Sounds</h3>
+
+                <p style="margin-bottom: 3rem; font-size: 20px; line-height: 2; color: #f1f5f9;">Start with two separate Serum patches. The first is your main Reese – multiple detuned sawtooth oscillators creating that characteristic wide sound. The second is a simple, single sawtooth with no detuning at all.</p>
+
+                <h3 style="margin: 4rem 0 2rem 0; font-size: 2.5rem; font-weight: 700; color: #f8fafc; line-height: 1.3;">Step 2: Set Up Frequency Splitting</h3>
+
+                <p style="margin-bottom: 3rem; font-size: 20px; line-height: 2; color: #f1f5f9;">Route both sounds to separate mixer channels. On your simple sawtooth channel, use a low-pass filter set to around 90Hz. This becomes your sub foundation.</p>
+
+                <p style="margin-bottom: 3rem; font-size: 20px; line-height: 2; color: #f1f5f9;">On your main Reese channel, use a high-pass filter at the same frequency.</p>
+
+                <p style="margin-bottom: 3rem; font-size: 20px; line-height: 2; color: #f1f5f9;">This creates a crossover point where your stable sub takes over from your dynamic Reese.</p>
+
+                <h3 style="margin: 4rem 0 2rem 0; font-size: 2.5rem; font-weight: 700; color: #f8fafc; line-height: 1.3;">Step 3: Fine-Tune the Balance</h3>
+
+                <p style="margin-bottom: 3rem; font-size: 20px; line-height: 2; color: #f1f5f9;">Here's the crucial part: that crossover point isn't set in stone. Moving it higher gives you a more stable, mono-compatible bass. Moving it lower preserves more of the Reese character but risks some instability on certain systems.</p>
+
+                <p style="margin-bottom: 3rem; font-size: 20px; line-height: 2; color: #f1f5f9;"><strong style="color: #ffffff; font-weight: 700;">The sweet spot is usually somewhere between 80-100Hz, but it depends on your specific track and how the bass sits with other elements.</strong></p>
+
+                <h2 style="margin: 5rem 0 2.5rem 0; padding-top: 3rem; border-top: 2px solid rgba(139, 92, 246, 0.2); font-size: 3rem; font-weight: 700; color: #ffffff; line-height: 1.2; letter-spacing: -0.01em;">What This Actually Sounds Like</h2>
+
+                <p style="margin-bottom: 3rem; font-size: 20px; line-height: 2; color: #f1f5f9;">The result is a bass that feels cohesive from top to bottom. Your sub frequencies are stable enough to translate reliably across different playback systems, but they still have subtle movement that connects them to the flowing character of your mid-bass.</p>
+
+                <p style="margin-bottom: 3rem; font-size: 20px; line-height: 2; color: #f1f5f9;">Instead of that jarring disconnect between a static sub and a moving mid-range, you get smooth transitions and consistent character across the entire frequency range.</p>
+
+                <p style="margin-bottom: 3rem; font-size: 20px; line-height: 2; color: #f1f5f9;"><strong style="color: #ffffff; font-weight: 700;">The bass feels like one instrument rather than two separate elements fighting each other.</strong></p>
+
+                <h2 style="margin: 5rem 0 2.5rem 0; padding-top: 3rem; border-top: 2px solid rgba(139, 92, 246, 0.2); font-size: 3rem; font-weight: 700; color: #ffffff; line-height: 1.2; letter-spacing: -0.01em;">Testing Your Results</h2>
+
+                <p style="margin-bottom: 3rem; font-size: 20px; line-height: 2; color: #f1f5f9;">The real test isn't how your bass sounds in your studio – it's how it behaves everywhere else. A properly constructed Reese bass should:</p>
+
+                <ul style="margin: 3rem 0; padding-left: 2.5rem; font-size: 20px; line-height: 2;">
+                    <li style="margin-bottom: 1.5rem; line-height: 2; color: #f1f5f9;">Maintain its character when you switch to mono playback</li>
+                    <li style="margin-bottom: 1.5rem; line-height: 2; color: #f1f5f9;">Sound consistent across different speaker types and sizes</li>
+                    <li style="margin-bottom: 1.5rem; line-height: 2; color: #f1f5f9;">Hold its weight in busy mixes without getting lost</li>
+                    <li style="margin-bottom: 1.5rem; line-height: 2; color: #f1f5f9;">Feel connected and cohesive from the lowest sub frequencies to the mid-range</li>
+                </ul>
+
+                <h2 style="margin: 5rem 0 2.5rem 0; padding-top: 3rem; border-top: 2px solid rgba(139, 92, 246, 0.2); font-size: 3rem; font-weight: 700; color: #ffffff; line-height: 1.2; letter-spacing: -0.01em;">Beyond the Technical Stuff</h2>
+
+                <p style="margin-bottom: 3rem; font-size: 20px; line-height: 2; color: #f1f5f9;">Once you understand these principles, you can apply them to any kind of bass design, not just Reese basses. The concept of controlled crossovers between stable and dynamic elements shows up everywhere in professional mixing and sound design.</p>
+
+                <p style="margin-bottom: 3rem; font-size: 20px; line-height: 2; color: #f1f5f9;">The key insight is that sometimes the most musical solution isn't the most technically perfect one. Pure mono subs are technically superior for playback compatibility, but they can sound sterile. Pure stereo basses can sound amazing in isolation but fall apart in real-world playback situations.</p>
+
+                <p style="margin-bottom: 3rem; font-size: 20px; line-height: 2; color: #f1f5f9;"><strong style="color: #ffffff; font-weight: 700;">The professional approach finds the balance between technical requirements and musical character.</strong> Your bass needs to work on every system, but it also needs to serve the music.</p>
+
+                <p style="margin-bottom: 3rem; font-size: 20px; line-height: 2; color: #f1f5f9;">That's the difference between bedroom producers and professionals – understanding not just how to make sounds, but how to make sounds that work in the real world.</p>
+
+                <!-- Final CTA -->
+                <div style="margin: 5rem 0; padding: 4rem 3rem; border-radius: 1rem; background: rgba(8, 8, 16, 0.6); border: 1px solid rgba(139, 92, 246, 0.2); text-align: center;">
+                    <h3 style="margin: 0 0 1.5rem 0; font-size: 2rem; font-weight: 700; color: #ffffff; line-height: 1.3;">Ready to Fix Your Bass Issues?</h3>
+                    <p style="margin: 0 0 2rem 0; font-size: 18px; line-height: 1.7; color: #e2e8f0; max-width: 32rem; margin-left: auto; margin-right: auto;">
+                        Don't spend months guessing what's wrong with your tracks. Get a professional analysis that reveals exactly what needs fixing – including phase issues, frequency conflicts, and tonal balance problems.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                        <button class="btn-lg shadow-cta-glow text-lg" onclick="document.getElementById('calendar-modal')?.classList.remove('hidden'); setTimeout(() => document.getElementById('calendar-modal')?.classList.add('opacity-100'), 10);">
+                            Analyze My Track Now (Free)
+                        </button>
+                        <a href="/blog" class="text-pulse-cyan hover:text-pulse-purple transition-colors font-semibold">
+                            ← Back to Blog
+                        </a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+</BlogLayout> 

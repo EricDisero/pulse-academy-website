@@ -12,14 +12,15 @@ const { title } = Astro.props;
 <html lang="en" class="dark">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Pulse Academy Landing Page" />
+		<meta name="description" content="Transform your mixes into label-ready tracks with our AI-powered analysis and proven mixing techniques. Join Pulse Academy today." />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" type="image/png" sizes="32x32" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎵</text></svg>" />
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<slot name="head" />
 		
 		<!-- Critical Resource Preloading -->
+		<link rel="preload" href="/logo.png" as="image" type="image/png">
 		<link rel="preload" href="/label-logos/warner music.webp" as="image" type="image/webp">
 		<link rel="preload" href="/label-logos/atlantic logo.webp" as="image" type="image/webp">
 		<link rel="preload" href="/label-logos/monstercat logo.webp" as="image" type="image/webp">
