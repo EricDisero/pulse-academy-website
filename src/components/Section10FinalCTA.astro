@@ -88,58 +88,7 @@
     </div>
 </section>
 
-<!-- Enhanced Exit-Intent Modal -->
-<div id="exit-intent-modal" class="fixed inset-0 flex items-center justify-center p-4 z-[110] hidden transition-opacity duration-300 opacity-0">
-    <div class="fixed inset-0 bg-black/80 backdrop-blur-md z-[-1]"></div>
-    <div class="glassmorphism p-6 md:p-8 rounded-xl max-w-lg w-full text-center relative shadow-2xl">
-        <button id="close-exit-intent-modal" class="absolute top-3 right-3 text-gray-400 hover:text-white transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-        </button>
-        
-        <h3 class="text-2xl md:text-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-pulse-purple to-pulse-cyan mb-4 pb-1 leading-normal">Wait! Don't Give Up on Your Music</h3>
-        
-        <p class="text-gray-300 mb-4 text-lg">
-            <strong>You're 30 minutes away</strong> from knowing exactly what's holding your tracks back.
-        </p>
-        
-        <!-- Quick testimonial -->
-        <div class="bg-[#080810]/60 p-4 rounded-lg border border-pulse-purple/20 mb-6 text-left">
-            <p class="text-sm text-gray-300 mb-2">
-                "I've been producing for 4 years and this one session taught me more than all my courses combined. Finally understand why my tracks sounded amateur."
-            </p>
-            <div class="flex items-center justify-between">
-                <span class="text-xs text-gray-400">Marcus T., Electronic Producer</span>
-                <div class="flex">
-                    <span class="text-yellow-400">★★★★★</span>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Urgency reminder -->
-        <div class="bg-red-500/10 border border-red-500/20 rounded-lg p-3 mb-6">
-            <p class="text-red-400 font-semibold text-sm">⚠️ Only <span id="exit-intent-spots" class="text-red-400 font-semibold">- spots left as of loading...</span></p>
-            <p class="text-gray-300 text-xs">Don't wait, these fill up fast</p>
-        </div>
-        
-        <p class="text-gray-300 mb-6">
-            <strong>$935 value. Completely free.</strong><br/>
-            No catch. No sales pitch. Just insights for your music.
-        </p>
-        
-        <div class="shadow-cta-glow rounded-xl">
-            <button id="exit-modal-cta-trigger" 
-                    class="w-full button-pop text-lg bg-pulse-accent text-gray-900 hover:bg-pulse-accent-dark px-8 py-4 rounded-xl font-bold transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-pulse-accent/50">
-                YES, ANALYZE MY TRACK FOR FREE
-            </button>
-        </div>
-        
-        <p class="mt-3 text-xs text-gray-400">
-            Takes 2 minutes to book. 30 minutes to transform your music.
-        </p>
-    </div>
-</div>
+
 
 <script>
     const finalCtaBtnMain = document.getElementById('final-cta-button-main');
@@ -151,79 +100,6 @@
             calendarModalForFinalCta.classList.remove('hidden');
             setTimeout(() => calendarModalForFinalCta.classList.add('opacity-100'), 10);
         });
-    }
-
-    const exitIntentModal = document.getElementById('exit-intent-modal');
-    const closeExitIntentBtn = document.getElementById('close-exit-intent-modal');
-    const exitModalCtaTriggerBtn = document.getElementById('exit-modal-cta-trigger');
-
-    let exitIntentTimer;
-    let exitIntentShown = false;
-    const EXIT_INTENT_STORAGE_KEY = 'exitIntentShown';
-
-    // Check if exit intent was already shown in this session
-    if (sessionStorage.getItem(EXIT_INTENT_STORAGE_KEY)) {
-        exitIntentShown = true;
-    }
-
-    if (closeExitIntentBtn && exitIntentModal) {
-        closeExitIntentBtn.addEventListener('click', () => {
-            if (exitIntentTimer) clearTimeout(exitIntentTimer);
-            exitIntentModal.classList.remove('opacity-100');
-            setTimeout(() => exitIntentModal.classList.add('hidden'), 300);
-            // Mark as shown so it won't appear again this session
-            sessionStorage.setItem(EXIT_INTENT_STORAGE_KEY, 'true');
-            exitIntentShown = true;
-        });
-    }
-
-    if (exitModalCtaTriggerBtn && calendarModalForFinalCta && exitIntentModal) {
-        exitModalCtaTriggerBtn.addEventListener('click', () => {
-            if (exitIntentTimer) clearTimeout(exitIntentTimer);
-            // Close exit intent modal first
-            exitIntentModal.classList.remove('opacity-100');
-            setTimeout(() => {
-                exitIntentModal.classList.add('hidden');
-                 // Then open calendar modal
-                calendarModalForFinalCta.classList.remove('hidden');
-                setTimeout(() => calendarModalForFinalCta.classList.add('opacity-100'), 10);
-            }, 300); 
-            // Mark as shown so it won't appear again this session
-            sessionStorage.setItem(EXIT_INTENT_STORAGE_KEY, 'true');
-            exitIntentShown = true;
-        });
-    }
-
-    // More natural exit intent - only trigger once per session with delay
-    document.body.addEventListener('mouseleave', (e) => {
-        // Only show if:
-        // 1. Mouse leaves from the top of the viewport (typical exit intent)
-        // 2. Modal hasn't been shown yet in this session
-        // 3. Calendar modal is not open
-        // 4. User has been on page for at least 30 seconds
-        if (e.clientY <= 0 && 
-            !exitIntentShown && 
-            exitIntentModal && 
-            exitIntentModal.classList.contains('hidden')) {
-            
-            const calendarIsOpen = calendarModalForFinalCta && !calendarModalForFinalCta.classList.contains('hidden');
-            const timeOnPage = (Date.now() - (window as any).pageLoadTime) / 1000;
-            
-            if (!calendarIsOpen && timeOnPage >= 30) {
-                // Add a small delay to make it feel more natural
-                exitIntentTimer = setTimeout(() => {
-                    exitIntentModal.classList.remove('hidden');
-                    setTimeout(() => exitIntentModal.classList.add('opacity-100'), 10);
-                    sessionStorage.setItem(EXIT_INTENT_STORAGE_KEY, 'true');
-                    exitIntentShown = true;
-                }, 500); // 500ms delay
-            }
-        }
-    });
-
-    // Track page load time for minimum time on page requirement
-    if (!(window as any).pageLoadTime) {
-        (window as any).pageLoadTime = Date.now();
     }
 
     // Initialize spots count when page loads

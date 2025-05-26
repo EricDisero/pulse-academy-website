@@ -46,20 +46,83 @@ const { title } = Astro.props;
 	</head>
 	<body class="bg-gradient-to-b from-[#050507] to-[#0a0a15] text-gray-300 selection:bg-pulse-purple selection:text-white">
 		<slot />
-    <!-- Floating CTA for mobile -->
-    <div id="floating-cta-mobile" class="md:hidden fixed bottom-4 right-4 z-50">
+    <!-- Floating CTA for mobile - Hidden by default, shows on scroll -->
+    <div id="floating-cta-mobile" class="md:hidden fixed bottom-4 right-4 z-50 opacity-0 translate-y-20 transition-all duration-300 pointer-events-none">
       <a href="#offer-section" class="btn-lg rounded-full shadow-cta-glow flex items-center justify-center p-4">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-white">
           <path stroke-linecap="round" stroke-linejoin="round" d="M9 9l10.5-3m0 6.553v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 11-.99-3.467l2.31-.66a2.25 2.25 0 001.632-2.163zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 01-.99-3.467l2.31-.66A2.25 2.25 0 009 15.553z" />
         </svg>
       </a>
     </div>
+
+    <!-- Aggressive Exit-Intent Modal (Global) -->
+    <div id="global-exit-intent-modal" class="fixed inset-0 flex items-center justify-center p-4 z-[110] hidden transition-opacity duration-300 opacity-0">
+      <div class="fixed inset-0 bg-black/80 backdrop-blur-md z-[-1]"></div>
+      <div class="glassmorphism p-6 md:p-8 rounded-xl max-w-lg w-full text-center relative shadow-2xl">
+        <button id="close-global-exit-intent" class="absolute top-3 right-3 text-gray-400 hover:text-white transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+        
+        <h3 class="text-2xl md:text-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-pulse-purple to-pulse-cyan mb-4 pb-1 leading-normal">Wait! Don't Give Up on Your Music</h3>
+        
+        <p class="text-gray-300 mb-4 text-lg">
+          <strong>You're 30 minutes away</strong> from knowing exactly what's holding your tracks back.
+        </p>
+        
+        <!-- Quick testimonial -->
+        <div class="bg-[#080810]/60 p-4 rounded-lg border border-pulse-purple/20 mb-6 text-left">
+          <p class="text-sm text-gray-300 mb-2">
+            "I've been producing for 4 years and this one session taught me more than all my courses combined. Finally understand why my tracks sounded amateur."
+          </p>
+          <div class="flex items-center justify-between">
+            <span class="text-xs text-gray-400">Marcus T., Electronic Producer</span>
+            <div class="flex">
+              <span class="text-yellow-400">★★★★★</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Urgency reminder -->
+        <div class="bg-red-500/10 border border-red-500/20 rounded-lg p-3 mb-6">
+          <p class="text-red-400 font-semibold text-sm">⚠️ Only <span id="global-exit-intent-spots" class="text-red-400 font-semibold">- spots left as of loading...</span></p>
+          <p class="text-gray-300 text-xs">Don't wait, these fill up fast</p>
+        </div>
+        
+        <p class="text-gray-300 mb-6">
+          <strong>$935 value. Completely free.</strong><br/>
+          No catch. No sales pitch. Just insights for your music.
+        </p>
+        
+        <div class="shadow-cta-glow rounded-xl">
+          <button id="global-exit-modal-cta" 
+                  class="w-full button-pop text-lg bg-pulse-accent text-gray-900 hover:bg-pulse-accent-dark px-8 py-4 rounded-xl font-bold transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-pulse-accent/50">
+            YES, ANALYZE MY TRACK FOR FREE
+          </button>
+        </div>
+        
+        <p class="mt-3 text-xs text-gray-400">
+          Takes 2 minutes to book. 30 minutes to transform your music.
+        </p>
+      </div>
+    </div>
     <script src="/src/utils/spotsManager.js"></script>
     <script>
+      // Page load tracking for exit intent
+      (window as any).pageLoadTime = Date.now();
+      
       // Unified CTA Button Handler - Ensures ALL buttons work
       document.addEventListener('DOMContentLoaded', () => {
         // Function to open the calendar modal
         const openCalendarModal = () => {
+          // Hide exit intent first if open
+          const exitModal = document.getElementById('global-exit-intent-modal');
+          if (exitModal && !exitModal.classList.contains('hidden')) {
+            exitModal.classList.remove('opacity-100');
+            setTimeout(() => exitModal.classList.add('hidden'), 300);
+          }
+          
           const calendarModal = document.getElementById('calendar-modal');
           if (calendarModal) {
             calendarModal.classList.remove('hidden');
@@ -82,7 +145,8 @@ const { title } = Astro.props;
           'header-cta-button', 
           'open-calendar-modal-offer',
           'cta-button-main',
-          'final-cta-main'
+          'final-cta-main',
+          'global-exit-modal-cta' // Add the global exit intent CTA
         ];
 
         // Attach click handlers to all CTA buttons
@@ -124,10 +188,17 @@ const { title } = Astro.props;
           closeButton.addEventListener('click', closeModal);
         }
 
-        // ESC key handler
+        // ESC key handler for main modal
         window.addEventListener('keydown', (e) => {
           if (e.key === 'Escape') {
             closeModal();
+            // Also close exit intent if open
+            const exitModal = document.getElementById('global-exit-intent-modal');
+            if (exitModal && !exitModal.classList.contains('hidden')) {
+              exitModal.classList.remove('opacity-100');
+              setTimeout(() => exitModal.classList.add('hidden'), 300);
+              sessionStorage.setItem('globalExitIntentShown', 'true');
+            }
           }
         });
 
@@ -137,6 +208,108 @@ const { title } = Astro.props;
           modal.addEventListener('click', (e) => {
             if (e.target === modal) {
               closeModal();
+            }
+          });
+        }
+
+        // AGGRESSIVE EXIT INTENT SYSTEM
+        const exitIntentModal = document.getElementById('global-exit-intent-modal');
+        const closeExitIntentBtn = document.getElementById('close-global-exit-intent');
+        let exitIntentShown = false;
+        
+        // Check if already shown this session
+        if (sessionStorage.getItem('globalExitIntentShown')) {
+          exitIntentShown = true;
+        }
+
+        // Close exit intent modal handler
+        if (closeExitIntentBtn && exitIntentModal) {
+          closeExitIntentBtn.addEventListener('click', () => {
+            exitIntentModal.classList.remove('opacity-100');
+            setTimeout(() => exitIntentModal.classList.add('hidden'), 300);
+            sessionStorage.setItem('globalExitIntentShown', 'true');
+            exitIntentShown = true;
+          });
+        }
+
+        // Click outside exit modal handler
+        if (exitIntentModal) {
+          exitIntentModal.addEventListener('click', (e) => {
+            if (e.target === exitIntentModal) {
+              exitIntentModal.classList.remove('opacity-100');
+              setTimeout(() => exitIntentModal.classList.add('hidden'), 300);
+              sessionStorage.setItem('globalExitIntentShown', 'true');
+              exitIntentShown = true;
+            }
+          });
+        }
+
+        // AGGRESSIVE mouse leave detection - triggers immediately on ANY exit attempt
+        document.addEventListener('mouseleave', () => {
+          if (!exitIntentShown && exitIntentModal && exitIntentModal.classList.contains('hidden')) {
+            const calendarModal = document.getElementById('calendar-modal');
+            const calendarIsOpen = calendarModal && !calendarModal.classList.contains('hidden');
+            const timeOnPage = (Date.now() - (window as any).pageLoadTime) / 1000;
+            
+            // Very aggressive - only require 5 seconds on page, no calendar check, immediate trigger
+            if (!calendarIsOpen && timeOnPage >= 5) {
+              exitIntentModal.classList.remove('hidden');
+              setTimeout(() => exitIntentModal.classList.add('opacity-100'), 10);
+              exitIntentShown = true;
+              // Update spots count
+              if ((window as any).spotsManager) {
+                (window as any).spotsManager.updateSpotsWithDate('global-exit-intent-spots');
+              }
+            }
+          }
+        });
+
+        // Additional trigger on scroll up quickly (mobile exit intent alternative)
+        let lastScrollTop = 0;
+        window.addEventListener('scroll', () => {
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          
+          // If user scrolls up quickly by more than 100px, treat as exit intent
+          if (scrollTop < lastScrollTop - 100 && !exitIntentShown && exitIntentModal && exitIntentModal.classList.contains('hidden')) {
+            const calendarModal = document.getElementById('calendar-modal');
+            const calendarIsOpen = calendarModal && !calendarModal.classList.contains('hidden');
+            const timeOnPage = (Date.now() - (window as any).pageLoadTime) / 1000;
+            
+            if (!calendarIsOpen && timeOnPage >= 5) {
+              exitIntentModal.classList.remove('hidden');
+              setTimeout(() => exitIntentModal.classList.add('opacity-100'), 10);
+              exitIntentShown = true;
+              if ((window as any).spotsManager) {
+                (window as any).spotsManager.updateSpotsWithDate('global-exit-intent-spots');
+              }
+            }
+          }
+          lastScrollTop = scrollTop;
+        });
+
+        // Initialize spots count for exit intent
+        if ((window as any).spotsManager) {
+          (window as any).spotsManager.updateSpotsWithDate('global-exit-intent-spots');
+        }
+
+        // Floating CTA button - show on scroll
+        const floatingCta = document.getElementById('floating-cta-mobile');
+        let hasScrolled = false;
+        
+        if (floatingCta) {
+          window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
+            
+            if (scrollPosition > 200 && !hasScrolled) {
+              // Show floating CTA after scrolling 200px
+              floatingCta.classList.remove('opacity-0', 'translate-y-20', 'pointer-events-none');
+              floatingCta.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+              hasScrolled = true;
+            } else if (scrollPosition <= 200 && hasScrolled) {
+              // Hide when back at top
+              floatingCta.classList.add('opacity-0', 'translate-y-20', 'pointer-events-none');
+              floatingCta.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+              hasScrolled = false;
             }
           });
         }

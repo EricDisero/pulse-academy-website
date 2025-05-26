@@ -5,7 +5,7 @@
 // Stats constant (if it was here) would also be removed or ensured it's not duplicated if used elsewhere.
 // Assuming stats are handled by StatsSection.astro as per previous context.
 ---
-<section id="hero" class="min-h-screen flex flex-col items-center justify-center text-center py-12 md:py-16 relative overflow-hidden bg-gradient-to-b from-[#050507] to-[#0a0a15]">
+<section id="hero" class="min-h-screen flex flex-col items-center justify-center text-center pt-20 md:pt-16 pb-12 md:pb-16 relative overflow-hidden bg-gradient-to-b from-[#050507] to-[#0a0a15]">
     <!-- Enhanced Tech Background -->
     <div class="absolute inset-0 bg-[url('/tech-pattern.png')] opacity-10"></div>
     
@@ -14,17 +14,19 @@
     <div class="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-pulse-cyan/5 blur-[100px]"></div>
 
     <div class="container mx-auto px-4 md:px-8 relative z-10 max-w-4xl">
-        <!-- CURIOSITY-DRIVEN EYEBROW TEXT -->
-        <p data-animate="fade" data-delay="50" class="text-sm font-semibold text-pulse-cyan mb-3 tracking-wide uppercase">
-            For EDM Producers Who Want A Proven Path To Huge Mixes
-        </p>
+        <!-- CURIOSITY-DRIVEN EYEBROW TEXT WITH GRADIENT BACKGROUND -->
+        <div data-animate="fade" data-delay="50" class="inline-block mb-4 md:mb-3">
+            <p class="text-xs sm:text-sm md:text-sm font-semibold text-pulse-cyan px-4 py-2 rounded-full tracking-wide uppercase bg-gradient-to-r from-cyan-900/30 to-cyan-800/40 border border-pulse-cyan/30 backdrop-blur-sm">
+                For EDM Producers Who Want A Proven Path To Huge Mixes
+            </p>
+        </div>
         
-        <h1 data-animate="fade" data-delay="100" class="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight leading-tight text-white mb-4 pb-2">
+        <h1 data-animate="fade" data-delay="100" class="text-xl sm:text-2xl md:text-4xl font-extrabold tracking-tight leading-tight text-white mb-4 pb-2">
             <span class="text-pulse-cyan font-semibold">New:</span> <span class="text-silvery-gradient leading-tight pb-1">Discover This Ultra-Fast 'AI Tone Tracing' Method Elite Producers Are Using To Instantly Nail Their Mixes In 2025</span>
         </h1>
         
         <!-- CURIOSITY-BUILDING SUBHEADLINE -->
-        <p data-animate="fade" data-delay="200" class="text-lg md:text-xl text-gray-300 mb-6 max-w-3xl mx-auto leading-relaxed">
+        <p data-animate="fade" data-delay="200" class="text-sm sm:text-base md:text-xl text-gray-300 mb-6 max-w-3xl mx-auto leading-relaxed">
             This little-known method reverse-engineers pro mixes in minutes, so you can dial in a huge, polished sound with perfect accuracy, every single time.
         </p>
         
@@ -76,8 +78,8 @@
     </div>
 
     <!-- Animated Chevron -->
-    <div class="absolute bottom-12 left-1/2 transform -translate-x-1/2 z-20">
-        <svg class="w-8 h-8 text-gray-500 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <div class="absolute bottom-4 md:bottom-12 left-1/2 transform -translate-x-1/2 z-20">
+        <svg class="w-6 h-6 md:w-8 md:h-8 text-gray-500 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
         </svg>
     </div>
