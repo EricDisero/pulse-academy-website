@@ -91,17 +91,7 @@
 
 
 <script>
-    const finalCtaBtnMain = document.getElementById('final-cta-button-main');
-    const calendarModalForFinalCta = document.getElementById('calendar-modal'); // Target the single calendar modal
-    const closeCalendarButtonForFinalCta = document.getElementById('close-calendar-modal'); // Assuming this is the ID of the close button in calendar-modal
-
-    if (finalCtaBtnMain && calendarModalForFinalCta) {
-        finalCtaBtnMain.addEventListener('click', () => {
-            calendarModalForFinalCta.classList.remove('hidden');
-            setTimeout(() => calendarModalForFinalCta.classList.add('opacity-100'), 10);
-        });
-    }
-
+    // Final CTA button is now handled by the universal button handler in Layout.astro
     // Initialize spots count when page loads
     document.addEventListener('DOMContentLoaded', () => {
         if ((window as any).spotsManager) {
