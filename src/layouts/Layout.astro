@@ -92,7 +92,7 @@ const { title } = Astro.props;
         
         <p class="text-gray-300 mb-6">
           <strong>$935 value. Completely free.</strong><br/>
-          No catch. No sales pitch. Just insights for your music.
+          Pure insights for your music. Zero sales pressure.
         </p>
         
         <div class="shadow-cta-glow rounded-xl">
@@ -335,21 +335,21 @@ const { title } = Astro.props;
         const initAnimations = () => {
           const animatedElements = document.querySelectorAll('[data-animate]');
           if (!animatedElements.length) return;
-          
-          const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                const element = entry.target;
-                const delay = parseInt(element.getAttribute('data-delay') || '0', 10);
-                
+        
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const element = entry.target;
+              const delay = parseInt(element.getAttribute('data-delay') || '0', 10);
+              
                 if (delay > 0) {
                   setTimeout(() => element.classList.add('animate'), delay);
                 } else {
-                  element.classList.add('animate');
+                element.classList.add('animate');
                 }
-                observer.unobserve(element);
-              }
-            });
+              observer.unobserve(element);
+            }
+          });
           }, { threshold: 0.1, rootMargin: '50px' });
           
           animatedElements.forEach(element => observer.observe(element));
@@ -361,6 +361,147 @@ const { title } = Astro.props;
         } else {
           setTimeout(initAnimations, 100);
         }
+
+        // Mobile Scroll Effects System - Convert hover effects to scroll animations
+        const initMobileScrollEffects = () => {
+          const isMobile = window.innerWidth <= 768;
+          if (!isMobile) return;
+
+          // Create intersection observer for mobile scroll effects
+          const mobileScrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              const element = entry.target as HTMLElement;
+              
+              if (entry.isIntersecting) {
+                // Add mobile scroll effect classes
+                element.classList.add('mobile-scroll-active');
+                
+                // Handle specific element types
+                if (element.classList.contains('group')) {
+                  // Method steps and cards
+                  element.style.transform = 'translateY(-5px) scale(1.02)';
+                  element.style.borderColor = 'rgba(139, 92, 246, 0.4)';
+                  element.style.boxShadow = '0 10px 25px rgba(139, 92, 246, 0.15)';
+                  
+                  // Animate icons within
+                  const icon = element.querySelector('svg') as SVGElement;
+                  if (icon) {
+                    icon.style.transform = 'scale(1.1)';
+                    icon.style.color = '#8b5cf6';
+                  }
+                }
+                
+                // Avatar effects
+                if (element.classList.contains('avatar-item')) {
+                  element.style.transform = 'translateY(-5px) scale(1.15)';
+                  element.style.zIndex = '10';
+                }
+                
+                // Audio player effects
+                if (element.classList.contains('audio-box')) {
+                  element.style.borderColor = 'rgba(139, 92, 246, 0.4)';
+                  element.style.background = 'rgba(0, 0, 0, 0.6)';
+                  element.style.transform = 'scale(1.02)';
+                }
+                
+                // Play button effects
+                if (element.classList.contains('play-btn')) {
+                  element.style.transform = 'scale(1.05)';
+                  element.style.boxShadow = '0 6px 20px rgba(139, 92, 246, 0.4)';
+                }
+                
+                // Button hover effects
+                if (element.classList.contains('btn-lg') || element.classList.contains('button-pop')) {
+                  element.style.transform = 'scale(1.05)';
+                  element.style.boxShadow = '0 8px 25px rgba(139, 92, 246, 0.3)';
+                }
+                
+                // Student review avatars
+                if (element.classList.contains('student-review-avatar')) {
+                  element.style.borderColor = 'rgba(139, 92, 246, 0.8)';
+                  element.style.boxShadow = '0 0 15px rgba(139, 92, 246, 0.5)';
+                  element.style.transform = 'scale(1.1)';
+                }
+
+              } else {
+                // Remove mobile scroll effect classes when out of view
+                element.classList.remove('mobile-scroll-active');
+                
+                // Reset styles
+                if (element.classList.contains('group')) {
+                  element.style.transform = '';
+                  element.style.borderColor = '';
+                  element.style.boxShadow = '';
+                  
+                  const icon = element.querySelector('svg') as SVGElement;
+                  if (icon) {
+                    icon.style.transform = '';
+                    icon.style.color = '';
+                  }
+                }
+                
+                if (element.classList.contains('avatar-item')) {
+                  element.style.transform = '';
+                  element.style.zIndex = '';
+                }
+                
+                if (element.classList.contains('audio-box')) {
+                  element.style.borderColor = '';
+                  element.style.background = '';
+                  element.style.transform = '';
+                }
+                
+                if (element.classList.contains('play-btn')) {
+                  element.style.transform = '';
+                  element.style.boxShadow = '';
+                }
+                
+                if (element.classList.contains('btn-lg') || element.classList.contains('button-pop')) {
+                  element.style.transform = '';
+                  element.style.boxShadow = '';
+                }
+                
+                if (element.classList.contains('student-review-avatar')) {
+                  element.style.borderColor = '';
+                  element.style.boxShadow = '';
+                  element.style.transform = '';
+                }
+              }
+            });
+          }, { 
+            threshold: 0.3, // Trigger when 30% visible
+            rootMargin: '0px 0px -50px 0px' // Trigger slightly before element is fully visible
+          });
+
+          // Observe all interactive elements for mobile scroll effects
+          const elementsToObserve = [
+            ...document.querySelectorAll('.group'),
+            ...document.querySelectorAll('.avatar-item'),
+            ...document.querySelectorAll('.audio-box'),
+            ...document.querySelectorAll('.play-btn'),
+            ...document.querySelectorAll('.btn-lg'),
+            ...document.querySelectorAll('.button-pop'),
+            ...document.querySelectorAll('.student-review-avatar')
+          ];
+
+          elementsToObserve.forEach(element => {
+            // Add transition styles for smooth animations
+            (element as HTMLElement).style.transition = 'all 0.3s ease';
+            mobileScrollObserver.observe(element);
+          });
+        };
+
+        // Initialize mobile scroll effects
+        initMobileScrollEffects();
+
+        // Re-initialize on window resize
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+          clearTimeout(resizeTimeout);
+          resizeTimeout = setTimeout(() => {
+            initMobileScrollEffects();
+          }, 250);
+        });
       });
     </script>
     <script>
