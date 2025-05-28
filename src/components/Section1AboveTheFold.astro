@@ -17,7 +17,7 @@
         <!-- CURIOSITY-DRIVEN EYEBROW TEXT WITH GRADIENT BACKGROUND -->
         <div data-animate="fade" data-delay="50" class="inline-block mb-4 md:mb-3">
             <p class="text-xs sm:text-sm md:text-sm font-semibold text-pulse-cyan px-4 py-2 rounded-full tracking-wide uppercase bg-gradient-to-r from-cyan-900/30 to-cyan-800/40 border border-pulse-cyan/30 backdrop-blur-sm">
-                For EDM Producers Who Want A Proven Path To Huge Mixes
+                <span id="user-location-eyebrow"></span> EDM Producers Who Want A Proven Path To Huge Mixes
             </p>
         </div>
         
@@ -165,9 +165,11 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(data => {
       const userLocationDesktop = document.getElementById("user-location-desktop");
       const userLocationMobile = document.getElementById("user-location-mobile");
+      const userLocationEyebrow = document.getElementById("user-location-eyebrow");
       
       if (userLocationDesktop) userLocationDesktop.textContent = data.city || "your area";
       if (userLocationMobile) userLocationMobile.textContent = data.city || "your area";
+      if (userLocationEyebrow) userLocationEyebrow.textContent = data.city || "EDM";
     })
     .catch(error => console.error("Error fetching location:", error));
 
