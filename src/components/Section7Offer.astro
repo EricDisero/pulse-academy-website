@@ -235,33 +235,29 @@ const StarIcon = `
                     const isMobile = window.innerWidth <= 768 || /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
                     
                     if (isMobile) {
-                        // Mobile: Force clean form load with longer delay and cache busting
-                        setTimeout(() => {
-                            const timestamp = Date.now();
-                            iframe.src = `https://api.leadconnectorhq.com/widget/survey/6RBmf85SJ0IFIO51kKfd?t=${timestamp}&mobile=1`;
-                            iframe.id = '6RBmf85SJ0IFIO51kKfd';
-                            
-                            // Additional mobile-specific handling
-                            iframe.onload = () => {
-                                console.log('Mobile iframe loaded successfully');
-                                // Force a refresh if needed
-                                setTimeout(() => {
-                                    if (iframe.contentWindow) {
-                                        try {
-                                            iframe.contentWindow.postMessage('refresh', '*');
-                                        } catch (e) {
-                                            console.log('Cross-origin iframe, cannot refresh');
-                                        }
+                        // Mobile: Load immediately with cache busting
+                        const timestamp = Date.now();
+                        iframe.src = `https://api.leadconnectorhq.com/widget/survey/6RBmf85SJ0IFIO51kKfd?t=${timestamp}&mobile=1`;
+                        iframe.id = '6RBmf85SJ0IFIO51kKfd';
+                        
+                        // Additional mobile-specific handling
+                        iframe.onload = () => {
+                            console.log('Mobile iframe loaded successfully');
+                            // Force a refresh if needed
+                            setTimeout(() => {
+                                if (iframe.contentWindow) {
+                                    try {
+                                        iframe.contentWindow.postMessage('refresh', '*');
+                                    } catch (e) {
+                                        console.log('Cross-origin iframe, cannot refresh');
                                     }
-                                }, 1000);
-                            };
-                        }, 1000); // Longer delay for mobile
+                                }
+                            }, 1000);
+                        };
                     } else {
-                        // Desktop: Standard loading
-                        setTimeout(() => {
-                            iframe.src = 'https://api.leadconnectorhq.com/widget/survey/6RBmf85SJ0IFIO51kKfd';
-                            iframe.id = '6RBmf85SJ0IFIO51kKfd';
-                        }, 300);
+                        // Desktop: Load immediately
+                        iframe.src = 'https://api.leadconnectorhq.com/widget/survey/6RBmf85SJ0IFIO51kKfd';
+                        iframe.id = '6RBmf85SJ0IFIO51kKfd';
                     }
                 }
             }, 100);

@@ -142,11 +142,9 @@ const { title } = Astro.props;
             const iframe = document.getElementById('ghl-iframe') as HTMLIFrameElement;
             if (iframe && !iframe.src) {
               console.log('Loading GHL iframe...');
-              // Add delay to ensure GHL script is fully loaded, especially on mobile
-              setTimeout(() => {
-                iframe.src = 'https://api.leadconnectorhq.com/widget/survey/6RBmf85SJ0IFIO51kKfd';
-                iframe.id = '6RBmf85SJ0IFIO51kKfd';
-              }, 500); // 500ms delay for mobile compatibility
+              // Load immediately without delay
+              iframe.src = 'https://api.leadconnectorhq.com/widget/survey/6RBmf85SJ0IFIO51kKfd';
+              iframe.id = '6RBmf85SJ0IFIO51kKfd';
             }
           } else {
             console.warn('Calendar modal not found on this page');
