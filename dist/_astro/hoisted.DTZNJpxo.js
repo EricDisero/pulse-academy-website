@@ -1,0 +1,1 @@
+import"./hoisted.BPubSbTm.js";const o=document.createElement("script");o.src="https://link.msgsndr.com/js/form_embed.js",o.async=!0,o.onload=function(){console.log("GHL script loaded on booking page")},document.head.appendChild(o);
