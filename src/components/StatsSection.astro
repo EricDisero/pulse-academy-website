@@ -1,7 +1,7 @@
 ---
 // src/components/StatsSection.astro - Stats Counter Section
 const stats = [
-    { label: "Monthly Listeners", value: "900,000+" },
+    { label: "Monthly Listeners", value: "900k+" },
     { label: "Major Label Deals", value: "17+" },
     { label: "Streams Generated", value: "150M+" }
 ];
@@ -17,7 +17,7 @@ const stats = [
         <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
             {stats.map(stat => (
                 <div class="flex flex-col items-center">
-                    <span class="text-pulse-purple font-semibold text-3xl md:text-4xl lg:text-5xl mb-2 count-up" data-value={stat.value}>{stat.value}</span>
+                    <span class="gradient-number font-extrabold text-3xl md:text-4xl lg:text-5xl mb-2 count-up" data-value={stat.value}>{stat.value}</span>
                     <span class="text-gray-300 text-sm md:text-base">{stat.label}</span>
                 </div>
             ))}
@@ -25,15 +25,40 @@ const stats = [
     </div>
 </div>
 
+<style>
+.gradient-number {
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 40%, #5b21b6 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 100% 100%;
+    transition: all 0.3s ease;
+    font-variant-numeric: tabular-nums;
+    min-width: 200px;
+    display: inline-block;
+    text-align: center;
+    font-weight: 900;
+}
+
+.count-up {
+    filter: blur(0px);
+    transition: filter 0.3s ease-out;
+}
+
+.count-up.animating {
+    filter: blur(0.3px);
+}
+</style>
+
 <script>
-// Simple count-up animation for stats
+// Enhanced count-up animation for stats
 document.addEventListener('DOMContentLoaded', () => {
   const countUpElements = document.querySelectorAll('.count-up');
   
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        const element = entry.target;
+        const element = entry.target as HTMLElement;
         const value = element.getAttribute('data-value');
         
         if (!value) return;
@@ -42,28 +67,39 @@ document.addEventListener('DOMContentLoaded', () => {
         let numericValue = value.replace(/[^0-9]/g, '');
         const suffix = value.replace(/[0-9]/g, '');
         
-        // Animate count-up
+        // Animate count-up with improved easing
         let start = 0;
         let end = parseInt(numericValue);
-        let duration = 1500;
-        let startTime = null;
+        let duration = 2500; // Reduced to 2.5 seconds
+        let startTime: number | null = null;
         
-        function animate(timestamp) {
+        // Add animating class for blur effect
+        element.classList.add('animating');
+        
+        function animate(timestamp: number) {
           if (!startTime) startTime = timestamp;
-          // Use 0 as fallback if startTime is somehow null
-          const timeDiff = startTime !== null ? timestamp - startTime : 0;
+          const timeDiff = timestamp - startTime;
           const progress = Math.min(timeDiff / duration, 1);
           
-          // Super exponential curve - start very fast, end very slow
-          const easedProgress = 1 - Math.pow(2, -15 * progress);
+          // Smooth exponential ease-out curve - starts fast, gradually slows down
+          const easedProgress = 1 - Math.pow(1 - progress, 3.5);
           
           const current = Math.floor(easedProgress * end);
           element.textContent = current + suffix;
+          
+          // Remove blur in final 30% of animation
+          if (progress > 0.7) {
+            const blurReduction = (progress - 0.7) / 0.3;
+            const blurAmount = 0.3 * (1 - blurReduction);
+            element.style.filter = `blur(${blurAmount}px)`;
+          }
           
           if (progress < 1) {
             window.requestAnimationFrame(animate);
           } else {
             element.textContent = value; // Ensure final value is exactly as specified
+            element.classList.remove('animating');
+            element.style.filter = 'blur(0px)';
           }
         }
         
