@@ -560,6 +560,20 @@ const methodSteps = [
 <script>
   (function() {
     const widgets = document.querySelectorAll(".audio-widget");
+    
+    // Define interface for audio instance
+    interface AudioInstance {
+      beforeAudio: HTMLAudioElement;
+      afterAudio: HTMLAudioElement;
+      playIcon: SVGElement;
+      pauseIcon: SVGElement;
+      isPlaying: boolean;
+      pause: () => void;
+      updateLocalState?: () => void;
+    }
+    
+    let globalAudioInstances: AudioInstance[] = []; // Track all audio player instances
+    
     widgets.forEach(widget => {
       let beforeAudio   = widget.querySelector(".beforeAudio") as HTMLAudioElement;
       let afterAudio    = widget.querySelector(".afterAudio") as HTMLAudioElement;
@@ -577,18 +591,60 @@ const methodSteps = [
       let isPlaying = false;
       let isAfter   = false;
 
+      // Create audio instance object to track
+      const audioInstance: AudioInstance = {
+        beforeAudio,
+        afterAudio,
+        playIcon,
+        pauseIcon,
+        isPlaying: false,
+        pause: function() {
+          this.beforeAudio.pause();
+          this.afterAudio.pause();
+          this.playIcon.style.display = "block";
+          this.pauseIcon.style.display = "none";
+          this.isPlaying = false;
+        },
+        updateLocalState: function() {
+          isPlaying = this.isPlaying;
+        }
+      };
+
+      // Add to global tracking array
+      globalAudioInstances.push(audioInstance);
+
       function syncPlayback() {
           if (beforeAudio.readyState >= 2 && afterAudio.readyState >=2) {
              afterAudio.currentTime = beforeAudio.currentTime;
           }
       }
 
+      function pauseAllOtherAudio() {
+          globalAudioInstances.forEach(instance => {
+              if (instance !== audioInstance && instance.isPlaying) {
+                  instance.pause();
+                  if (instance.updateLocalState) {
+                      instance.updateLocalState();
+                  }
+              }
+          });
+      }
+
       function togglePlay() {
+          // Check if any other audio is currently playing
+          const otherAudioPlaying = globalAudioInstances.some(instance => 
+              instance !== audioInstance && instance.isPlaying
+          );
+          
           if (!isPlaying) {
+              // Pause all other audio players first
+              pauseAllOtherAudio();
+              
               Promise.all([beforeAudio.play(), afterAudio.play()]).then(() => {
                   playIcon.style.display  = "none";
                   pauseIcon.style.display = "block";
                   isPlaying = true;
+                  audioInstance.isPlaying = true;
               }).catch(error => console.error("Error playing audio:", error));
           } else {
               beforeAudio.pause();
@@ -596,6 +652,7 @@ const methodSteps = [
               playIcon.style.display  = "block";
               pauseIcon.style.display = "none";
               isPlaying = false;
+              audioInstance.isPlaying = false;
           }
       }
 
