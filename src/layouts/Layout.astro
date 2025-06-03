@@ -61,6 +61,21 @@ const { title } = Astro.props;
     <link rel="preconnect" href="https://rsms.me" crossorigin>
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://rsms.me/inter/inter.css"></noscript>
+		
+		<!-- VisitorTracking Code -->
+		<script async defer src="https://app.visitortracking.com/assets/js/tracer.js"></script>
+		<script>
+		  // TypeScript declaration for the external Tracer class
+		  declare var Tracer: any;
+		  
+		  function init_tracer() {
+		   var tracer = new Tracer({
+		    websiteId : '10357df7-ae65-4c14-9d5e-2aa9d60e1583',
+		    async : true,
+		    debug : false
+		   });
+		}
+		</script>
 	</head>
 	<body class="bg-gradient-to-b from-[#050507] to-[#0a0a15] text-gray-300 selection:bg-pulse-purple selection:text-white">
 		<slot />
