@@ -4,6 +4,16 @@
 
 // Stats constant (if it was here) would also be removed or ensured it's not duplicated if used elsewhere.
 // Assuming stats are handled by StatsSection.astro as per previous context.
+
+// Student avatars for the 5-star rating display
+const studentAvatars = [
+    { src: "/student-photos/BigJerr.webp", alt: "BigJerr" },
+    { src: "/student-photos/Beatfortress.webp", alt: "Beatfortress" },
+    { src: "/student-photos/Elisha.webp", alt: "Elisha" },
+    { src: "/student-photos/Kip.webp", alt: "Kip" },
+    { src: "/student-photos/1wayout.webp", alt: "1wayout" },
+    { src: "/student-photos/DIVOCEAN.webp", alt: "DIVOCEAN" }
+];
 ---
 <section id="hero" class="min-h-screen flex flex-col items-center justify-center text-center pt-20 md:pt-16 pb-12 md:pb-16 relative overflow-hidden bg-gradient-to-b from-[#050507] to-[#0a0a15]">
     <!-- Enhanced Tech Background -->
@@ -17,62 +27,60 @@
         <!-- CURIOSITY-DRIVEN EYEBROW TEXT WITH GRADIENT BACKGROUND -->
         <div data-animate="fade" data-delay="50" class="inline-block mb-4 md:mb-3">
             <p class="text-xs sm:text-sm md:text-sm font-semibold text-pulse-cyan px-4 py-2 rounded-full tracking-wide uppercase bg-gradient-to-r from-cyan-900/30 to-cyan-800/40 border border-pulse-cyan/30 backdrop-blur-sm">
-                <span id="user-location-eyebrow"></span> EDM Producers Who Want A Proven Path To Huge Mixes
+                <span id="user-location-eyebrow"></span> Producers: Stop Getting "Not Quite There Yet" Mixes
             </p>
         </div>
         
         <h1 data-animate="fade" data-delay="100" class="text-xl sm:text-2xl md:text-4xl font-extrabold tracking-tight leading-tight text-white mb-4 pb-2">
-            <span class="text-pulse-cyan font-semibold">New:</span> <span class="text-silvery-gradient leading-tight pb-1">Discover This Ultra-Fast 'AI Tone Tracing' Method Elite Producers Are Using To Instantly Nail Their Mixes In 2025</span>
+            <span class="text-silvery-gradient leading-tight pb-1">The New AI <span class="track-xray-fancy">"Track X-Ray"</span> Method That Matches Your Mix Against Chart Hits Stem by Stem</span>
+            <span class="block text-lg sm:text-xl md:text-2xl font-semibold mt-2 bg-clip-text text-transparent bg-gradient-to-r from-pulse-cyan to-cyan-300">So You Can Finally See Exactly What's Missing In Your Music, and How To Fix It</span>
         </h1>
         
-        <!-- CURIOSITY-BUILDING SUBHEADLINE -->
-        <p data-animate="fade" data-delay="200" class="text-sm sm:text-base md:text-xl text-gray-300 mb-6 max-w-3xl mx-auto leading-relaxed">
-            This little-known method reverse-engineers pro mixes in minutes, so you can dial in a huge, polished sound with perfect accuracy, every single time.
-        </p>
-        
-        <!-- Wistia Video Embed -->
-        <div data-animate="fade" data-delay="300" class="mx-auto max-w-xl mb-6 rounded-xl overflow-hidden shadow-2xl">
-            <script src="https://fast.wistia.com/player.js" async></script>
-            <script src="https://fast.wistia.com/embed/fo0gqcn9z8.js" async type="module"></script>
-            <style>
-                wistia-player[media-id='fo0gqcn9z8']:not(:defined) {
-                    background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/fo0gqcn9z8/swatch');
-                    display: block;
-                    filter: blur(5px);
-                    padding-top: 56.25%;
-                }
-                @media (max-width: 768px) {
-                    .video-container {
-                        width: 100%;
-                        padding: 0 1rem;
-                    }
-                }
-            </style>
-            <div class="video-container">
-                <wistia-player media-id="fo0gqcn9z8" aspect="1.7777777777777777"></wistia-player>
-            </div>
-        </div>
-        
-        <div data-animate="fade" data-delay="400" class="relative">
-            <!-- NEW CTA BUTTON -->
-            <a href="#" id="hero-cta-button" class="btn-lg inline-block shadow-cta-glow mb-4">
-                CLAIM YOUR 'INSTANT SONG UPGRADE' NOW
-            </a>
-            
-            <!-- SPECIFIC SUBTEXT -->
-            <p class="text-sm text-gray-400 mb-4">
-                Get a personalized plan to transform your song into a reference-quality mix
+        <!-- SIMPLIFIED OFFER -->
+        <div data-animate="fade" data-delay="150" class="mb-8 max-w-2xl mx-auto">
+            <p class="text-lg md:text-xl text-gray-300 mb-6 leading-relaxed">
+                <span class="text-white font-semibold">Free 30-minute session:</span> We separate your track and a chart hit into individual stems, then match each piece so you instantly know what needs fixing.
             </p>
             
-            <!-- LOCATION-BASED URGENCY -->
-            <!-- Desktop Version -->
-            <div class="desktop-spots" style="font-size: 18px; font-weight: 400; font-style: regular; color: #fff; text-align: center; font-family: 'Inter', sans-serif;">
-                Only a few spots left for <span id="user-location-desktop">your area</span> as of <span id="dynamic-date-desktop">Loading...</span>, sessions close soon
+            <!-- CLEAN CTA BUTTON -->
+            <div class="mb-4">
+                <a href="#" id="hero-cta-button" class="btn-lg inline-block shadow-cta-glow">
+                    See What My Track Is Missing
+                </a>
             </div>
-
-            <!-- Mobile Version (hidden by default, visible only on mobile) -->
-            <div class="mobile-spots" style="font-size: 12px; font-weight: 400; font-style: italic; color: #fff; text-align: center; font-family: 'Inter', sans-serif; display: none;">
-                Only <span id="spots-left-mobile">- spots left as of loading...</span> for <span id="user-location-mobile">your area</span>, applications close soon
+            
+            <!-- SIMPLIFIED URGENCY -->
+            <p class="text-sm text-gray-400 mb-4">
+                Next available: <span id="dynamic-date-desktop" class="text-pulse-cyan font-semibold">Loading...</span> • $297 value
+            </p>
+            
+            <!-- STAR RATING FRICTION REMOVER -->
+            <div class="flex items-center justify-center">
+                <div class="flex items-center">
+                    <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                    </svg>
+                    <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                    </svg>
+                    <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                    </svg>
+                    <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                    </svg>
+                    <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                    </svg>
+                    <span class="ml-2 text-xs text-gray-300">4.9 | 127 students</span>
+                </div>
+                <div class="flex ml-3 -space-x-2 avatar-group">
+                    {studentAvatars.map((avatar, index) => (
+                        <div class="avatar-item w-6 h-6 rounded-full border-2 border-[#070710] overflow-hidden hover:z-10 relative transition-transform duration-200" style={`z-index: ${6-index}`}>
+                            <img src={avatar.src} alt={avatar.alt} class="w-full h-full object-cover" loading="lazy" />
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     </div>
@@ -105,6 +113,36 @@
 .animation-delay-300 { animation-delay: 0.3s; }
 .animation-delay-400 { animation-delay: 0.4s; }
 .animation-delay-500 { animation-delay: 0.5s; }
+
+/* Avatar hover effects */
+.avatar-item {
+    transition: all 0.2s ease;
+}
+
+.avatar-item:hover {
+    transform: translateY(-3px) scale(1.1);
+}
+
+.avatar-group:hover .avatar-item:not(:hover) {
+    transform: translateY(1px);
+}
+
+/* Track X-Ray fancy styling */
+.track-xray-fancy {
+    background: linear-gradient(45deg, #8b5cf6, #06b6d4, #8b5cf6);
+    background-size: 200% 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-shift 6s ease-in-out infinite;
+    font-weight: 900;
+    letter-spacing: 0.02em;
+}
+
+@keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
 </style>
 
 <script>
@@ -114,7 +152,7 @@
 // Hero CTA Button Logic
 document.addEventListener('DOMContentLoaded', () => {
   const heroCtaButton = document.getElementById('hero-cta-button');
-  const calendarModal = document.getElementById('calendar-modal'); // Make sure this modal exists and has this ID
+  const calendarModal = document.getElementById('calendar-modal');
 
   if (heroCtaButton && calendarModal) {
     heroCtaButton.addEventListener('click', (event) => {
@@ -124,8 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Logic for closing the calendar modal (if not already handled globally or in Section7Offer.astro)
-  // Example:
+  // Modal closing logic
   const closeCalendarButton = document.getElementById('close-calendar-modal');
   if (closeCalendarButton && calendarModal) {
       closeCalendarButton.addEventListener('click', () => {
@@ -133,12 +170,14 @@ document.addEventListener('DOMContentLoaded', () => {
           setTimeout(() => calendarModal.classList.add('hidden'), 300);
       });
   }
+  
   // Close on ESC
   window.addEventListener('keydown', (event) => {
       if (event.key === 'Escape' && calendarModal && !calendarModal.classList.contains('hidden')) {
           closeCalendarButton?.click();
       }
   });
+  
   // Close on backdrop click
   if (calendarModal) {
       calendarModal.addEventListener('click', (event) => {
@@ -148,53 +187,24 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   }
 
-  // LOCATION AND DATE LOGIC
-  // Set date
+  // DATE LOGIC - Set to 3-4 days out for urgency
+  const today = new Date();
+  const futureDate = new Date(today);
+  futureDate.setDate(today.getDate() + 3);
+  
   const options: Intl.DateTimeFormatOptions = { month: "long", day: "numeric" };
-  const today = new Date().toLocaleDateString("en-US", options);
+  const displayDate = futureDate.toLocaleDateString("en-US", options);
 
   const dynamicDateDesktop = document.getElementById("dynamic-date-desktop");
-  const dynamicDateMobile = document.getElementById("dynamic-date-mobile");
-  
-  if (dynamicDateDesktop) dynamicDateDesktop.textContent = today;
-  if (dynamicDateMobile) dynamicDateMobile.textContent = today;
+  if (dynamicDateDesktop) dynamicDateDesktop.textContent = displayDate;
 
-  // Fetch user location using ipinfo.io
+  // Fetch user location for eyebrow text
   fetch("https://ipinfo.io/json?token=ff316ef2f19f67")
     .then(response => response.json())
     .then(data => {
-      const userLocationDesktop = document.getElementById("user-location-desktop");
-      const userLocationMobile = document.getElementById("user-location-mobile");
       const userLocationEyebrow = document.getElementById("user-location-eyebrow");
-      
-      if (userLocationDesktop) userLocationDesktop.textContent = data.city || "your area";
-      if (userLocationMobile) userLocationMobile.textContent = data.city || "your area";
-      if (userLocationEyebrow) userLocationEyebrow.textContent = data.city || "EDM";
+      if (userLocationEyebrow) userLocationEyebrow.textContent = data.city || "";
     })
     .catch(error => console.error("Error fetching location:", error));
-
-  // Use shared spots manager
-  if ((window as any).spotsManager) {
-    (window as any).spotsManager.updateSpotsWithDate('spots-left-mobile');
-  }
-
-  // Show the correct version based on screen width
-  function toggleVisibility() {
-    const mobileSpots = document.querySelector(".mobile-spots") as HTMLElement;
-    const desktopSpots = document.querySelector(".desktop-spots") as HTMLElement;
-    
-    if (mobileSpots && desktopSpots) {
-      if (window.innerWidth <= 1100) {
-        mobileSpots.style.display = "block";
-        desktopSpots.style.display = "none";
-      } else {
-        mobileSpots.style.display = "none";
-        desktopSpots.style.display = "block";
-      }
-    }
-  }
-
-  toggleVisibility();
-  window.addEventListener("resize", toggleVisibility);
 });
 </script> 

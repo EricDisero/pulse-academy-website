@@ -21,18 +21,18 @@ const StarIcon = `
     <div class="max-w-3xl mx-auto mb-8">
         <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight text-center pb-3">
             <span class="block text-silvery-gradient pb-2 text-xl md:text-2xl lg:text-3xl font-medium">Stop Wondering What You're Missing</span>
-            <span class="block text-transparent bg-clip-text bg-gradient-to-r from-pulse-purple to-pulse-cyan pb-2 leading-normal">Get Your Free Track Analysis</span>
+            <span class="block text-transparent bg-clip-text bg-gradient-to-r from-pulse-purple to-pulse-cyan pb-2 leading-normal">See Exactly What's Holding Your Tracks Back</span>
         </h2>
         <p class="mt-6 text-lg md:text-xl text-gray-300 text-center">
-            We'll prove our method works by showing you exactly what separates your tracks from Billboard hits. <strong class="text-white">Completely free.</strong>
+            Free 30-minute analysis session where we compare your track to a chart hit and show you the exact changes needed. <strong class="text-white">Completely free, zero sales pressure.</strong>
         </p>
     </div>
 
-    <!-- Urgency & Scarcity -->
+    <!-- Enhanced Urgency & Scarcity -->
     <div class="max-w-2xl mx-auto mb-8 text-center">
-        <div class="bg-red-500/10 border border-red-500/20 rounded-lg p-4">
-            <p class="text-red-400 font-semibold mb-2">⚠️ Only <span id="spots-left-offer" class="text-red-400 font-bold">- spots left as of loading...</span> for <span id="user-city-offer" class="text-red-400 font-bold">your area</span></p>
-            <p class="text-gray-300 text-sm">These sessions fill up fast. Secure yours now before we're fully booked.</p>
+        <div class="bg-pulse-cyan/10 border border-pulse-cyan/20 rounded-lg p-4">
+            <p class="text-pulse-cyan font-semibold mb-2">⏰ Next available session: <span id="next-session-date" class="text-pulse-cyan font-bold">- loading...</span></p>
+            <p class="text-gray-300 text-sm">Limited to 10 producers per week. Sessions fill up fast.</p>
         </div>
     </div>
 
@@ -41,7 +41,7 @@ const StarIcon = `
         <div class="text-center mb-8">
             <h3 class="text-2xl md:text-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-pulse-purple to-pulse-cyan mb-6 pb-2 leading-normal">Here's What You Get:</h3>
             
-            <!-- Clear Value List -->
+            <!-- ENHANCED VALUE LIST -->
             <div class="space-y-4 mb-8 text-left">
                 <div class="flex items-start gap-4">
                     <div class="w-6 h-6 rounded-full bg-pulse-purple/20 flex items-center justify-center flex-shrink-0 mt-1">
@@ -50,8 +50,8 @@ const StarIcon = `
                         </svg>
                     </div>
                     <div>
-                        <p class="text-gray-200 text-lg mb-1"><strong class="text-white">AI Stem Separation Analysis</strong></p>
-                        <p class="text-gray-400 text-sm">We analyze your track and a professional reference using our Pulse Cascade Splitter™ to reveal exactly what's different in the mix, chord voicings, and arrangement.</p>
+                        <p class="text-gray-200 text-lg mb-1"><strong class="text-white">30-Minute Track Analysis Session ($297 value)</strong></p>
+                        <p class="text-gray-400 text-sm">We analyze your track against a chart hit and show you exactly what's different. No guesswork - see precisely what needs fixing.</p>
                     </div>
                 </div>
                 
@@ -62,8 +62,8 @@ const StarIcon = `
                         </svg>
                     </div>
                     <div>
-                        <p class="text-gray-200 text-lg mb-1"><strong class="text-white">30-Minute Live Session</strong></p>
-                        <p class="text-gray-400 text-sm">Screen-share with a professional engineer who shows you the specific changes that will instantly upgrade your track to sound like the pros.</p>
+                        <p class="text-gray-200 text-lg mb-1"><strong class="text-white">Custom Action Plan For Your Track</strong></p>
+                        <p class="text-gray-400 text-sm">Get 3-5 specific changes you can make immediately. Exact frequency adjustments, mix fixes, and arrangement changes that will make the biggest difference.</p>
                     </div>
                 </div>
                 
@@ -74,8 +74,8 @@ const StarIcon = `
                         </svg>
                     </div>
                     <div>
-                        <p class="text-gray-200 text-lg mb-1"><strong class="text-white">Instant Upgrade Action Plan</strong></p>
-                        <p class="text-gray-400 text-sm">Get 3-5 specific changes you can make immediately to transform your track. No guesswork, just the exact adjustments that will make the biggest difference.</p>
+                        <p class="text-gray-200 text-lg mb-1"><strong class="text-white">Professional Reference Track Breakdown</strong></p>
+                        <p class="text-gray-400 text-sm">See exactly how chart hits are structured. We break down a professional track in your genre so you can understand what makes it work.</p>
                     </div>
                 </div>
                 
@@ -86,8 +86,8 @@ const StarIcon = `
                         </svg>
                     </div>
                     <div>
-                        <p class="text-gray-200 text-lg mb-1"><strong class="text-white">(Bonus) Reference Track Stems</strong></p>
-                        <p class="text-gray-400 text-sm">Download the separated stems from your reference track so you can study how the pros structure their arrangements and chord progressions.</p>
+                        <p class="text-gray-200 text-lg mb-1"><strong class="text-white">Bonus: Separated Stems From Analysis</strong></p>
+                        <p class="text-gray-400 text-sm">Download the stems from your reference track analysis so you can study exactly how the pros layer their sounds and create punch.</p>
                     </div>
                 </div>
             </div>
@@ -132,10 +132,10 @@ const StarIcon = `
             <div class="text-center">
                 <button id="open-calendar-modal-offer" 
                       class="btn-lg shadow-cta-glow text-lg md:text-xl inline-block font-bold transition-all duration-300 mb-4">
-                   CLAIM MY 'INSTANT SONG UPGRADE' SESSION NOW
+                   Analyze My Track For Free
                 </button>
                 <p class="text-sm text-gray-400">
-                    Takes 2 minutes to book. 30 minutes to transform your music.
+                    Takes 2 minutes to book • 30 minutes to see what's wrong • Zero sales pressure
                 </p>
             </div>
         </div>
@@ -170,7 +170,7 @@ const StarIcon = `
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
             </button>
-            <h3 class="text-lg md:text-2xl font-semibold text-gray-100 mb-2 md:mb-4 px-2">Book Your 'Instant Song Upgrade' Session</h3>
+            <h3 class="text-lg md:text-2xl font-semibold text-gray-100 mb-2 md:mb-4 px-2">Book Your Free Track Analysis Session</h3>
             <p class="text-sm md:text-base text-gray-300 mb-2 md:mb-4 px-2">Complete the form below to secure your spot for a free track analysis session.</p>
             <div id="iframe-container" class="w-full">
                 <iframe id="ghl-iframe" style="border:none;width:100%;min-height:500px;" scrolling="no" title="Instant Song Upgrade Session" class="rounded-md"></iframe>
@@ -312,28 +312,23 @@ const StarIcon = `
     };
     document.head.appendChild(ghlScript);
 
-    // Initialize spots count and location when page loads
+    // Initialize date and location when page loads
     document.addEventListener('DOMContentLoaded', () => {
+        // Set next session date to 3-4 days out
+        const today = new Date();
+        const futureDate = new Date(today);
+        futureDate.setDate(today.getDate() + 3); // 3 days from now
+        
+        const options: Intl.DateTimeFormatOptions = { month: "long", day: "numeric" };
+        const displayDate = futureDate.toLocaleDateString("en-US", options);
+        
+        const nextSessionElement = document.getElementById('next-session-date');
+        if (nextSessionElement) {
+            nextSessionElement.textContent = displayDate;
+        }
+        
         if ((window as any).spotsManager) {
             (window as any).spotsManager.updateSpotsWithDate('spots-left-offer');
         }
-        
-        // Update city in offer section
-        const userCityElement = document.getElementById('user-city-offer');
-        
-        // Fetch user location using ipinfo.io (same as hero section)
-        fetch("https://ipinfo.io/json?token=ff316ef2f19f67")
-            .then(response => response.json())
-            .then(data => {
-                if (userCityElement) {
-                    userCityElement.textContent = data.city || "your area";
-                }
-            })
-            .catch(error => {
-                console.error("Error fetching location:", error);
-                if (userCityElement) {
-                    userCityElement.textContent = "your area";
-                }
-            });
     });
 </script> 
