@@ -16,12 +16,32 @@ const studentAvatars = [
 ];
 ---
 <section id="hero" class="hero-mobile-fix flex flex-col items-center justify-center text-center pt-20 md:pt-16 pb-16 md:pb-16 relative overflow-hidden bg-gradient-to-b from-[#050507] to-[#0a0a15]">
-    <!-- Enhanced Tech Background -->
-    <div class="absolute inset-0 bg-[url('/tech-pattern.png')] opacity-10"></div>
+    <!-- Enhanced Tech Background with noise for anti-banding -->
+    <div class="absolute inset-0 bg-[url('/tech-pattern.png')] opacity-5"></div>
     
-    <!-- Subtle glow effects -->
-    <div class="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-pulse-purple/5 blur-[100px]"></div>
-    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-pulse-cyan/5 blur-[100px]"></div>
+    <!-- Subtle noise overlay to reduce banding -->
+    <div class="absolute inset-0 opacity-[0.015]" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'1\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E');"></div>
+    
+    <!-- Animated Gradient Orbs -->
+    <div class="absolute inset-0 overflow-hidden">
+        <!-- Primary Purple Orb - Hero -->
+        <div class="floating-orb orb-1 absolute w-[600px] h-[600px] rounded-full anti-banding blur-[150px]" style="background: radial-gradient(circle, rgba(139, 92, 246, 0.25) 0%, rgba(139, 92, 246, 0.18) 20%, rgba(139, 92, 246, 0.12) 40%, rgba(139, 92, 246, 0.07) 60%, rgba(139, 92, 246, 0.04) 80%, transparent 100%);"></div>
+        
+        <!-- Primary Cyan Orb - Hero -->
+        <div class="floating-orb orb-2 absolute w-[550px] h-[550px] rounded-full anti-banding blur-[140px]" style="background: radial-gradient(circle, rgba(6, 182, 212, 0.22) 0%, rgba(6, 182, 212, 0.16) 25%, rgba(6, 182, 212, 0.10) 45%, rgba(6, 182, 212, 0.06) 65%, rgba(6, 182, 212, 0.03) 85%, transparent 100%);"></div>
+        
+        <!-- Dynamic Purple Wave -->
+        <div class="floating-orb orb-3 absolute w-[500px] h-[500px] rounded-full anti-banding blur-[180px]" style="background: radial-gradient(circle, rgba(168, 85, 247, 0.18) 0%, rgba(168, 85, 247, 0.13) 30%, rgba(168, 85, 247, 0.08) 50%, rgba(168, 85, 247, 0.04) 70%, rgba(168, 85, 247, 0.02) 90%, transparent 100%);"></div>
+        
+        <!-- Accent Cyan Pulse -->
+        <div class="floating-orb orb-4 absolute w-[480px] h-[480px] rounded-full anti-banding blur-[130px]" style="background: radial-gradient(circle, rgba(34, 211, 238, 0.20) 0%, rgba(34, 211, 238, 0.14) 25%, rgba(34, 211, 238, 0.08) 50%, rgba(34, 211, 238, 0.04) 75%, rgba(34, 211, 238, 0.02) 90%, transparent 100%);"></div>
+        
+        <!-- Floating Violet Accent -->
+        <div class="floating-orb orb-5 absolute w-[420px] h-[420px] rounded-full anti-banding blur-[120px]" style="background: radial-gradient(circle, rgba(139, 92, 246, 0.22) 0%, rgba(139, 92, 246, 0.16) 20%, rgba(139, 92, 246, 0.10) 40%, rgba(139, 92, 246, 0.06) 60%, rgba(139, 92, 246, 0.03) 80%, transparent 100%);"></div>
+        
+        <!-- Electric Blue Highlight -->
+        <div class="floating-orb orb-6 absolute w-[460px] h-[460px] rounded-full anti-banding blur-[125px]" style="background: radial-gradient(circle, rgba(59, 130, 246, 0.18) 0%, rgba(59, 130, 246, 0.13) 25%, rgba(59, 130, 246, 0.08) 45%, rgba(59, 130, 246, 0.05) 65%, rgba(59, 130, 246, 0.02) 85%, transparent 100%);"></div>
+    </div>
 
     <div class="container mx-auto px-4 md:px-8 relative z-10 max-w-4xl">
         <!-- CURIOSITY-DRIVEN EYEBROW TEXT WITH GRADIENT BACKGROUND -->
@@ -155,6 +175,126 @@ const studentAvatars = [
 @keyframes gradient-shift {
     0%, 100% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
+}
+
+/* Radial gradient utility */
+.bg-gradient-radial {
+    background: radial-gradient(circle, var(--tw-gradient-stops));
+}
+
+/* Anti-banding techniques */
+.anti-banding {
+    image-rendering: auto;
+    image-rendering: smooth;
+    image-rendering: high-quality;
+    image-rendering: -webkit-optimize-contrast;
+}
+
+/* Floating orb animations */
+.floating-orb {
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+/* Individual orb movements */
+.orb-1 {
+    top: 0%;
+    left: 5%;
+    animation: float-1 18s infinite;
+}
+
+.orb-2 {
+    top: 50%;
+    right: 0%;
+    animation: float-2 22s infinite;
+    animation-delay: -5s;
+}
+
+.orb-3 {
+    top: 60%;
+    left: 0%;
+    animation: float-3 16s infinite;
+    animation-delay: -8s;
+}
+
+.orb-4 {
+    bottom: 10%;
+    left: 25%;
+    animation: float-4 20s infinite;
+    animation-delay: -12s;
+}
+
+.orb-5 {
+    top: 65%;
+    left: 50%;
+    animation: float-5 14s infinite;
+    animation-delay: -6s;
+}
+
+.orb-6 {
+    top: 25%;
+    right: 10%;
+    animation: float-6 19s infinite;
+    animation-delay: -10s;
+}
+
+
+
+/* Keyframe animations for organic movement */
+@keyframes float-1 {
+    0% { transform: translate(0, 0) scale(1) rotate(0deg); opacity: 0.7; }
+    25% { transform: translate(60px, -40px) scale(1.2) rotate(90deg); opacity: 0.9; }
+    50% { transform: translate(-30px, 80px) scale(0.8) rotate(180deg); opacity: 0.6; }
+    75% { transform: translate(40px, -20px) scale(1.1) rotate(270deg); opacity: 0.8; }
+    100% { transform: translate(0, 0) scale(1) rotate(360deg); opacity: 0.7; }
+}
+
+@keyframes float-2 {
+    0% { transform: translate(0, 0) scale(1) rotate(0deg); opacity: 0.6; }
+    20% { transform: translate(-80px, 50px) scale(1.3) rotate(72deg); opacity: 0.8; }
+    40% { transform: translate(40px, -60px) scale(0.9) rotate(144deg); opacity: 0.5; }
+    60% { transform: translate(-20px, 90px) scale(1.1) rotate(216deg); opacity: 0.7; }
+    80% { transform: translate(60px, -30px) scale(0.95) rotate(288deg); opacity: 0.6; }
+    100% { transform: translate(0, 0) scale(1) rotate(360deg); opacity: 0.6; }
+}
+
+@keyframes float-3 {
+    0% { transform: translate(0, 0) scale(1) rotate(45deg); opacity: 0.5; }
+    33% { transform: translate(70px, 50px) scale(1.4) rotate(165deg); opacity: 0.8; }
+    66% { transform: translate(-50px, -70px) scale(0.7) rotate(285deg); opacity: 0.4; }
+    100% { transform: translate(0, 0) scale(1) rotate(405deg); opacity: 0.5; }
+}
+
+@keyframes float-4 {
+    0% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+    30% { transform: translate(-60px, -70px) scale(1.2); opacity: 0.8; }
+    60% { transform: translate(80px, 40px) scale(0.85); opacity: 0.5; }
+    100% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+}
+
+@keyframes float-5 {
+    0% { transform: translate(0, 0) scale(1); opacity: 0.8; }
+    40% { transform: translate(50px, -80px) scale(1.5); opacity: 1.0; }
+    80% { transform: translate(-70px, 30px) scale(0.6); opacity: 0.6; }
+    100% { transform: translate(0, 0) scale(1); opacity: 0.8; }
+}
+
+@keyframes float-6 {
+    0% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+    25% { transform: translate(-90px, 70px) scale(1.3); opacity: 0.7; }
+    50% { transform: translate(60px, -50px) scale(0.8); opacity: 0.4; }
+    75% { transform: translate(-30px, 80px) scale(1.2); opacity: 0.6; }
+    100% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+}
+
+
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .floating-orb {
+        animation: none;
+    }
 }
 </style>
 
