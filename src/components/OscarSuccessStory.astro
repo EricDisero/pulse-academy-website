@@ -2,101 +2,123 @@
 // src/components/OscarSuccessStory.astro
 ---
 <section class="py-8 md:py-12 bg-transparent px-4 md:px-8">
-    <div class="max-w-4xl mx-auto">
-        <div class="oscar-story-container bg-gradient-to-br from-[#080810]/80 to-[#0c0c18]/80 backdrop-blur-sm border border-gray-800/30 rounded-2xl p-6 md:p-8 relative overflow-hidden">
+    <div class="max-w-5xl mx-auto">
+        <div class="oscar-story-container card-gradient border border-gray-800/30 rounded-2xl p-6 md:p-8 relative overflow-hidden hover:border-pulse-purple/30 transition-all duration-300 hover:shadow-glow-sm">
             <!-- Background glow effects -->
             <div class="absolute top-0 left-0 w-32 h-32 bg-pulse-purple/10 rounded-full blur-3xl"></div>
             <div class="absolute bottom-0 right-0 w-32 h-32 bg-pulse-cyan/10 rounded-full blur-3xl"></div>
             
             <div class="relative z-10">
                 <!-- Header -->
-                <div class="text-center mb-6">
-                    <div class="inline-block bg-gradient-to-r from-green-500/20 to-green-400/20 px-4 py-2 rounded-full border border-green-500/30 mb-4">
+                <div class="text-center mb-8">
+                    <div class="inline-block bg-gradient-to-r from-green-500/20 to-green-400/20 px-4 py-2 rounded-full border border-green-500/30 mb-6">
                         <span class="text-green-400 font-semibold text-sm">🚀 STUDENT SUCCESS STORY</span>
                     </div>
-                    <h3 class="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pulse-purple to-pulse-cyan mb-2 pb-1 leading-normal">
-                        From Bedroom Producer to 900K Monthly Listeners
+                    <h3 class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pulse-purple to-pulse-cyan mb-4 pb-1 leading-normal">
+                        From Bedroom Producer to 905K Monthly Listeners
                     </h3>
-                    <p class="text-gray-400 text-lg">How Oscar transformed his tracks and reached nearly 1 million monthly listeners in just 12 months</p>
+                    <p class="text-gray-400 text-xl max-w-3xl mx-auto">How Oscar transformed his tracks and reached nearly 1 million monthly listeners in just 12 months</p>
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <!-- Left: Oscar's info and story -->
-                    <div class="space-y-6">
-                        <div class="flex items-center gap-4">
-                            <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-pulse-purple/30 flex-shrink-0">
-                                <img src="/student-photos/Oscar.webp" alt="Oscar" class="w-full h-full object-cover" />
-                            </div>
-                            <div>
-                                <h4 class="text-xl font-bold text-white">Oscar</h4>
-                                <p class="text-pulse-cyan text-sm font-medium">Electronic Producer</p>
-                                <p class="text-gray-400 text-xs">Program Graduate • 12 months</p>
+                <!-- Oscar's Profile -->
+                <div class="flex items-center justify-center gap-4 mb-8">
+                    <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-pulse-purple/30 flex-shrink-0 shadow-glow-sm">
+                        <img src="/student-photos/Oscar.webp" alt="Oscar" class="w-full h-full object-cover" />
+                    </div>
+                    <div class="text-center">
+                        <h4 class="text-2xl font-bold text-white">Oscar</h4>
+                        <p class="text-pulse-cyan text-sm font-medium">Electronic Producer</p>
+                        <p class="text-gray-400 text-xs">Program Graduate • 12 months</p>
+                    </div>
+                </div>
+
+                <!-- Hero Spotify Analytics Screenshot -->
+                <div class="mb-12">
+                    <div class="spotify-container">
+                        <div class="spotify-wrapper">
+                            <div class="card-gradient rounded-2xl p-6 border border-gray-800/30 shadow-xl cursor-pointer hover:border-pulse-purple/50 transition-all duration-300 hover:shadow-glow-sm spotify-modal-trigger"
+                                 data-image="/social-proof/Oscar-spotify-screenshot.webp" 
+                                 data-caption="Oscar's Spotify Analytics showing 905K monthly listeners">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <div class="w-4 h-4 bg-green-500 rounded-full"></div>
+                                    <span class="text-white text-lg font-semibold">Spotify for Artists</span>
+                                    <span class="text-sm text-gray-400 ml-auto">Click to enlarge</span>
+                                </div>
+                                <img src="/social-proof/Oscar-spotify-screenshot.webp" alt="Oscar's Spotify Analytics showing 905K monthly listeners" class="w-full h-auto rounded-lg" />
                             </div>
                         </div>
-
-                        <div class="space-y-4">
-                            <div class="bg-[#0a0a15]/60 p-4 rounded-lg border border-gray-800/20">
-                                <p class="text-red-400 font-semibold text-sm mb-2">The Challenge</p>
-                                <p class="text-gray-300 text-sm">Oscar's tracks had great ideas but sounded amateur compared to the artists he wanted to compete with. His mixes lacked the punch and clarity of professional releases.</p>
-                            </div>
-
-                            <div class="bg-[#0a0a15]/60 p-4 rounded-lg border border-gray-800/20">
-                                <p class="text-pulse-cyan font-semibold text-sm mb-2">The Transformation</p>
-                                <p class="text-gray-300 text-sm">Through our program, Oscar learned the exact frequency analysis and mixing techniques used in chart hits. He discovered the specific changes that separated his amateur-sounding tracks from professional ones.</p>
-                            </div>
-
-                            <div class="bg-green-500/10 p-4 rounded-lg border border-green-500/20">
-                                <p class="text-green-400 font-semibold text-sm mb-2">The Results</p>
-                                <ul class="text-gray-300 text-sm space-y-1">
-                                    <li>• <strong class="text-white">900K monthly listeners</strong> in 12 months</li>
-                                    <li>• <strong class="text-white">Featured on New Music Friday</strong> - Spotify's flagship playlist</li>
-                                    <li>• <strong class="text-white">Tracks now being signed</strong> to record labels</li>
-                                    <li>• Multiple playlist placements on major platforms</li>
-                                    <li>• Tracks now sound indistinguishable from chart hits</li>
-                                </ul>
-                            </div>
+                        <div class="text-center mt-4">
+                            <p class="text-lg text-gray-400 italic font-medium">905K monthly listeners achieved in 12 months</p>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Right: Spotify Screenshots with 3D effect -->
-                    <div class="space-y-6">
-                        <!-- Spotify Analytics -->
-                        <div class="spotify-container">
-                            <div class="spotify-wrapper">
-                                <div class="bg-[#191414] rounded-2xl p-4 border border-gray-800/30 shadow-2xl">
-                                    <div class="flex items-center gap-2 mb-3">
-                                        <div class="w-3 h-3 bg-green-500 rounded-full"></div>
-                                        <span class="text-white text-sm font-semibold">Spotify for Artists</span>
-                                    </div>
-                                    <img src="/social-proof/Oscar-spotify-screenshot.webp" alt="Oscar's Spotify Analytics showing 900K monthly listeners" class="w-full h-auto rounded-lg" />
+                <!-- Three Story Boxes -->
+                <div class="grid md:grid-cols-3 gap-6 mb-12">
+                    <div class="card-gradient p-6 rounded-xl border border-gray-800/20 hover:border-pulse-purple/30 transition-all duration-300 hover:shadow-glow-sm">
+                        <p class="text-red-400 font-semibold text-sm mb-3">The Challenge</p>
+                        <p class="text-gray-300 text-sm leading-relaxed">Oscar's tracks had great ideas but sounded amateur compared to the artists he wanted to compete with. His mixes lacked the punch and clarity of professional releases.</p>
+                    </div>
+
+                    <div class="card-gradient p-6 rounded-xl border border-gray-800/20 hover:border-pulse-purple/30 transition-all duration-300 hover:shadow-glow-sm">
+                        <p class="text-pulse-cyan font-semibold text-sm mb-3">The Transformation</p>
+                        <p class="text-gray-300 text-sm leading-relaxed">Through our program, Oscar learned the exact frequency analysis and mixing techniques used in chart hits. He discovered the specific changes that separated his amateur-sounding tracks from professional ones.</p>
+                    </div>
+
+                    <div class="card-gradient p-6 rounded-xl border border-gray-800/20 hover:border-pulse-purple/30 transition-all duration-300 hover:shadow-glow-sm">
+                        <p class="text-yellow-400 font-semibold text-sm mb-3">No Marketing Magic</p>
+                        <p class="text-gray-300 text-sm leading-relaxed">Oscar didn't use any special marketing strategies or industry connections. His music simply got noticed and signed by record labels because it finally sounded professional. Quality music speaks for itself.</p>
+                    </div>
+                </div>
+
+                <!-- Results Section -->
+                <div class="bg-green-500/10 p-6 rounded-xl border border-green-500/20 mb-8">
+                    <p class="text-green-400 font-semibold text-lg mb-6 text-center">The Results</p>
+                    <div class="flex flex-col lg:flex-row items-stretch gap-6">
+                        <div class="flex-1">
+                            <div class="grid md:grid-cols-2 gap-3">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-pulse-cyan text-lg">✓</span>
+                                    <span class="text-gray-300 text-sm"><strong class="text-white">905K monthly listeners</strong> in 12 months</span>
                                 </div>
-                            </div>
-                            <div class="text-center mt-3">
-                                <p class="text-xs text-gray-400 italic">900K monthly listeners achieved in 12 months</p>
+                                <div class="flex items-center gap-2">
+                                    <span class="text-pulse-cyan text-lg">✓</span>
+                                    <span class="text-gray-300 text-sm"><strong class="text-white">Tracks now being signed</strong> to record labels</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="text-pulse-cyan text-lg">✓</span>
+                                    <span class="text-gray-300 text-sm">Multiple playlist placements on major platforms</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="text-pulse-cyan text-lg">✓</span>
+                                    <span class="text-gray-300 text-sm">Tracks now sound indistinguishable from chart hits</span>
+                                </div>
                             </div>
                         </div>
-
-                        <!-- New Music Friday Achievement -->
-                        <div class="spotify-container">
-                            <div class="spotify-wrapper">
-                                <div class="bg-[#191414] rounded-2xl p-4 border border-gray-800/30 shadow-2xl">
-                                    <div class="flex items-center gap-2 mb-3">
-                                        <div class="w-3 h-3 bg-green-500 rounded-full"></div>
-                                        <span class="text-white text-sm font-semibold">New Music Friday</span>
-                                    </div>
-                                    <img src="/social-proof/Oscar-new-music-friday.webp" alt="Oscar's track featured on New Music Friday playlist" class="w-full h-auto rounded-lg" />
+                        
+                        <!-- New Music Friday Achievement (Compact) -->
+                        <div class="flex items-center gap-4 card-gradient rounded-xl p-4 border border-gray-800/30 cursor-pointer transition-all duration-300 lg:w-80 new-music-friday-card nmf-modal-trigger"
+                             data-image="/social-proof/Oscar-new-music-friday.webp" 
+                             data-caption="Oscar's track featured on New Music Friday playlist">
+                            <div class="flex-shrink-0">
+                                <div class="w-16 h-16 rounded-lg overflow-hidden border border-gray-700/30">
+                                    <img src="/social-proof/Oscar-new-music-friday.webp" alt="Oscar's track featured on New Music Friday playlist" class="w-full h-full object-cover" />
                                 </div>
                             </div>
-                            <div class="text-center mt-3">
-                                <p class="text-xs text-gray-400 italic">Featured on Spotify's flagship New Music Friday playlist</p>
+                            <div class="flex-1">
+                                <div class="flex items-center gap-2 mb-2">
+                                    <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                                    <span class="text-white text-sm font-semibold">Featured on New Music Friday</span>
+                                </div>
+                                <p class="text-xs text-gray-400">Spotify's flagship playlist</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Bottom CTA -->
-                <div class="text-center mt-8 pt-6 border-t border-gray-800/20">
-                    <p class="text-gray-300 mb-4">
+                <div class="text-center pt-6 border-t border-gray-800/20">
+                    <p class="text-gray-300 mb-6 text-lg">
                         <strong class="text-white">Oscar started with the same free track analysis you can get today.</strong>
                     </p>
                     <a href="#offer-section" class="btn-lg shadow-cta-glow inline-flex items-center gap-2">
@@ -111,15 +133,95 @@
     </div>
 </section>
 
+<!-- Image Modal -->
+<div id="imageModal" class="fixed inset-0 bg-black/90 backdrop-blur-sm z-[100] hidden items-center justify-center p-4">
+    <div class="max-w-5xl max-h-[90vh] relative">
+        <button id="closeModalBtn" class="absolute -top-12 right-0 text-white/70 hover:text-white text-2xl font-bold transition-colors">
+            ✕
+        </button>
+        <img id="modalImage" src="" alt="" class="max-w-full max-h-full object-contain rounded-lg shadow-2xl" />
+        <p id="modalCaption" class="text-center text-gray-300 mt-4 text-sm"></p>
+    </div>
+</div>
+
+<script>
+    // Wait for DOM to be fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage') as HTMLImageElement;
+        const modalCaption = document.getElementById('modalCaption');
+        const closeBtn = document.getElementById('closeModalBtn');
+
+        if (!modal || !modalImage || !modalCaption) {
+            console.error('Modal elements not found');
+            return;
+        }
+
+        function openModal(imageSrc: string, caption: string) {
+            if (!modal || !modalImage || !modalCaption) return;
+            
+            modalImage.src = imageSrc;
+            modalImage.alt = caption;
+            modalCaption.textContent = caption;
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            if (!modal) return;
+            
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Add click handlers to modal triggers
+        const spotifyTrigger = document.querySelector('.spotify-modal-trigger');
+        const nmfTrigger = document.querySelector('.nmf-modal-trigger');
+
+        if (spotifyTrigger) {
+            spotifyTrigger.addEventListener('click', function() {
+                const imageSrc = this.getAttribute('data-image') || '';
+                const caption = this.getAttribute('data-caption') || '';
+                openModal(imageSrc, caption);
+            });
+        }
+
+        if (nmfTrigger) {
+            nmfTrigger.addEventListener('click', function() {
+                const imageSrc = this.getAttribute('data-image') || '';
+                const caption = this.getAttribute('data-caption') || '';
+                openModal(imageSrc, caption);
+            });
+        }
+
+        // Close modal handlers
+        if (closeBtn) {
+            closeBtn.addEventListener('click', closeModal);
+        }
+
+        // Close when clicking backdrop
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Close on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) {
+                closeModal();
+            }
+        });
+    });
+</script>
+
 <style>
     .oscar-story-container {
         backdrop-filter: blur(20px);
         transition: all 0.3s ease;
-    }
-
-    .oscar-story-container:hover {
-        border-color: rgba(139, 92, 246, 0.4);
-        box-shadow: 0 25px 50px rgba(139, 92, 246, 0.1);
     }
 
     .spotify-container {
@@ -132,29 +234,25 @@
     }
 
     .spotify-wrapper:hover {
-        transform: rotateY(-8deg) rotateX(4deg) translateZ(20px);
+        transform: rotateY(-2deg) rotateX(1deg) translateZ(10px);
     }
 
-    .spotify-wrapper:hover + div {
-        opacity: 0.8;
+    .new-music-friday-card {
+        transition: transform 0.3s ease;
     }
 
-    /* Glassmorphism effect for spotify container */
-    .spotify-wrapper .bg-\[#191414\] {
-        background: rgba(25, 20, 20, 0.9);
-        backdrop-filter: blur(15px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .spotify-wrapper:hover .bg-\[#191414\] {
-        background: rgba(25, 20, 20, 0.95);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    .new-music-friday-card:hover {
+        transform: scale(1.02) rotateY(-1deg) rotateX(0.5deg);
     }
 
     /* Responsive adjustments */
     @media (max-width: 768px) {
         .spotify-wrapper:hover {
-            transform: rotateY(-4deg) rotateX(2deg) translateZ(10px);
+            transform: rotateY(-1deg) rotateX(0.5deg) translateZ(5px);
+        }
+        
+        .new-music-friday-card:hover {
+            transform: scale(1.01) rotateY(-0.5deg) rotateX(0.25deg);
         }
     }
 </style> 
