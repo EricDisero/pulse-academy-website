@@ -24,31 +24,31 @@
     <rect x="0" y="20" width="320" height="20" rx="4" fill="rgba(139, 92, 246, 0.2)" stroke="rgba(139, 92, 246, 0.4)" stroke-width="1"/>
     <rect x="0" y="20" width="240" height="20" rx="4" fill="url(#waveGradient1)"/>
     
-    <!-- Separated Stems -->
+    <!-- Separated Stems with Purple to Cyan Gradient -->
     <text x="0" y="60" fill="rgba(255, 255, 255, 0.8)" font-family="Inter, sans-serif" font-size="10">Vocals</text>
-    <rect x="60" y="50" width="260" height="12" rx="2" fill="rgba(6, 182, 212, 0.3)" stroke="rgba(6, 182, 212, 0.5)" stroke-width="1"/>
+    <rect x="60" y="50" width="260" height="12" rx="2" fill="url(#stemGradient1)" stroke="url(#stemBorder1)" stroke-width="1"/>
     
     <text x="0" y="80" fill="rgba(255, 255, 255, 0.8)" font-family="Inter, sans-serif" font-size="10">Kick</text>
-    <rect x="60" y="70" width="260" height="12" rx="2" fill="rgba(139, 92, 246, 0.3)" stroke="rgba(139, 92, 246, 0.5)" stroke-width="1"/>
+    <rect x="60" y="70" width="260" height="12" rx="2" fill="url(#stemGradient2)" stroke="url(#stemBorder2)" stroke-width="1"/>
     
     <text x="0" y="100" fill="rgba(255, 255, 255, 0.8)" font-family="Inter, sans-serif" font-size="10">Snare</text>
-    <rect x="60" y="90" width="260" height="12" rx="2" fill="rgba(236, 72, 153, 0.3)" stroke="rgba(236, 72, 153, 0.5)" stroke-width="1"/>
+    <rect x="60" y="90" width="260" height="12" rx="2" fill="url(#stemGradient3)" stroke="url(#stemBorder3)" stroke-width="1"/>
     
     <text x="0" y="120" fill="rgba(255, 255, 255, 0.8)" font-family="Inter, sans-serif" font-size="10">Toms</text>
-    <rect x="60" y="110" width="260" height="12" rx="2" fill="rgba(34, 197, 94, 0.3)" stroke="rgba(34, 197, 94, 0.5)" stroke-width="1"/>
+    <rect x="60" y="110" width="260" height="12" rx="2" fill="url(#stemGradient4)" stroke="url(#stemBorder4)" stroke-width="1"/>
     
     <text x="0" y="140" fill="rgba(255, 255, 255, 0.8)" font-family="Inter, sans-serif" font-size="10">Hats</text>
-    <rect x="60" y="130" width="260" height="12" rx="2" fill="rgba(251, 191, 36, 0.3)" stroke="rgba(251, 191, 36, 0.5)" stroke-width="1"/>
+    <rect x="60" y="130" width="260" height="12" rx="2" fill="url(#stemGradient5)" stroke="url(#stemBorder5)" stroke-width="1"/>
     
     <text x="0" y="160" fill="rgba(255, 255, 255, 0.8)" font-family="Inter, sans-serif" font-size="10">Bass</text>
-    <rect x="60" y="150" width="260" height="12" rx="2" fill="rgba(239, 68, 68, 0.3)" stroke="rgba(239, 68, 68, 0.5)" stroke-width="1"/>
+    <rect x="60" y="150" width="260" height="12" rx="2" fill="url(#stemGradient6)" stroke="url(#stemBorder6)" stroke-width="1"/>
     
     <text x="0" y="180" fill="rgba(255, 255, 255, 0.8)" font-family="Inter, sans-serif" font-size="10">Instruments</text>
-    <rect x="60" y="170" width="260" height="12" rx="2" fill="rgba(168, 85, 247, 0.3)" stroke="rgba(168, 85, 247, 0.5)" stroke-width="1"/>
+    <rect x="60" y="170" width="260" height="12" rx="2" fill="url(#stemGradient7)" stroke="url(#stemBorder7)" stroke-width="1"/>
   </g>
   
-  <!-- Processing Indicator -->
-  <g transform="translate(300, 240)">
+  <!-- Processing Indicator - Upper right area as indicated -->
+  <g transform="translate(280, 80)">
     <circle cx="0" cy="0" r="8" fill="none" stroke="rgba(6, 182, 212, 0.8)" stroke-width="2" stroke-dasharray="12 4">
       <animateTransform attributeName="transform" type="rotate" values="0;360" dur="2s" repeatCount="indefinite"/>
     </circle>
@@ -71,6 +71,77 @@
     <linearGradient id="waveGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" style="stop-color:rgba(139, 92, 246, 0.8);stop-opacity:1" />
       <stop offset="100%" style="stop-color:rgba(6, 182, 212, 0.8);stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Stem Gradients - Purple to Cyan progression -->
+    <!-- Vocals - Most Purple -->
+    <linearGradient id="stemGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:rgba(139, 92, 246, 0.4);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgba(124, 58, 237, 0.4);stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="stemBorder1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:rgba(139, 92, 246, 0.6);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgba(124, 58, 237, 0.6);stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Kick -->
+    <linearGradient id="stemGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:rgba(124, 58, 237, 0.4);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgba(109, 40, 217, 0.4);stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="stemBorder2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:rgba(124, 58, 237, 0.6);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgba(109, 40, 217, 0.6);stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Snare -->
+    <linearGradient id="stemGradient3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:rgba(109, 40, 217, 0.4);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgba(79, 70, 229, 0.4);stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="stemBorder3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:rgba(109, 40, 217, 0.6);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgba(79, 70, 229, 0.6);stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Toms -->
+    <linearGradient id="stemGradient4" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:rgba(79, 70, 229, 0.4);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgba(59, 130, 246, 0.4);stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="stemBorder4" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:rgba(79, 70, 229, 0.6);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgba(59, 130, 246, 0.6);stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Hats -->
+    <linearGradient id="stemGradient5" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:rgba(59, 130, 246, 0.4);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgba(14, 165, 233, 0.4);stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="stemBorder5" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:rgba(59, 130, 246, 0.6);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgba(14, 165, 233, 0.6);stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Bass -->
+    <linearGradient id="stemGradient6" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:rgba(14, 165, 233, 0.4);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgba(6, 182, 212, 0.4);stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="stemBorder6" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:rgba(14, 165, 233, 0.6);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgba(6, 182, 212, 0.6);stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Instruments - Most Cyan -->
+    <linearGradient id="stemGradient7" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:rgba(6, 182, 212, 0.4);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgba(8, 145, 178, 0.4);stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="stemBorder7" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:rgba(6, 182, 212, 0.6);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgba(8, 145, 178, 0.6);stop-opacity:1" />
     </linearGradient>
   </defs>
 </svg> 
