@@ -18,6 +18,7 @@ import Footer from '../components/Footer.astro';
 import StatsSection from '../components/StatsSection.astro';
 import OscarSuccessStory from '../components/OscarSuccessStory.astro';
 import QuickTestimonial from '../components/QuickTestimonial.astro';
+import IndustryEndorsements from '../components/IndustryEndorsements.astro';
 ---
 
 <Layout title="Pulse Academy - Transform Your Mixes">
@@ -28,19 +29,8 @@ import QuickTestimonial from '../components/QuickTestimonial.astro';
 			<Section1AboveTheFold />
 			<LabelLogosMarquee />
 			
-			<!-- Strategic testimonial after hero -->
-			<div class="px-4 md:px-8 py-8 bg-gradient-to-b from-[#0a0a15] to-[#0c0c18]">
-				<div class="max-w-3xl mx-auto">
-					<QuickTestimonial 
-						name="Beat Fortress"
-						photo="/student-photos/Beatfortress.webp"
-						role="Producer • Program Graduate"
-						testimonial="My first mix using the course. It's completely night and day. It finally sounds like a real release. Thank you so much Eric, this is the best thing I have ever invested in for my mixes!"
-						outcome="Complete transformation: From amateur to professional sound"
-						compact={true}
-					/>
-				</div>
-			</div>
+					<!-- Industry Recognition after hero -->
+		<IndustryEndorsements />
 			
 			<Section2ProblemAgitateSolve />
 			<StatsSection />

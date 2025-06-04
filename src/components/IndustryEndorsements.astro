@@ -1,0 +1,280 @@
+---
+// src/components/IndustryEndorsements.astro
+---
+<section class="py-8 md:py-12 bg-gradient-to-b from-[#0a0a15] to-[#0c0c18] px-4 md:px-8">
+    <div class="max-w-5xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h3 class="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pulse-purple to-pulse-cyan mb-2 pb-1 leading-normal">
+                What Industry Legends Say
+            </h3>
+            <p class="text-gray-400 max-w-2xl mx-auto">Recognition from the producers behind your favorite hits</p>
+        </div>
+
+        <!-- Industry Quotes Grid -->
+        <div class="grid md:grid-cols-2 gap-6">
+            <!-- Paul Meany Quote with Video -->
+            <div class="card-gradient p-6 rounded-xl border border-gray-800/30 industry-card hover:border-pulse-purple/30 transition-all duration-300 hover:shadow-glow-sm relative overflow-hidden group cursor-pointer video-modal-trigger"
+                 data-video-id="szx7fODkGOE" 
+                 data-video-title="Paul Meany (Twenty One Pilots) on Eric's Production">
+                <!-- Subtle background effect -->
+                <div class="absolute top-0 right-0 w-32 h-32 bg-pulse-purple/5 rounded-full blur-3xl"></div>
+                
+                <!-- Play button indicator -->
+                <div class="absolute top-4 right-4 w-10 h-10 bg-red-500/20 rounded-full flex items-center justify-center border border-red-500/30 group-hover:bg-red-500/30 transition-all duration-300">
+                    <svg class="w-4 h-4 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
+                    </svg>
+                </div>
+                
+                <div class="relative z-10 flex flex-col h-full">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-pulse-purple/30 flex-shrink-0 shadow-glow-sm industry-image">
+                            <img src="/student-photos/paul meany promo photo.webp" alt="Paul Meany" class="w-full h-full object-cover" />
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-white">Paul Meany</h4>
+                            <p class="text-pulse-purple text-sm font-medium">Producer • Twenty One Pilots, Mutemath</p>
+                            <p class="text-xs text-red-400 font-medium flex items-center gap-1">
+                                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
+                                </svg>
+                                Watch Video
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <blockquote class="text-gray-300 text-sm leading-relaxed mb-4 italic flex-grow">
+                        "Eric's a melodic, harmonic, and rhythmic wizard. I love what he does with turning synths into rhythm — I'm a huge fan of his approach."
+                    </blockquote>
+                    
+                    <div class="text-xs text-gray-500 bg-black/20 p-2 rounded border border-gray-700/30 mt-auto">
+                        <span class="text-pulse-cyan">Click to watch</span> • Paul breaks down Eric's unique production techniques
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mike Shinoda Quote with Remix Modal -->
+            <div class="card-gradient p-6 rounded-xl border border-gray-800/30 industry-card hover:border-pulse-purple/30 transition-all duration-300 hover:shadow-glow-sm relative overflow-hidden group cursor-pointer remix-modal-trigger"
+                 data-image="/social-proof/linkin park remix.webp" 
+                 data-caption="Eric's official Linkin Park remix featured alongside industry legends like Nicky Romero">
+                <!-- Subtle background effect -->
+                <div class="absolute top-0 right-0 w-32 h-32 bg-pulse-purple/5 rounded-full blur-3xl"></div>
+                
+                <!-- Image indicator -->
+                <div class="absolute top-4 right-4 w-10 h-10 bg-pulse-purple/20 rounded-full flex items-center justify-center border border-pulse-purple/30 group-hover:bg-pulse-purple/30 transition-all duration-300">
+                    <svg class="w-4 h-4 text-pulse-purple" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"/>
+                    </svg>
+                </div>
+                
+                <div class="relative z-10 flex flex-col h-full">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-pulse-purple/30 flex-shrink-0 shadow-glow-sm industry-image">
+                            <img src="/student-photos/mike shinoda promo photo.webp" alt="Mike Shinoda" class="w-full h-full object-cover" />
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-white">Mike Shinoda</h4>
+                            <p class="text-pulse-purple text-sm font-medium">Linkin Park</p>
+                            <p class="text-xs text-pulse-purple font-medium flex items-center gap-1">
+                                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"/>
+                                </svg>
+                                View Remix
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <blockquote class="text-gray-300 text-sm leading-relaxed mb-4 italic flex-grow">
+                        "The main drop is great. I love it. The 2nd and 3rd chorus are killer. Eric's clearly talented…"
+                    </blockquote>
+                    
+                    <div class="text-xs text-gray-500 bg-black/20 p-2 rounded border border-gray-700/30 mt-auto">
+                        <span class="text-pulse-cyan">Click to view</span> • Feedback on Eric's official Linkin Park remix
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- YouTube Video Modal -->
+<div id="videoModal" class="fixed inset-0 bg-black/90 backdrop-blur-sm z-[100] hidden items-center justify-center p-4">
+    <div class="max-w-4xl w-full relative">
+        <button id="closeVideoBtn" class="absolute -top-12 right-0 text-white/70 hover:text-white text-2xl font-bold transition-colors z-10">
+            ✕
+        </button>
+        <div class="relative w-full h-0 pb-[56.25%] bg-black rounded-lg overflow-hidden">
+            <iframe id="videoFrame" 
+                    src="" 
+                    class="absolute top-0 left-0 w-full h-full"
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+            </iframe>
+        </div>
+        <p id="videoCaption" class="text-center text-gray-300 mt-4 text-sm"></p>
+    </div>
+</div>
+
+<!-- Image Modal (for remix screenshot) -->
+<div id="remixModal" class="fixed inset-0 bg-black/90 backdrop-blur-sm z-[100] hidden items-center justify-center p-4">
+    <div class="max-w-5xl max-h-[90vh] relative">
+        <button id="closeRemixBtn" class="absolute -top-12 right-0 text-white/70 hover:text-white text-2xl font-bold transition-colors">
+            ✕
+        </button>
+        <img id="remixImage" src="" alt="" class="max-w-full max-h-full object-contain rounded-lg shadow-2xl" />
+        <p id="remixCaption" class="text-center text-gray-300 mt-4 text-sm"></p>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Video Modal Logic
+    const videoModal = document.getElementById('videoModal');
+    const videoFrame = document.getElementById('videoFrame') as HTMLIFrameElement;
+    const videoCaption = document.getElementById('videoCaption');
+    const closeVideoBtn = document.getElementById('closeVideoBtn');
+    const videoTriggers = document.querySelectorAll('.video-modal-trigger');
+
+    // Remix Modal Logic
+    const remixModal = document.getElementById('remixModal');
+    const remixImage = document.getElementById('remixImage') as HTMLImageElement;
+    const remixCaption = document.getElementById('remixCaption');
+    const closeRemixBtn = document.getElementById('closeRemixBtn');
+    const remixTriggers = document.querySelectorAll('.remix-modal-trigger');
+
+    function openVideoModal(videoId: string, title: string) {
+        if (!videoModal || !videoFrame || !videoCaption) return;
+        
+        const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+        videoFrame.src = embedUrl;
+        videoCaption.textContent = title;
+        
+        videoModal.classList.remove('hidden');
+        videoModal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeVideoModal() {
+        if (!videoModal || !videoFrame) return;
+        
+        videoFrame.src = '';
+        videoModal.classList.add('hidden');
+        videoModal.classList.remove('flex');
+        document.body.style.overflow = 'auto';
+    }
+
+    function openRemixModal(imageSrc: string, caption: string) {
+        if (!remixModal || !remixImage || !remixCaption) return;
+        
+        remixImage.src = imageSrc;
+        remixImage.alt = caption;
+        remixCaption.textContent = caption;
+        
+        remixModal.classList.remove('hidden');
+        remixModal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeRemixModal() {
+        if (!remixModal) return;
+        
+        remixModal.classList.add('hidden');
+        remixModal.classList.remove('flex');
+        document.body.style.overflow = 'auto';
+    }
+
+    // Video modal event listeners
+    videoTriggers.forEach(trigger => {
+        trigger.addEventListener('click', function() {
+            const videoId = this.getAttribute('data-video-id') || '';
+            const title = this.getAttribute('data-video-title') || '';
+            openVideoModal(videoId, title);
+        });
+    });
+
+    // Remix modal event listeners
+    remixTriggers.forEach(trigger => {
+        trigger.addEventListener('click', function() {
+            const imageSrc = this.getAttribute('data-image') || '';
+            const caption = this.getAttribute('data-caption') || '';
+            openRemixModal(imageSrc, caption);
+        });
+    });
+
+    // Close button event listeners
+    if (closeVideoBtn) {
+        closeVideoBtn.addEventListener('click', closeVideoModal);
+    }
+
+    if (closeRemixBtn) {
+        closeRemixBtn.addEventListener('click', closeRemixModal);
+    }
+
+    // Close on backdrop click
+    if (videoModal) {
+        videoModal.addEventListener('click', function(e) {
+            if (e.target === videoModal) {
+                closeVideoModal();
+            }
+        });
+    }
+
+    if (remixModal) {
+        remixModal.addEventListener('click', function(e) {
+            if (e.target === remixModal) {
+                closeRemixModal();
+            }
+        });
+    }
+
+    // Close on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            if (videoModal && !videoModal.classList.contains('hidden')) {
+                closeVideoModal();
+            }
+            if (remixModal && !remixModal.classList.contains('hidden')) {
+                closeRemixModal();
+            }
+        }
+    });
+});
+</script>
+
+<style>
+.hover:shadow-glow-sm:hover {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+}
+
+/* Industry card hover effects - like instructor cards */
+.industry-card {
+    transition: all 0.3s ease;
+}
+
+.industry-card:hover {
+    transform: translateY(-5px);
+}
+
+.industry-image {
+    transition: all 0.3s ease;
+}
+
+.industry-card:hover .industry-image {
+    transform: scale(1.1);
+    border-color: rgba(139, 92, 246, 0.8);
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .industry-card:hover {
+        transform: translateY(-2px);
+    }
+    
+    .industry-card:hover .industry-image {
+        transform: scale(1.05);
+    }
+}
+</style> 
