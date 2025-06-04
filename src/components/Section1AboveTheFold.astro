@@ -15,7 +15,7 @@ const studentAvatars = [
     { src: "/student-photos/DIVOCEAN.webp", alt: "DIVOCEAN" }
 ];
 ---
-<section id="hero" class="h-screen flex flex-col items-center justify-center text-center pt-16 md:pt-20 pb-16 md:pb-16 relative overflow-hidden bg-gradient-to-b from-[#050507] to-[#0a0a15]">
+<section id="hero" class="hero-mobile-fix flex flex-col items-center justify-center text-center pt-20 md:pt-16 pb-16 md:pb-16 relative overflow-hidden bg-gradient-to-b from-[#050507] to-[#0a0a15]">
     <!-- Enhanced Tech Background -->
     <div class="absolute inset-0 bg-[url('/tech-pattern.png')] opacity-10"></div>
     
@@ -94,6 +94,19 @@ const studentAvatars = [
 </section>
 
 <style>
+/* Mobile viewport fix */
+.hero-mobile-fix {
+  min-height: 100vh;
+  min-height: 100dvh; /* Dynamic viewport height for mobile browsers */
+}
+
+/* Desktop uses normal screen height */
+@media (min-width: 768px) {
+  .hero-mobile-fix {
+    min-height: 100vh;
+  }
+}
+
 @keyframes fade-in-up {
   from {
     opacity: 0;
