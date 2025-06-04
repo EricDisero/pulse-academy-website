@@ -22,7 +22,7 @@
                 
                 <!-- Play button indicator -->
                 <div class="absolute top-4 right-4 w-10 h-10 bg-red-500/20 rounded-full flex items-center justify-center border border-red-500/30 group-hover:bg-red-500/30 transition-all duration-300">
-                    <svg class="w-4 h-4 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+                    <svg class="w-4 h-4 text-red-500 play-triangle-red" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
                     </svg>
                 </div>
@@ -267,6 +267,11 @@ document.addEventListener('DOMContentLoaded', function() {
     box-shadow: 0 0 15px rgba(139, 92, 246, 0.5);
 }
 
+/* Force red color for play triangle on all devices */
+.play-triangle-red {
+    color: #ef4444 !important; /* red-500 */
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .industry-card:hover {
@@ -275,6 +280,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     .industry-card:hover .industry-image {
         transform: scale(1.05);
+    }
+    
+    /* Ensure play button stays red on mobile */
+    .play-triangle-red {
+        color: #ef4444 !important;
     }
 }
 </style> 
