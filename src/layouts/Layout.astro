@@ -62,26 +62,45 @@ const { title } = Astro.props;
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://rsms.me/inter/inter.css"></noscript>
 		
-		<!-- VisitorTracking Code -->
-		<script async defer src="https://app.visitortracking.com/assets/js/tracer.js"></script>
+		<!-- VisitorTracking Code - Optimized for Performance -->
 		<script>
 		  // TypeScript declaration for the external Tracer class
 		  declare var Tracer: any;
 		  
-		  function init_tracer() {
-		   var tracer = new Tracer({
-		    websiteId : '10357df7-ae65-4c14-9d5e-2aa9d60e1583',
-		    async : true,
-		    debug : false
-		   });
+		  // Load visitor tracking script after page load to avoid blocking
+		  function loadVisitorTracking() {
+		    const script = document.createElement('script');
+		    script.src = 'https://app.visitortracking.com/assets/js/tracer.js';
+		    script.async = true;
+		    script.defer = true;
+		    
+		    script.onload = function() {
+		      if (typeof Tracer !== 'undefined') {
+		        try {
+		          var tracer = new Tracer({
+		            websiteId: '10357df7-ae65-4c14-9d5e-2aa9d60e1583',
+		            async: true,
+		            debug: false
+		          });
+		        } catch (e) {
+		          console.log('Visitor tracking initialization failed:', e);
+		        }
+		      }
+		    };
+		    
+		    script.onerror = function() {
+		      console.log('Visitor tracking script failed to load');
+		    };
+		    
+		    document.head.appendChild(script);
 		  }
 		  
-		  // Initialize the tracker when the script loads
-		  window.addEventListener('load', function() {
-		    if (typeof Tracer !== 'undefined') {
-		      init_tracer();
-		    }
-		  });
+		  // Load after page is fully loaded
+		  if (document.readyState === 'complete') {
+		    loadVisitorTracking();
+		  } else {
+		    window.addEventListener('load', loadVisitorTracking);
+		  }
 		</script>
 	</head>
 	<body class="bg-gradient-to-b from-[#050507] to-[#0a0a15] text-gray-300 selection:bg-pulse-purple selection:text-white">

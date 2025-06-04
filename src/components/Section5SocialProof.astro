@@ -142,7 +142,47 @@ const StarIcon = `
                 </div>
             </div>
             
-                        <div class="aspect-video bg-[#080810] border border-gray-800/40 rounded-lg overflow-hidden relative">                <script src="https://fast.wistia.com/player.js" async></script>                <script src="https://fast.wistia.com/embed/9l13j8w3y6.js" async type="module"></script>                <style>                    wistia-player[media-id='9l13j8w3y6']:not(:defined) {                        background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/9l13j8w3y6/swatch');                        display: block;                        filter: blur(5px);                        padding-top: 56.25%;                    }                </style>                <wistia-player media-id="9l13j8w3y6" aspect="1.7777777777777777"></wistia-player>            </div>
+            <div class="aspect-video bg-[#080810] border border-gray-800/40 rounded-lg overflow-hidden relative">
+                <!-- Lazy Loading Video Placeholder -->
+                <div id="video-placeholder" class="w-full h-full flex items-center justify-center cursor-pointer group relative">
+                    <!-- Video Thumbnail -->
+                    <img 
+                        src="https://fast.wistia.com/embed/medias/9l13j8w3y6/swatch" 
+                        alt="Video testimonial thumbnail"
+                        class="w-full h-full object-cover"
+                        loading="lazy"
+                    />
+                    
+                    <!-- Play Button Overlay -->
+                    <div class="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/40 transition-colors duration-300">
+                        <div class="bg-white/90 backdrop-blur-sm rounded-full p-6 group-hover:scale-110 transform transition-all duration-300 shadow-2xl">
+                            <svg class="w-12 h-12 text-gray-800 ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <!-- Video Duration Badge -->
+                    <div class="absolute bottom-4 right-4 bg-black/80 text-white px-2 py-1 rounded text-sm font-medium">
+                        3:42
+                    </div>
+                </div>
+                
+                <!-- Actual Video Container (Hidden Initially) -->
+                <div id="wistia-video-container" class="w-full h-full hidden">
+                    <script src="https://fast.wistia.com/player.js" async></script>
+                    <script src="https://fast.wistia.com/embed/9l13j8w3y6.js" async type="module"></script>
+                    <style>
+                        wistia-player[media-id='9l13j8w3y6']:not(:defined) {
+                            background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/9l13j8w3y6/swatch');
+                            display: block;
+                            filter: blur(5px);
+                            padding-top: 56.25%;
+                        }
+                    </style>
+                    <wistia-player media-id="9l13j8w3y6" aspect="1.7777777777777777"></wistia-player>
+                </div>
+            </div>
             <p class="mt-4 text-gray-300 italic">{featuredQuote.quote}</p>
         </div>
 
@@ -250,4 +290,36 @@ const StarIcon = `
             observer.observe(card);
         });
     }
+
+    // Lazy video loading
+    document.addEventListener('DOMContentLoaded', function() {
+        const videoPlaceholder = document.getElementById('video-placeholder');
+        const videoContainer = document.getElementById('wistia-video-container');
+        
+        if (videoPlaceholder && videoContainer) {
+            videoPlaceholder.addEventListener('click', function() {
+                // Hide placeholder
+                videoPlaceholder.style.display = 'none';
+                
+                // Show video container
+                videoContainer.classList.remove('hidden');
+                
+                // Track video interaction for analytics
+                if (typeof window !== 'undefined' && 'gtag' in window) {
+                    (window as any).gtag('event', 'video_play', {
+                        event_category: 'engagement',
+                        event_label: 'testimonial_video'
+                    });
+                }
+                
+                // Optional: Auto-play the video once loaded
+                setTimeout(() => {
+                    const wistiaPlayer = videoContainer.querySelector('wistia-player') as any;
+                    if (wistiaPlayer && typeof wistiaPlayer.play === 'function') {
+                        wistiaPlayer.play();
+                    }
+                }, 500);
+            });
+        }
+    });
 </script> 
