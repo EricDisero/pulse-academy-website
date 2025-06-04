@@ -1,0 +1,27 @@
+PLACEHOLDER IMAGES NEEDED - Replace these with actual student photos:
+
+Student Photos (/public/student-photos/):
+- Swerve.webp (testimonial: "hottest mix of my entire life")
+- Dustin.webp (testimonial: "15 years engineering, completely changed workflow")
+- Karl.webp (testimonial: "best single purchase in music production career")
+- Ben.webp (testimonial: "1-2 EQ moves and it was perfect")
+- Jerry.webp (testimonial: "so clear what's happening now")
+- Peter.webp (testimonial: "ears have gotten better")
+- Josh Auer.webp (testimonial: "giving us cheat codes")
+
+Social Proof Images (/public/social-proof/):
+- Oscar-new-music-friday.webp (Oscar's track featured on New Music Friday playlist)
+
+Note: All existing student photos are already in place:
+- Oscar.webp ✓
+- Tim Lockyer bw.webp ✓
+- Benno.webp ✓
+- bdill.webp ✓
+- FreeTimeTim.webp ✓
+- Beatfortress.webp ✓
+- Elisha.webp ✓
+- Kip.webp ✓
+- 1wayout.webp ✓
+- DIVOCEAN.webp ✓
+- BigJerr.webp ✓
+- Rudo.webp ✓ 
