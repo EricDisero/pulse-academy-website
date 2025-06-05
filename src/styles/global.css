@@ -14,7 +14,7 @@ body {
 
 /* Button styles with shimmer effect */
 .button-pop {
-  @apply bg-button-pop-gradient text-white font-bold py-3 px-6 rounded-lg shadow-md relative overflow-hidden transition-all duration-300;
+  @apply bg-button-pop-gradient text-white font-bold py-3 px-6 rounded-lg shadow-md relative overflow-hidden transition-all duration-300 text-lg;
 }
 
 .button-pop::before {
@@ -39,7 +39,7 @@ body {
 }
 
 .button-pop-secondary {
-  @apply bg-transparent border-2 border-pop-pink text-pop-pink font-bold py-3 px-6 rounded-lg shadow-md relative overflow-hidden transition-all duration-300;
+  @apply bg-transparent border-2 border-pop-pink text-pop-pink font-bold py-3 px-6 rounded-lg shadow-md relative overflow-hidden transition-all duration-300 text-lg;
 }
 
 .button-pop-secondary:hover {
@@ -87,7 +87,7 @@ body {
   
   /* Button styles based on the redesign */
   .btn-lg {
-    @apply bg-pulse-gradient text-white font-bold px-8 py-4 rounded-2xl shadow-lg relative overflow-hidden transition-all duration-300;
+    @apply bg-pulse-gradient text-white font-bold px-8 py-4 rounded-2xl shadow-lg relative overflow-hidden transition-all duration-300 text-lg;
   }
 
   .btn-lg::before {
@@ -164,7 +164,7 @@ body {
 /* Mobile-friendly button overrides */
 @media (max-width: 768px) {
   .btn-lg {
-    @apply px-6 py-3 text-sm rounded-xl;
+    @apply px-6 py-3 text-base rounded-xl;
     min-height: 44px; /* Apple's recommended touch target size */
     display: inline-flex;
     align-items: center;
@@ -175,7 +175,7 @@ body {
   
   /* Hero CTA button specific fixes */
   #hero-cta-button {
-    @apply px-4 py-3 text-xs leading-tight;
+    @apply px-4 py-3 text-sm leading-tight;
     min-height: 48px;
     line-height: 1.3;
     word-wrap: break-word;
@@ -183,7 +183,7 @@ body {
   }
   
   .button-pop {
-    @apply py-2.5 px-5 text-sm rounded-lg;
+    @apply py-2.5 px-5 text-base rounded-lg;
     min-height: 44px;
     display: inline-flex;
     align-items: center;
@@ -191,7 +191,7 @@ body {
   }
   
   .button-pop-secondary {
-    @apply py-2.5 px-5 text-sm rounded-lg;
+    @apply py-2.5 px-5 text-base rounded-lg;
     min-height: 44px;
     display: inline-flex;
     align-items: center;
@@ -211,6 +211,6 @@ body {
   
   /* Header button mobile adjustments */
   .btn-lg.shadow-cta-glow {
-    @apply px-4 py-2 text-sm;
+    @apply px-4 py-2 text-base;
   }
 }
