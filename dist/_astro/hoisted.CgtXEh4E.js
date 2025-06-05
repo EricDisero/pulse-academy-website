@@ -1,0 +1,1 @@
+import"./hoisted.liWkaOBn.js";import"./Header.astro_astro_type_script_index_0_lang.CRxkuvc3.js";const o={threshold:.1,rootMargin:"0px 0px -50px 0px"},n=new IntersectionObserver(t=>{t.forEach(e=>{e.isIntersecting&&e.target.classList.add("animate")})},o);document.addEventListener("DOMContentLoaded",()=>{document.querySelectorAll(".timeline-item").forEach(e=>{n.observe(e)})});

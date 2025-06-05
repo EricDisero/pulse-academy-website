@@ -1,0 +1,676 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="About Us - Our Story | Pulse Academy" description="From analytical struggle to systematic success - the story of how we built a proven methodology that transforms producers worldwide">
+    <Header />
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-b from-[#050507] to-[#080810]">
+        <!-- Animated background elements -->
+        <div class="absolute inset-0">
+            <div class="floating-orb absolute w-96 h-96 rounded-full blur-[100px] opacity-20 bg-gradient-to-r from-pulse-purple to-pulse-cyan animate-pulse" style="top: 20%; left: 10%;"></div>
+            <div class="floating-orb absolute w-80 h-80 rounded-full blur-[80px] opacity-15 bg-gradient-to-r from-pulse-cyan to-pulse-purple animate-pulse" style="top: 60%; right: 15%; animation-delay: 2s;"></div>
+        </div>
+        
+        <div class="max-w-4xl mx-auto px-4 md:px-8 text-center relative z-10">
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6">
+                <span class="block text-transparent bg-clip-text bg-gradient-to-r from-pulse-purple to-pulse-cyan">Our Story</span>
+                <span class="block text-silvery-gradient text-2xl md:text-3xl lg:text-4xl font-semibold mt-4">From Struggle to System</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                How two producers with opposite approaches created a methodology that transforms anyone into a professional
+            </p>
+            <div class="flex justify-center">
+                <svg class="w-8 h-8 text-pulse-cyan animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Timeline -->
+    <section class="py-24 bg-gradient-to-b from-[#080810] to-[#0a0a15] relative">
+        <div class="max-w-6xl mx-auto px-4 md:px-8">
+            <!-- Timeline Container -->
+            <div class="relative">
+                <!-- Vertical Timeline Line -->
+                <div class="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-pulse-purple via-pulse-cyan to-pulse-purple h-full opacity-30"></div>
+                
+                <!-- Timeline Items -->
+                <div class="timeline-container">
+                    
+                    <!-- Chapter 1: The Beginning -->
+                    <div class="timeline-item" data-chapter="1">
+                        <div class="timeline-content left">
+                            <div class="timeline-card bg-gradient-to-br from-pulse-purple/20 to-pulse-purple/10 border border-pulse-purple/20">
+                                <div class="timeline-number">01</div>
+                                <h3 class="text-2xl md:text-3xl font-bold text-silvery-gradient mb-4 pt-12">The Beginning</h3>
+                                <h4 class="text-lg md:text-xl text-pulse-purple mb-6 font-semibold">When "Good Ears" Weren't Enough</h4>
+                                
+                                <!-- Eric's individual photo -->
+                                <div class="instructor-photo mb-6">
+                                    <img src="/instructor-photos/Eric Sooke.webp" alt="Eric Disero" class="w-32 h-32 rounded-full mx-auto object-cover border-4 border-pulse-purple/30" />
+                                </div>
+                                <div class="prose text-gray-300">
+                                    <p class="mb-4">I'll be honest with you – I was never the "naturally gifted" producer in the room.</p>
+                                    <p class="mb-4">While my friends seemed to nail perfect mixes by pure intuition, I'd spend hours tweaking EQs and compressors, only to end up with tracks that sounded... amateur. Watching them work felt like witnessing magic I'd never possess.</p>
+                                    <p class="text-pulse-cyan font-semibold">But here's what I discovered: being the "untalented" one was actually my greatest advantage.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+
+                    <!-- Chapter 2: The Breakthrough -->
+                    <div class="timeline-item" data-chapter="2">
+                        <div class="timeline-content right">
+                            <div class="timeline-card bg-gradient-to-br from-pulse-cyan/20 to-pulse-cyan/10 border border-pulse-cyan/20">
+                                <div class="timeline-number">02</div>
+                                <h3 class="text-2xl md:text-3xl font-bold text-silvery-gradient mb-4 pt-12">The Breakthrough</h3>
+                                <h4 class="text-lg md:text-xl text-pulse-cyan mb-6 font-semibold">When I Stopped Trusting My Ears</h4>
+                                <div class="prose text-gray-300">
+                                    <p class="mb-4">After years of frustration, I had a revelation. Instead of trying to develop "golden ears" like everyone said I needed, I started asking a different question:</p>
+                                    <p class="mb-4 text-xl font-bold text-white">"What if I could reverse-engineer the exact techniques used in professional tracks?"</p>
+                                    <p class="mb-4">This led me down a path that would change everything. Using AI stem separation technology and analytical tools, I began deconstructing hit records with surgical precision.</p>
+                                    <p class="text-pulse-cyan font-semibold">The results were immediate and undeniable. My productions started matching the quality of tracks I'd been studying.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+
+                    <!-- Chapter 3: Enter Conro - The Missing Piece -->
+                    <div class="timeline-item brain-chapter" data-chapter="3">
+                        <div class="timeline-content center-special">
+                            <div class="timeline-card bg-gradient-to-br from-pulse-purple/20 to-pulse-cyan/10 border border-pulse-purple/30">
+                                <div class="timeline-number">03</div>
+                                <h3 class="text-2xl md:text-3xl font-bold text-silvery-gradient mb-4 pt-12">Enter Conro</h3>
+                                <h4 class="text-lg md:text-xl text-pulse-cyan mb-6 font-semibold">The Missing Piece</h4>
+                                
+                                <!-- Individual Photos First -->
+                                <div class="individual-photos mb-8">
+                                    <div class="flex justify-center gap-8 mb-6">
+                                        <div class="text-center">
+                                            <img src="/instructor-photos/Conro.webp" alt="Conor - Creative" class="w-24 h-24 rounded-full object-cover border-4 border-pulse-purple/30 mx-auto mb-2" />
+                                            <span class="text-pulse-purple text-sm font-semibold">Conor: Creative</span>
+                                        </div>
+                                        <div class="text-center">
+                                            <img src="/instructor-photos/Eric Sooke.webp" alt="Eric - Analytical" class="w-24 h-24 rounded-full object-cover border-4 border-pulse-cyan/30 mx-auto mb-2" />
+                                            <span class="text-pulse-cyan text-sm font-semibold">Eric: Analytical</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <!-- Team Photos Together -->
+                                <div class="team-photos mb-6">
+                                    <div class="team-photo-container">
+                                        <div class="team-photo-wrapper">
+                                            <img src="/instructor-photos/conor-eric.webp" alt="Eric and Conor together" class="w-full max-w-lg mx-auto rounded-lg shadow-lg cursor-pointer" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="prose text-gray-300">
+                                    <p class="mb-4">That's when I met Conor Patton (Conro) – a producer who embodied everything I wasn't. Where I was analytical, he was intuitive. Where I relied on tools, he trusted his vibe.</p>
+                                    <p class="mb-4">With over <span class="text-pulse-cyan font-bold">250 million Spotify streams</span> and Billboard charting hits, Conor represented the "naturally gifted" producer I'd always envied.</p>
+                                    <p class="mb-4">But here's what surprised me: Conor was fascinated by my systematic approach. He realized that while his intuition got him far, my methodical reverse-engineering techniques could take his productions to an entirely new level.</p>
+                                    <p class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pulse-purple to-pulse-cyan">Together, we created something neither of us could achieve alone – a complete system that combines analytical precision with musical intuition.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-dot special"></div>
+                    </div>
+
+                    <!-- Chapter 4: Adding BigJerr -->
+                    <div class="timeline-item" data-chapter="4">
+                        <div class="timeline-content left">
+                            <div class="timeline-card bg-gradient-to-br from-pulse-purple/15 to-pulse-cyan/10 border border-pulse-purple/20">
+                                <div class="timeline-number">04</div>
+                                <h3 class="text-2xl md:text-3xl font-bold text-silvery-gradient mb-4 pt-12">The Technical Wizard</h3>
+                                <h4 class="text-lg md:text-xl text-pulse-purple mb-6 font-semibold">Adding BigJerr</h4>
+                                
+                                <div class="instructor-photo mb-6">
+                                    <img src="/instructor-photos/BigJerr.webp" alt="BigJerr - Technical Expert" class="w-32 h-32 rounded-full mx-auto object-cover border-4 border-pulse-purple/30" />
+                                </div>
+
+                                <div class="prose text-gray-300">
+                                    <p class="mb-4">As our methodology evolved, we realized we needed someone who could help students implement these advanced techniques seamlessly. Enter Jerry DiPhillippo (BigJerr) – one of only <span class="text-pulse-cyan font-bold">380 Ableton Certified Trainers worldwide</span>.</p>
+                                    <p class="mb-4">Jerry isn't just technically brilliant; he's taught industry legends like Andre3000, Kompany, and Slander. With over 20 years of teaching experience, he has a unique gift for making complex production concepts accessible to anyone.</p>
+                                    <p class="text-pulse-cyan font-semibold">Jerry handles our Elite tier 1-on-1 coaching sessions, ensuring every student can execute at a professional level.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+
+                    <!-- Chapter 5: The Final Challenge -->
+                    <div class="timeline-item" data-chapter="5">
+                        <div class="timeline-content right">
+                            <div class="timeline-card bg-gradient-to-br from-pulse-cyan/15 to-pulse-purple/10 border border-pulse-cyan/20">
+                                <div class="timeline-number">05</div>
+                                <h3 class="text-2xl md:text-3xl font-bold text-silvery-gradient mb-4 pt-12">The Final Challenge</h3>
+                                <h4 class="text-lg md:text-xl text-pulse-cyan mb-6 font-semibold">Quality Vocals</h4>
+                                
+                                <div class="instructor-photo mb-6">
+                                    <img src="/instructor-photos/Colton.webp" alt="Colton Avery - Songwriter" class="w-32 h-32 rounded-full mx-auto object-cover border-4 border-pulse-cyan/30" />
+                                </div>
+
+                                <div class="prose text-gray-300">
+                                    <p class="mb-4">As our students' productions reached commercial quality, we hit an unexpected roadblock. Their instrumentals were label-ready, but finding professional-quality vocals was nearly impossible.</p>
+                                    <p class="mb-4">That's when we brought in Colton Avery – a songwriter with over <span class="text-pulse-cyan font-bold">150 million streams</span> who's written for Alan Walker, Cheat Codes, and Far East Movement.</p>
+                                    <p class="text-pulse-cyan font-semibold">Now, every Elite tier student receives a custom topline from Colton, ensuring their final tracks have the vocal quality to match their production excellence.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+
+                    <!-- Chapter 6: Our Mission -->
+                    <div class="timeline-item" data-chapter="6">
+                        <div class="timeline-content center-special">
+                            <div class="timeline-card bg-gradient-to-br from-pulse-cyan/20 to-pulse-purple/20 border border-pulse-cyan/30">
+                                <div class="timeline-number">06</div>
+                                <h3 class="text-3xl md:text-4xl font-bold text-silvery-gradient mb-4 pt-12">Our Mission</h3>
+                                <h4 class="text-xl md:text-2xl text-transparent bg-clip-text bg-gradient-to-r from-pulse-cyan to-pulse-purple mb-6 font-semibold">Democratizing Professional Production</h4>
+                                
+                                <div class="prose text-gray-300 text-center">
+                                    <p class="mb-4 text-lg">We're not here to gatekeep the "secrets" of professional production. We're here to systematize them.</p>
+                                    <p class="mb-6 text-lg">Our story proves that you don't need to be born with "golden ears" to create professional music. You don't need decades of trial and error. You need the right system, the right mentors, and the right tools.</p>
+                                    <div class="cta-section mt-8 p-6 bg-gradient-to-r from-pulse-purple/10 to-pulse-cyan/10 rounded-lg border border-pulse-purple/20">
+                                        <p class="text-xl font-bold text-white mb-4">Don't Let Your Tracks Stay "Almost There"</p>
+                                        <p class="mb-6">Get the precise analysis that reveals what separates bedroom demos from chart hits.</p>
+                                        <button class="btn-lg shadow-cta-glow" onclick="document.getElementById('calendar-modal')?.classList.remove('hidden'); setTimeout(() => document.getElementById('calendar-modal')?.classList.add('opacity-100'), 10);">
+                                            Analyze My Track For Free ($297 Value)
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-dot final"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-24 bg-gradient-to-b from-[#0a0a15] to-[#050507]">
+        <div class="max-w-6xl mx-auto px-4 md:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-silvery-gradient mb-4">The Team That Makes It Happen</h2>
+            <p class="text-xl text-gray-300 text-center mb-16 max-w-3xl mx-auto">
+                Active industry professionals who use these exact methods in current work with major labels
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Eric -->
+                <div class="team-card group">
+                    <div class="relative overflow-hidden rounded-lg">
+                        <img src="/instructor-photos/Eric Sooke.webp" alt="Eric Disero" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <h3 class="text-xl font-bold text-white">Eric Disero</h3>
+                            <p class="text-pulse-cyan font-semibold">Founder & Analytical Mind</p>
+                        </div>
+                    </div>
+                    <div class="p-6 bg-[#080810] rounded-b-lg border border-gray-800/20">
+                        <p class="text-gray-300 text-sm">Over 150 million streams through client work, with official remixes for Linkin Park and production credits across major labels.</p>
+                    </div>
+                </div>
+
+                <!-- Conro -->
+                <div class="team-card group">
+                    <div class="relative overflow-hidden rounded-lg">
+                        <img src="/instructor-photos/Conro.webp" alt="Conro" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <h3 class="text-xl font-bold text-white">Conro</h3>
+                            <p class="text-pulse-cyan font-semibold">Creative Intuition</p>
+                        </div>
+                    </div>
+                    <div class="p-6 bg-[#080810] rounded-b-lg border border-gray-800/20">
+                        <p class="text-gray-300 text-sm">Artist with 250+ million Spotify streams. Billboard charting producer who brings creative insight that balances our technical approach.</p>
+                    </div>
+                </div>
+
+                <!-- BigJerr -->
+                <div class="team-card group">
+                    <div class="relative overflow-hidden rounded-lg">
+                        <img src="/instructor-photos/BigJerr.webp" alt="BigJerr" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <h3 class="text-xl font-bold text-white">BigJerr</h3>
+                            <p class="text-pulse-cyan font-semibold">Technical Wizard</p>
+                        </div>
+                    </div>
+                    <div class="p-6 bg-[#080810] rounded-b-lg border border-gray-800/20">
+                        <p class="text-gray-300 text-sm">Ableton Certified Trainer and master educator. Ensures every student can implement advanced techniques regardless of starting skill level.</p>
+                    </div>
+                </div>
+
+                <!-- Colton -->
+                <div class="team-card group">
+                    <div class="relative overflow-hidden rounded-lg">
+                        <img src="/instructor-photos/Colton.webp" alt="Colton Avery" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <h3 class="text-xl font-bold text-white">Colton Avery</h3>
+                            <p class="text-pulse-cyan font-semibold">Professional Songwriter</p>
+                        </div>
+                    </div>
+                    <div class="p-6 bg-[#080810] rounded-b-lg border border-gray-800/20">
+                        <p class="text-gray-300 text-sm">Professional songwriter with 150+ million streams. Creates custom vocals for Elite students, ensuring complete, release-ready tracks.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why We're Different -->
+    <section class="py-24 bg-gradient-to-b from-[#050507] to-[#080810] relative overflow-hidden">
+        <!-- Background Effects -->
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-pulse-purple/3 blur-[120px]"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-pulse-cyan/3 blur-[120px]"></div>
+        
+        <div class="max-w-4xl mx-auto px-4 md:px-8 text-center relative z-10">
+            <h2 class="text-3xl md:text-4xl font-bold text-silvery-gradient mb-12">Why We're Different</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <!-- Left Card -->
+                <div class="card-gradient p-8 rounded-2xl shadow-glass border border-gray-800/20 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-pulse-purple/5 rounded-full blur-3xl"></div>
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 rounded-full bg-pulse-purple/20 flex items-center justify-center mx-auto mb-6 border border-pulse-purple/30">
+                            <svg class="w-8 h-8 text-pulse-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-4">Active Industry Professionals</h3>
+                        <p class="text-gray-300 leading-relaxed">
+                            We're not just educators – we're active industry professionals who use these exact methods in our current work. We're not teaching outdated techniques from a decade ago.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Right Card -->
+                <div class="card-gradient p-8 rounded-2xl shadow-glass border border-gray-800/20 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-pulse-cyan/5 rounded-full blur-3xl"></div>
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 rounded-full bg-pulse-cyan/20 flex items-center justify-center mx-auto mb-6 border border-pulse-cyan/30">
+                            <svg class="w-8 h-8 text-pulse-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-4">Proven Results</h3>
+                        <p class="text-gray-300 leading-relaxed">
+                            Our approach works because it's born from necessity, refined through real-world application, and proven by the success of our students who've achieved everything from 900K monthly Spotify listeners to major label deals.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Emphasis -->
+            <div class="bg-gradient-to-r from-pulse-purple/10 to-pulse-cyan/10 p-8 rounded-xl border border-pulse-purple/20 backdrop-blur-sm">
+                <p class="text-xl md:text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-pulse-purple to-pulse-cyan mb-4">
+                    Current Methods, Current Results
+                </p>
+                <p class="text-lg text-gray-300 max-w-2xl mx-auto">
+                    We're sharing the cutting-edge systems we use today to create hits and work with major labels. This isn't theory – it's what's working right now in the industry.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offer Section -->
+    <section id="offer-section" class="py-16 md:py-24 bg-gradient-to-b from-[#080810] to-[#0c0c18] px-4 md:px-8">
+        <div class="max-w-3xl mx-auto mb-8">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight text-center pb-3">
+                <span class="block text-silvery-gradient pb-2 text-xl md:text-2xl lg:text-3xl font-medium">Stop Wondering What You're Missing</span>
+                <span class="block text-transparent bg-clip-text bg-gradient-to-r from-pulse-purple to-pulse-cyan pb-2 leading-normal">See Exactly What's Holding Your Tracks Back</span>
+            </h2>
+            <p class="mt-6 text-lg md:text-xl text-gray-300 text-center">
+                Free 30-minute analysis session where we compare your track to a chart hit and show you the exact changes needed. <strong class="text-white">Completely free, zero sales pressure.</strong>
+            </p>
+        </div>
+
+        <!-- Enhanced Urgency & Scarcity -->
+        <div class="max-w-2xl mx-auto mb-8 text-center">
+            <div class="bg-pulse-cyan/10 border border-pulse-cyan/20 rounded-lg p-4">
+                <p class="text-pulse-cyan font-semibold mb-2">⏰ Next available session: <span id="next-session-date" class="text-pulse-cyan font-bold">- loading...</span></p>
+                <p class="text-gray-300 text-sm">Limited to 10 producers per week. Sessions fill up fast.</p>
+            </div>
+        </div>
+
+        <!-- Clean Offer Card -->
+        <div class="max-w-2xl mx-auto card-gradient p-8 md:p-10 rounded-2xl shadow-glass border border-gray-800/20">
+            <div class="text-center mb-8">
+                <h3 class="text-2xl md:text-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-pulse-purple to-pulse-cyan mb-6 pb-2 leading-normal">Here's What You Get:</h3>
+                
+                <!-- ENHANCED VALUE LIST -->
+                <div class="space-y-4 mb-8 text-left">
+                    <div class="flex items-start gap-4">
+                        <div class="w-6 h-6 rounded-full bg-pulse-purple/20 flex items-center justify-center flex-shrink-0 mt-1">
+                            <svg class="w-3 h-3 text-pulse-purple" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-gray-200 text-lg mb-1"><strong class="text-white">30-Minute Track Analysis Session ($297 value)</strong></p>
+                            <p class="text-gray-400 text-sm">We analyze your track against a chart hit and show you exactly what's different. No guesswork - see precisely what needs fixing.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-4">
+                        <div class="w-6 h-6 rounded-full bg-pulse-purple/20 flex items-center justify-center flex-shrink-0 mt-1">
+                            <svg class="w-3 h-3 text-pulse-purple" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-gray-200 text-lg mb-1"><strong class="text-white">Custom Action Plan For Your Track</strong></p>
+                            <p class="text-gray-400 text-sm">Get 3-5 specific changes you can make immediately. Exact frequency adjustments, mix fixes, and arrangement changes that will make the biggest difference.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-4">
+                        <div class="w-6 h-6 rounded-full bg-pulse-purple/20 flex items-center justify-center flex-shrink-0 mt-1">
+                            <svg class="w-3 h-3 text-pulse-purple" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-gray-200 text-lg mb-1"><strong class="text-white">Professional Reference Track Breakdown</strong></p>
+                            <p class="text-gray-400 text-sm">See exactly how chart hits are structured. We break down a professional track in your genre so you can understand what makes it work.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-4">
+                        <div class="w-6 h-6 rounded-full bg-pulse-cyan/20 flex items-center justify-center flex-shrink-0 mt-1">
+                            <svg class="w-3 h-3 text-pulse-cyan" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-gray-200 text-lg mb-1"><strong class="text-white">Bonus: Separated Stems From Analysis</strong></p>
+                            <p class="text-gray-400 text-sm">Download the stems from your reference track analysis so you can study exactly how the pros layer their sounds and create punch.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Value & Price -->
+                <div class="bg-gradient-to-r from-[#080810]/80 to-[#0c0c18]/80 rounded-xl p-6 mb-8 border border-pulse-purple/30 relative overflow-hidden">
+                    <!-- Background accent -->
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-pulse-purple/5 rounded-full blur-3xl"></div>
+                    
+                    <!-- Introductory Offer Badge -->
+                    <div class="absolute top-2 right-2 md:top-3 md:right-3 bg-gradient-to-r from-green-500 to-green-600 text-white text-xs font-bold px-2 py-1 md:px-3 md:py-1 rounded-full shadow-lg">
+                        INTRO OFFER
+                    </div>
+                    
+                    <div class="text-center relative z-10 pt-6 md:pt-0">
+                        <p class="text-gray-400 text-sm mb-2">Normal Session Value</p>
+                        <div class="text-4xl font-bold text-gray-300 mb-3">
+                            <span class="line-through opacity-60">$297</span>
+                        </div>
+                        <div class="mb-4">
+                            <div class="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pulse-purple to-pulse-cyan leading-tight">
+                                FREE
+                            </div>
+                            <p class="text-pulse-cyan text-sm font-medium mt-1">For New Students</p>
+                        </div>
+                        <div class="bg-yellow-500/10 border border-yellow-500/20 rounded-lg p-3 mt-4">
+                            <p class="text-yellow-400 text-sm font-medium">
+                                🔥 We're giving away our premium track analysis sessions for FREE to showcase our method
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Guarantee -->
+                <div class="bg-green-500/10 border border-green-500/20 rounded-lg p-4 mb-8">
+                    <p class="text-green-400 font-semibold text-center">
+                        <strong>Guaranteed:</strong> You'll get 3 specific, actionable improvements. Zero sales pressure.
+                    </p>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="text-center">
+                    <button id="open-calendar-modal-offer" 
+                          class="btn-lg shadow-cta-glow text-lg md:text-xl inline-block font-bold transition-all duration-300 mb-4">
+                       Analyze My Track For Free
+                    </button>
+                    <p class="text-sm text-gray-400">
+                        Takes 2 minutes to book • 30 minutes to see what's wrong • Zero sales pressure
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <Footer />
+</Layout>
+
+<style>
+/* Timeline Styles */
+.timeline-container {
+    position: relative;
+    padding: 2rem 0;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 4rem;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.6s ease;
+}
+
+.timeline-item.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.timeline-content {
+    position: relative;
+    width: 100%;
+}
+
+.timeline-content.left {
+    padding-right: 2rem;
+}
+
+.timeline-content.right {
+    padding-left: 2rem;
+    margin-left: auto;
+}
+
+.timeline-content.center-special {
+    max-width: 100%;
+    padding: 0 2rem;
+}
+
+.timeline-card {
+    background: rgba(8, 8, 16, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 1rem;
+    padding: 2rem;
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.timeline-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.timeline-number {
+    position: absolute;
+    top: -1rem;
+    right: 1rem;
+    width: 3rem;
+    height: 3rem;
+    background: linear-gradient(135deg, var(--pulse-purple), var(--pulse-cyan));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: 50%;
+    top: 2rem;
+    transform: translateX(-50%);
+    width: 1rem;
+    height: 1rem;
+    background: linear-gradient(135deg, var(--pulse-purple), var(--pulse-cyan));
+    border-radius: 50%;
+    z-index: 10;
+    border: 4px solid rgba(8, 8, 16, 1);
+}
+
+.timeline-dot.special {
+    width: 1.5rem;
+    height: 1.5rem;
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+}
+
+.timeline-dot.final {
+    width: 2rem;
+    height: 2rem;
+    box-shadow: 0 0 30px rgba(34, 211, 238, 0.8);
+}
+
+/* Brain Section Styles */
+.brain-container {
+    text-align: center;
+}
+
+.brain-labels {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+/* Team Card Styles */
+.team-card {
+    background: rgba(8, 8, 16, 0.6);
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(139, 92, 246, 0.1);
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(139, 92, 246, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Team Photo Container - Same as Spotify Screenshot */
+.team-photo-container {
+    perspective: 1000px;
+}
+
+.team-photo-wrapper {
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+}
+
+.team-photo-wrapper:hover {
+    transform: scale(1.03);
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .timeline-content.left {
+        width: 45%;
+        padding-right: 3rem;
+    }
+    
+    .timeline-content.right {
+        width: 45%;
+        padding-left: 3rem;
+        margin-left: 55%;
+    }
+    
+    .timeline-content.center-special {
+        width: 70%;
+        margin: 0 auto;
+        padding: 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .timeline-content.left,
+    .timeline-content.right,
+    .timeline-content.center-special {
+        width: 100%;
+        padding: 0 1rem;
+        margin-left: 0;
+    }
+    
+    .timeline-dot {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .timeline-number {
+        right: 50%;
+        transform: translateX(50%);
+    }
+    
+    .timeline-container::before {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+/* Floating Animation */
+.floating-orb {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Prose Styles */
+.prose p {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+</style>
+
+<script>
+// Intersection Observer for Timeline Animation
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+        }
+    });
+}, observerOptions);
+
+// Observe all timeline items
+document.addEventListener('DOMContentLoaded', () => {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    timelineItems.forEach(item => {
+        observer.observe(item);
+    });
+});
+</script> 
