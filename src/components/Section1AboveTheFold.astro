@@ -16,31 +16,45 @@ const studentAvatars = [
 ];
 ---
 <section id="hero" class="hero-mobile-fix flex flex-col items-center justify-center text-center pt-20 md:pt-16 pb-16 md:pb-16 relative overflow-hidden bg-gradient-to-b from-[#050507] to-[#0a0a15]">
-    <!-- Enhanced Tech Background with noise for anti-banding -->
-    <div class="absolute inset-0 bg-[url('/tech-pattern.png')] opacity-5"></div>
     
-    <!-- Subtle noise overlay to reduce banding -->
-    <div class="absolute inset-0 opacity-[0.015]" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'1\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E');"></div>
-    
-    <!-- Animated Gradient Orbs -->
-    <div class="absolute inset-0 overflow-hidden">
-        <!-- Primary Purple Orb - Hero -->
-        <div class="floating-orb orb-1 absolute w-[600px] h-[600px] rounded-full anti-banding blur-[150px]" style="background: radial-gradient(circle, rgba(139, 92, 246, 0.25) 0%, rgba(139, 92, 246, 0.18) 20%, rgba(139, 92, 246, 0.12) 40%, rgba(139, 92, 246, 0.07) 60%, rgba(139, 92, 246, 0.04) 80%, transparent 100%);"></div>
+    <!-- Mobile Background: Simple and Clean -->
+    <div class="md:hidden absolute inset-0">
+        <!-- Simple gradient background for mobile -->
+        <div class="absolute inset-0 bg-gradient-to-br from-[#0a0a15] via-[#0f0f20] to-[#050507]"></div>
+        <!-- Subtle accent overlay -->
+        <div class="absolute inset-0 bg-gradient-to-tr from-pulse-purple/5 via-transparent to-pulse-cyan/8"></div>
+        <!-- Very subtle noise texture for depth -->
+        <div class="absolute inset-0 opacity-[0.02]" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'1\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E');"></div>
+    </div>
+
+    <!-- Desktop Background: Complex Orbs -->
+    <div class="hidden md:block absolute inset-0">
+        <!-- Enhanced Tech Background with noise for anti-banding -->
+        <div class="absolute inset-0 bg-[url('/tech-pattern.png')] opacity-5"></div>
         
-        <!-- Primary Cyan Orb - Hero -->
-        <div class="floating-orb orb-2 absolute w-[550px] h-[550px] rounded-full anti-banding blur-[140px]" style="background: radial-gradient(circle, rgba(6, 182, 212, 0.22) 0%, rgba(6, 182, 212, 0.16) 25%, rgba(6, 182, 212, 0.10) 45%, rgba(6, 182, 212, 0.06) 65%, rgba(6, 182, 212, 0.03) 85%, transparent 100%);"></div>
+        <!-- Subtle noise overlay to reduce banding -->
+        <div class="absolute inset-0 opacity-[0.015]" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'1\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E');"></div>
         
-        <!-- Dynamic Purple Wave -->
-        <div class="floating-orb orb-3 absolute w-[500px] h-[500px] rounded-full anti-banding blur-[180px]" style="background: radial-gradient(circle, rgba(168, 85, 247, 0.18) 0%, rgba(168, 85, 247, 0.13) 30%, rgba(168, 85, 247, 0.08) 50%, rgba(168, 85, 247, 0.04) 70%, rgba(168, 85, 247, 0.02) 90%, transparent 100%);"></div>
-        
-        <!-- Accent Cyan Pulse -->
-        <div class="floating-orb orb-4 absolute w-[480px] h-[480px] rounded-full anti-banding blur-[130px]" style="background: radial-gradient(circle, rgba(34, 211, 238, 0.20) 0%, rgba(34, 211, 238, 0.14) 25%, rgba(34, 211, 238, 0.08) 50%, rgba(34, 211, 238, 0.04) 75%, rgba(34, 211, 238, 0.02) 90%, transparent 100%);"></div>
-        
-        <!-- Floating Violet Accent -->
-        <div class="floating-orb orb-5 absolute w-[420px] h-[420px] rounded-full anti-banding blur-[120px]" style="background: radial-gradient(circle, rgba(139, 92, 246, 0.22) 0%, rgba(139, 92, 246, 0.16) 20%, rgba(139, 92, 246, 0.10) 40%, rgba(139, 92, 246, 0.06) 60%, rgba(139, 92, 246, 0.03) 80%, transparent 100%);"></div>
-        
-        <!-- Electric Blue Highlight -->
-        <div class="floating-orb orb-6 absolute w-[460px] h-[460px] rounded-full anti-banding blur-[125px]" style="background: radial-gradient(circle, rgba(59, 130, 246, 0.18) 0%, rgba(59, 130, 246, 0.13) 25%, rgba(59, 130, 246, 0.08) 45%, rgba(59, 130, 246, 0.05) 65%, rgba(59, 130, 246, 0.02) 85%, transparent 100%);"></div>
+        <!-- Animated Gradient Orbs -->
+        <div class="absolute inset-0 overflow-hidden">
+            <!-- Primary Purple Orb - Hero -->
+            <div class="floating-orb orb-1 absolute w-[600px] h-[600px] rounded-full anti-banding blur-[150px]" style="background: radial-gradient(circle, rgba(139, 92, 246, 0.25) 0%, rgba(139, 92, 246, 0.18) 20%, rgba(139, 92, 246, 0.12) 40%, rgba(139, 92, 246, 0.07) 60%, rgba(139, 92, 246, 0.04) 80%, transparent 100%);"></div>
+            
+            <!-- Primary Cyan Orb - Hero -->
+            <div class="floating-orb orb-2 absolute w-[550px] h-[550px] rounded-full anti-banding blur-[140px]" style="background: radial-gradient(circle, rgba(6, 182, 212, 0.22) 0%, rgba(6, 182, 212, 0.16) 25%, rgba(6, 182, 212, 0.10) 45%, rgba(6, 182, 212, 0.06) 65%, rgba(6, 182, 212, 0.03) 85%, transparent 100%);"></div>
+            
+            <!-- Dynamic Purple Wave -->
+            <div class="floating-orb orb-3 absolute w-[500px] h-[500px] rounded-full anti-banding blur-[180px]" style="background: radial-gradient(circle, rgba(168, 85, 247, 0.18) 0%, rgba(168, 85, 247, 0.13) 30%, rgba(168, 85, 247, 0.08) 50%, rgba(168, 85, 247, 0.04) 70%, rgba(168, 85, 247, 0.02) 90%, transparent 100%);"></div>
+            
+            <!-- Accent Cyan Pulse -->
+            <div class="floating-orb orb-4 absolute w-[480px] h-[480px] rounded-full anti-banding blur-[130px]" style="background: radial-gradient(circle, rgba(34, 211, 238, 0.20) 0%, rgba(34, 211, 238, 0.14) 25%, rgba(34, 211, 238, 0.08) 50%, rgba(34, 211, 238, 0.04) 75%, rgba(34, 211, 238, 0.02) 90%, transparent 100%);"></div>
+            
+            <!-- Floating Violet Accent -->
+            <div class="floating-orb orb-5 absolute w-[420px] h-[420px] rounded-full anti-banding blur-[120px]" style="background: radial-gradient(circle, rgba(139, 92, 246, 0.22) 0%, rgba(139, 92, 246, 0.16) 20%, rgba(139, 92, 246, 0.10) 40%, rgba(139, 92, 246, 0.06) 60%, rgba(139, 92, 246, 0.03) 80%, transparent 100%);"></div>
+            
+            <!-- Electric Blue Highlight -->
+            <div class="floating-orb orb-6 absolute w-[460px] h-[460px] rounded-full anti-banding blur-[125px]" style="background: radial-gradient(circle, rgba(59, 130, 246, 0.18) 0%, rgba(59, 130, 246, 0.13) 25%, rgba(59, 130, 246, 0.08) 45%, rgba(59, 130, 246, 0.05) 65%, rgba(59, 130, 246, 0.02) 85%, transparent 100%);"></div>
+        </div>
     </div>
 
     <div class="container mx-auto px-4 md:px-8 relative z-10 max-w-4xl">
@@ -52,7 +66,7 @@ const studentAvatars = [
         </div>
         
         <h1 data-animate="fade" data-delay="100" class="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight leading-tight text-white mb-4 pb-2">
-            <span class="text-silvery-gradient leading-tight pb-1">This Wild New AI <span class="track-xray-fancy">"Track X-Ray"</span> Method Matches Your Mix Against Chart Hits Stem by Stem</span>
+            <span class="text-silvery-gradient leading-tight pb-1">This Wild New AI <span class="track-xray-fancy">"Track X-Ray"</span> Method Matches Your Mix Against Chart Hits Instantly</span>
             <span class="block text-base sm:text-lg md:text-2xl font-semibold mt-2 bg-clip-text text-transparent bg-gradient-to-r from-pulse-cyan to-cyan-300">So You Can Finally See Exactly What's Missing, And Fix It</span>
         </h1>
         
@@ -245,20 +259,7 @@ const studentAvatars = [
     animation-delay: -10s;
 }
 
-/* Mobile: Make orbs much darker and more subtle */
-@media (max-width: 767px) {
-    .floating-orb {
-        opacity: 0.6 !important;
-        filter: brightness(0.75) saturate(0.8) !important;
-    }
-    
-    .orb-1 { background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, rgba(139, 92, 246, 0.10) 20%, rgba(139, 92, 246, 0.06) 40%, rgba(139, 92, 246, 0.04) 60%, rgba(139, 92, 246, 0.02) 80%, transparent 100%) !important; }
-    .orb-2 { background: radial-gradient(circle, rgba(6, 182, 212, 0.14) 0%, rgba(6, 182, 212, 0.10) 25%, rgba(6, 182, 212, 0.06) 45%, rgba(6, 182, 212, 0.04) 65%, rgba(6, 182, 212, 0.02) 85%, transparent 100%) !important; }
-    .orb-3 { background: radial-gradient(circle, rgba(168, 85, 247, 0.13) 0%, rgba(168, 85, 247, 0.09) 30%, rgba(168, 85, 247, 0.05) 50%, rgba(168, 85, 247, 0.03) 70%, rgba(168, 85, 247, 0.01) 90%, transparent 100%) !important; }
-    .orb-4 { background: radial-gradient(circle, rgba(34, 211, 238, 0.14) 0%, rgba(34, 211, 238, 0.10) 25%, rgba(34, 211, 238, 0.06) 50%, rgba(34, 211, 238, 0.03) 75%, rgba(34, 211, 238, 0.01) 90%, transparent 100%) !important; }
-    .orb-5 { background: radial-gradient(circle, rgba(139, 92, 246, 0.14) 0%, rgba(139, 92, 246, 0.10) 20%, rgba(139, 92, 246, 0.06) 40%, rgba(139, 92, 246, 0.04) 60%, rgba(139, 92, 246, 0.02) 80%, transparent 100%) !important; }
-    .orb-6 { background: radial-gradient(circle, rgba(59, 130, 246, 0.13) 0%, rgba(59, 130, 246, 0.09) 25%, rgba(59, 130, 246, 0.05) 45%, rgba(59, 130, 246, 0.03) 65%, rgba(59, 130, 246, 0.01) 85%, transparent 100%) !important; }
-}
+/* Mobile now uses completely separate background - no orb modifications needed */
 
 /* Desktop positioning - bring orbs back closer */
 @media (min-width: 768px) {
